@@ -11,8 +11,8 @@ module.exports = {
   base: '/blog/', // 格式：'/<仓库名>/'， 默认'/'
   markdown: {
     lineNumbers: true, // 代码行号
+    toc: { includeLevel: [1, 2, 3, 4] },
   },
-
   head,
   plugins,
   themeConfig,
