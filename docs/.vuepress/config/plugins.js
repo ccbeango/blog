@@ -76,7 +76,7 @@ module.exports = [
       choosen: 'gitalk',
       options: {
         clientID: '89d88ee37c9a43f5e6ab',
-        clientSecret: 'c2ccc3c2eaedcb8ca41e9722677d810283363e6e',
+        clientSecret: '4d787817c9af93a5d4d9d7384a2b0a66211c8ffc',
         repo: 'blog', // GitHub 仓库
         owner: 'ccbeango', // GitHub仓库所有者
         admin: ['ccbeango'], // 对仓库有写权限的人
