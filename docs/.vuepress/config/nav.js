@@ -20,6 +20,7 @@ module.exports = [
         text: '系列笔记',
         items: [
           { text: 'React使用学习', link: '/note/react-learn/' },
+          { text: 'Vue2源码探究', link: '/note/vue2-code/' },
         ],
       },
     ],

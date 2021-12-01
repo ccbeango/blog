@@ -19,4 +19,8 @@ module.exports = [
   //     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
   //   },
   // ], // 网站关联Google AdSense 与 html格式广告支持
+  // 在线示例支持 react vue babel 
+  ['script', { src: 'https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js' }],
+  ['script', { src: 'https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js' }],
+  ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
 ]
