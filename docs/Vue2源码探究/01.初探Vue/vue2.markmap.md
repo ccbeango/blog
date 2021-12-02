@@ -1,3 +1,13 @@
+---
+title: markmap
+date: 2021-11-30 15:12:55
+permalink: /pages/eb20ab/
+categories:
+  - Vue2源码探究
+  - 初探Vue
+tags:
+  - 
+---
 # vue目录结构
 
 ## **flow** - 类型检查配置
@@ -199,6 +209,9 @@
     - `constants.js`
     - `util.js`
 
+## **examples** - 官方示例
+  - **demo** - 源码阅读调试示例
+
 ## **dist** - 打包结果
 
 ## ~~**packages**~~
@@ -217,7 +230,6 @@
 
 ## ~~**benchmarks**~~ - 性能验证    
 
-## ~~**examples**~~ - 官方示例
 
 
 <!--
