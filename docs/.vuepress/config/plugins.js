@@ -99,4 +99,10 @@ module.exports = [
       },
     },
   ],
+  [
+    '@maginapp/vuepress-plugin-katex', // 数学公式
+    {
+      delimiters: 'dollars'
+    }
+  ]
 ]
