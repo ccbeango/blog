@@ -36,7 +36,13 @@ module.exports = [
           { text: '问题', link: '/pages/be0ea7/' },
           { text: '框架', link: '/pages/6e080e/' },
         ]
-      }
+      },
+      {
+        text: '系列笔记',
+        items: [
+          { text: '数据结构与算法', link: '/note/data-structures-and-algorithms/' },
+        ]
+      },
     ]
   },
   {
