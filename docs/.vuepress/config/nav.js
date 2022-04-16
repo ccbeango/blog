@@ -13,7 +13,6 @@ module.exports = [
           { text: 'HTML+CSS', link: '/pages/5bb2dc/' },
           { text: 'Vue', link: '/pages/d0b9bd/' },
           { text: 'React', link: '/pages/ff6413/' },
-          { text: 'webpack', link: '/pages/a542bb/' },
         ],
       },
       {
@@ -44,6 +43,25 @@ module.exports = [
         ]
       },
     ]
+  },
+  {
+    text: '打包工具',
+    link: '/packtool/',
+    items: [
+      // 说明：以下所有link的值只是在相应md文件定义的永久链接（不是什么特殊生成的编码）。另外，注意结尾是有斜杠的
+      {
+        text: '构建工具文章',
+        items: [
+          { text: 'webpack', link: '/pages/a542bb/' },
+        ],
+      },
+      {
+        text: '系列笔记',
+        items: [
+          { text: 'Webpack5使用学习', link: '/note/webpack5/' },
+        ],
+      },
+    ],
   },
   {
     text: '更多',
