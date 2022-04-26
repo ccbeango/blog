@@ -72,6 +72,12 @@ module.exports = [
       { text: '网络', link: '/pages/9f95d1/' },
       { text: '小技巧', link: '/pages/c44d61/' },
       { text: '杂记', link: '/pages/9c8278/' },
+      {
+        text: '系列笔记',
+        items: [
+          { text: 'Protobuf Buffers', link: '/note/protocol-buffers/' },
+        ],
+      },
     ]
   },
   { text: '关于', link: '/about/' },
