@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Redux中间件和state管理 | CcbeanBlog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/blog/img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <meta name="description" content="web技术博客,简洁至上。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,NodeJS,Node,Node.js,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,react,css3,html5,git,github,markdown">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.76d42078.css" as="style"><link rel="preload" href="/blog/assets/js/app.0ed7b280.js" as="script"><link rel="preload" href="/blog/assets/js/2.7308dfd9.js" as="script"><link rel="preload" href="/blog/assets/js/101.0db39944.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.166b2ca6.js"><link rel="prefetch" href="/blog/assets/js/100.194e839b.js"><link rel="prefetch" href="/blog/assets/js/102.e13c8470.js"><link rel="prefetch" href="/blog/assets/js/103.0ae2f2ee.js"><link rel="prefetch" href="/blog/assets/js/104.a261556e.js"><link rel="prefetch" href="/blog/assets/js/105.4d458a5f.js"><link rel="prefetch" href="/blog/assets/js/106.6d2f15cf.js"><link rel="prefetch" href="/blog/assets/js/107.a770982a.js"><link rel="prefetch" href="/blog/assets/js/108.0be9ce8f.js"><link rel="prefetch" href="/blog/assets/js/109.88d01e84.js"><link rel="prefetch" href="/blog/assets/js/11.faae5f41.js"><link rel="prefetch" href="/blog/assets/js/110.d3186629.js"><link rel="prefetch" href="/blog/assets/js/111.37d2b500.js"><link rel="prefetch" href="/blog/assets/js/112.d94648de.js"><link rel="prefetch" href="/blog/assets/js/113.a7cf5597.js"><link rel="prefetch" href="/blog/assets/js/114.a339354f.js"><link rel="prefetch" href="/blog/assets/js/115.597976cc.js"><link rel="prefetch" href="/blog/assets/js/116.c64f1f49.js"><link rel="prefetch" href="/blog/assets/js/117.bbbbb20b.js"><link rel="prefetch" href="/blog/assets/js/118.c9ba24ea.js"><link rel="prefetch" href="/blog/assets/js/119.25208df7.js"><link rel="prefetch" href="/blog/assets/js/12.782cd676.js"><link rel="prefetch" href="/blog/assets/js/120.2e0a20ad.js"><link rel="prefetch" href="/blog/assets/js/121.7bb8f6f5.js"><link rel="prefetch" href="/blog/assets/js/122.562fe94b.js"><link rel="prefetch" href="/blog/assets/js/123.9562f569.js"><link rel="prefetch" href="/blog/assets/js/124.fd67828f.js"><link rel="prefetch" href="/blog/assets/js/125.3262b310.js"><link rel="prefetch" href="/blog/assets/js/126.c6f106af.js"><link rel="prefetch" href="/blog/assets/js/127.4b7016d1.js"><link rel="prefetch" href="/blog/assets/js/128.b3ac8038.js"><link rel="prefetch" href="/blog/assets/js/129.3ef9af3d.js"><link rel="prefetch" href="/blog/assets/js/13.508b65ad.js"><link rel="prefetch" href="/blog/assets/js/130.4b925feb.js"><link rel="prefetch" href="/blog/assets/js/131.37cb5d18.js"><link rel="prefetch" href="/blog/assets/js/132.76026f1f.js"><link rel="prefetch" href="/blog/assets/js/133.5d3d2938.js"><link rel="prefetch" href="/blog/assets/js/134.89b4fe3b.js"><link rel="prefetch" href="/blog/assets/js/135.dd2731dc.js"><link rel="prefetch" href="/blog/assets/js/136.e5cacc53.js"><link rel="prefetch" href="/blog/assets/js/137.39282e0b.js"><link rel="prefetch" href="/blog/assets/js/138.b3801697.js"><link rel="prefetch" href="/blog/assets/js/14.88ac5afd.js"><link rel="prefetch" href="/blog/assets/js/15.b4227c88.js"><link rel="prefetch" href="/blog/assets/js/16.98d2ae02.js"><link rel="prefetch" href="/blog/assets/js/17.6f25717f.js"><link rel="prefetch" href="/blog/assets/js/18.ae934359.js"><link rel="prefetch" href="/blog/assets/js/19.ffe2dcb2.js"><link rel="prefetch" href="/blog/assets/js/20.2c614eab.js"><link rel="prefetch" href="/blog/assets/js/21.4b7f3180.js"><link rel="prefetch" href="/blog/assets/js/22.03f8def7.js"><link rel="prefetch" href="/blog/assets/js/23.861aebfe.js"><link rel="prefetch" href="/blog/assets/js/24.e842cb60.js"><link rel="prefetch" href="/blog/assets/js/25.5685dfd1.js"><link rel="prefetch" href="/blog/assets/js/26.9487cf2a.js"><link rel="prefetch" href="/blog/assets/js/27.cd3b98f4.js"><link rel="prefetch" href="/blog/assets/js/28.1010db9b.js"><link rel="prefetch" href="/blog/assets/js/29.cff77b90.js"><link rel="prefetch" href="/blog/assets/js/3.b0a270e2.js"><link rel="prefetch" href="/blog/assets/js/30.d9d88b77.js"><link rel="prefetch" href="/blog/assets/js/31.4c816fae.js"><link rel="prefetch" href="/blog/assets/js/32.c414f2c2.js"><link rel="prefetch" href="/blog/assets/js/33.cae1fde7.js"><link rel="prefetch" href="/blog/assets/js/34.c149f32c.js"><link rel="prefetch" href="/blog/assets/js/35.36ce97e5.js"><link rel="prefetch" href="/blog/assets/js/36.b7c514b6.js"><link rel="prefetch" href="/blog/assets/js/37.d9459ed5.js"><link rel="prefetch" href="/blog/assets/js/38.84d4e80e.js"><link rel="prefetch" href="/blog/assets/js/39.21769d8b.js"><link rel="prefetch" href="/blog/assets/js/4.1de495bd.js"><link rel="prefetch" href="/blog/assets/js/40.ba8b2c33.js"><link rel="prefetch" href="/blog/assets/js/41.dbc723df.js"><link rel="prefetch" href="/blog/assets/js/42.6d7ee2ec.js"><link rel="prefetch" href="/blog/assets/js/43.3065c2de.js"><link rel="prefetch" href="/blog/assets/js/44.95652c6b.js"><link rel="prefetch" href="/blog/assets/js/45.1bfb7eee.js"><link rel="prefetch" href="/blog/assets/js/46.21f42bfd.js"><link rel="prefetch" href="/blog/assets/js/47.5cf0a7f8.js"><link rel="prefetch" href="/blog/assets/js/48.80e7bcba.js"><link rel="prefetch" href="/blog/assets/js/49.75bf925a.js"><link rel="prefetch" href="/blog/assets/js/5.7e93193d.js"><link rel="prefetch" href="/blog/assets/js/50.1a08250f.js"><link rel="prefetch" href="/blog/assets/js/51.63d67d9a.js"><link rel="prefetch" href="/blog/assets/js/52.4527b3c2.js"><link rel="prefetch" href="/blog/assets/js/53.928eb7b1.js"><link rel="prefetch" href="/blog/assets/js/54.b2c8392c.js"><link rel="prefetch" href="/blog/assets/js/55.84f7c241.js"><link rel="prefetch" href="/blog/assets/js/56.6773809d.js"><link rel="prefetch" href="/blog/assets/js/57.aed02421.js"><link rel="prefetch" href="/blog/assets/js/58.16532c6b.js"><link rel="prefetch" href="/blog/assets/js/59.43238c8c.js"><link rel="prefetch" href="/blog/assets/js/6.d42d0f48.js"><link rel="prefetch" href="/blog/assets/js/60.d868f9ec.js"><link rel="prefetch" href="/blog/assets/js/61.8bc02b72.js"><link rel="prefetch" href="/blog/assets/js/62.83e6c8d0.js"><link rel="prefetch" href="/blog/assets/js/63.ade81187.js"><link rel="prefetch" href="/blog/assets/js/64.cc73a529.js"><link rel="prefetch" href="/blog/assets/js/65.d002206a.js"><link rel="prefetch" href="/blog/assets/js/66.f0665b6d.js"><link rel="prefetch" href="/blog/assets/js/67.11c613ec.js"><link rel="prefetch" href="/blog/assets/js/68.8e2479dd.js"><link rel="prefetch" href="/blog/assets/js/69.02772367.js"><link rel="prefetch" href="/blog/assets/js/7.2b3bcb3f.js"><link rel="prefetch" href="/blog/assets/js/70.3545ebb5.js"><link rel="prefetch" href="/blog/assets/js/71.b7c76516.js"><link rel="prefetch" href="/blog/assets/js/72.035b6ee2.js"><link rel="prefetch" href="/blog/assets/js/73.9feda52a.js"><link rel="prefetch" href="/blog/assets/js/74.d62cf235.js"><link rel="prefetch" href="/blog/assets/js/75.db2ada7c.js"><link rel="prefetch" href="/blog/assets/js/76.8569647d.js"><link rel="prefetch" href="/blog/assets/js/77.ebb5e006.js"><link rel="prefetch" href="/blog/assets/js/78.463a3566.js"><link rel="prefetch" href="/blog/assets/js/79.25bf57ea.js"><link rel="prefetch" href="/blog/assets/js/8.3cf902c7.js"><link rel="prefetch" href="/blog/assets/js/80.4d3043a3.js"><link rel="prefetch" href="/blog/assets/js/81.e6ac7aff.js"><link rel="prefetch" href="/blog/assets/js/82.39390874.js"><link rel="prefetch" href="/blog/assets/js/83.52a99a2b.js"><link rel="prefetch" href="/blog/assets/js/84.4efad80d.js"><link rel="prefetch" href="/blog/assets/js/85.dce1dc90.js"><link rel="prefetch" href="/blog/assets/js/86.3050d700.js"><link rel="prefetch" href="/blog/assets/js/87.67d7c4e3.js"><link rel="prefetch" href="/blog/assets/js/88.4a3a4132.js"><link rel="prefetch" href="/blog/assets/js/89.861690de.js"><link rel="prefetch" href="/blog/assets/js/9.f2b8862e.js"><link rel="prefetch" href="/blog/assets/js/90.f1cdccba.js"><link rel="prefetch" href="/blog/assets/js/91.3abb6471.js"><link rel="prefetch" href="/blog/assets/js/92.66e441c7.js"><link rel="prefetch" href="/blog/assets/js/93.3ae60e73.js"><link rel="prefetch" href="/blog/assets/js/94.b6f4569f.js"><link rel="prefetch" href="/blog/assets/js/95.81abfad5.js"><link rel="prefetch" href="/blog/assets/js/96.eaafaf11.js"><link rel="prefetch" href="/blog/assets/js/97.f464844d.js"><link rel="prefetch" href="/blog/assets/js/98.5b594a5f.js"><link rel="prefetch" href="/blog/assets/js/99.8a12c6d2.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.76d42078.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/EB-logo.png" alt="CcbeanBlog" class="logo"> <span class="site-name can-hide">CcbeanBlog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://avatars.githubusercontent.com/u/16501284?v=4"> <div class="blogger-info"><h3>Ccbean</h3> <span>靡不有初，鲜克有终</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/blog/pages/3f937c/" class="sidebar-link">Hello World</a></li><li><a href="/blog/pages/65114a/" class="sidebar-link">JSX语法</a></li><li><a href="/blog/pages/919785/" class="sidebar-link">JSX语法的本质</a></li><li><a href="/blog/pages/c5633c/" class="sidebar-link">脚手架</a></li><li><a href="/blog/pages/bd5f26/" class="sidebar-link">什么是组件化开发</a></li><li><a href="/blog/pages/f34018/" class="sidebar-link">组件化开发</a></li><li><a href="/blog/pages/3b1483/" class="sidebar-link">setState详解和React性能优化</a></li><li><a href="/blog/pages/77cea2/" class="sidebar-link">受控和非受控组件</a></li><li><a href="/blog/pages/ad645b/" class="sidebar-link">高阶组件</a></li><li><a href="/blog/pages/809a87/" class="sidebar-link">React的样式</a></li><li><a href="/blog/pages/ce6916/" class="sidebar-link">React的过渡动画</a></li><li><a href="/blog/pages/7f1191/" class="sidebar-link">ReactHooks的使用</a></li><li><a href="/blog/pages/18ce7b/" class="sidebar-link">Redux的使用</a></li><li><a href="/blog/pages/d3c53b/" class="sidebar-link">React-Redux</a></li><li><a href="/blog/pages/facc20/" aria-current="page" class="active sidebar-link">Redux中间件和state管理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/blog/pages/facc20/#中间件的使用" class="sidebar-link">中间件的使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#_1-1-组件中异步请求" class="sidebar-link">1.1. 组件中异步请求</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#redux中异步请求" class="sidebar-link">redux中异步请求</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#redux-saga" class="sidebar-link">redux-saga</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog/pages/facc20/#中间件的原理" class="sidebar-link">中间件的原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#打印日志需求" class="sidebar-link">打印日志需求</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#修改dispatch" class="sidebar-link">修改dispatch</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#thunk需求" class="sidebar-link">thunk需求</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#合并中间件" class="sidebar-link">合并中间件</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog/pages/facc20/#reducer拆分" class="sidebar-link">reducer拆分</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#reducer代码拆分" class="sidebar-link">reducer代码拆分</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#reducer文件拆分" class="sidebar-link">reducer文件拆分</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#combinereducers" class="sidebar-link">combineReducers</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog/pages/facc20/#immutablejs" class="sidebar-link">ImmutableJS</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#数据可变性的问题" class="sidebar-link">数据可变性的问题</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/facc20/#认识immutablejs" class="sidebar-link">认识ImmutableJS</a></li></ul></li></ul></li><li><a href="/blog/pages/f60ca3/" class="sidebar-link">React-router</a></li><li><a href="/blog/pages/96924f/" class="sidebar-link">React打包发布</a></li><li><a href="/blog/pages/1b0384/" class="sidebar-link">React SSR</a></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/blog/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/blog/note/react-learn/#React核心技术与开发实战" data-v-06225672>React核心技术与开发实战</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="https://github.com/ccbeango" target="_blank" title="作者" class="beLink" data-v-06225672>ccbean</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2021-07-06</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">Redux中间件和state管理<!----></h1>  <div class="theme-vdoing-content content__default"><h2 id="中间件的使用"><a href="#中间件的使用" class="header-anchor">#</a> 中间件的使用</h2> <h3 id="_1-1-组件中异步请求"><a href="#_1-1-组件中异步请求" class="header-anchor">#</a> 1.1. 组件中异步请求</h3> <p>在之前简单的案例中，redux中保存的counter是一个本地定义的数据，我们可以直接通过同步的操作来dispatch action，state就会被立即更新。</p> <p>但是真实开发中，redux中保存的很多数据可能来自服务器，我们需要进行异步的请求，再将数据保存到redux中。</p> <p>在之前学习网络请求的时候我们讲过，网络请求可以在class组件的<code>componentDidMount</code>中发送，所以我们可以有这样的结构：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B533.png" alt="image-20210704184321502"></p> <p>组件中发送网络请求</p> <p>我现在完成如下案例操作：</p> <ul><li>在Home组件中请求banners和recommends的数据；</li> <li>在About组件中展示banners和recommends的数据；</li></ul> <p><strong>redux代码进行如下修改：</strong></p> <p>在reducer.js中添加state初始化数据和reducer函数中处理代码：</p> <div class="language-react extra-class"><pre class="language-text"><code>const initialState = {
+  counter: 0,
+  banners: [],
+  recommends: []
+}
+
+function reducer(state = initialState, action) {
+  switch (action.type) {
+    case ADD_NUMBER:
+      return { ...state, counter: state.counter + action.num };
+    case SUB_NUMBER:
+      return { ...state, counter: state.counter - action.num };
+    case CHANGE_BANNER:
+      return { ...state, banners: action.banners };
+    case CHANGE_RECOMMEND:
+      return { ...state, recommends: action.recommends };
+    default:
+      return state;
+  }
+}
+</code></pre></div><p>constants中增加常量：</p> <div class="language-react extra-class"><pre class="language-text"><code>const CHANGE_BANNER = &quot;CHANGE_BANNER&quot;;
+const CHANGE_RECOMMEND = &quot;CHANGE_RECOMMEND&quot;;
+</code></pre></div><p>actionCreators.js中添加actions：</p> <div class="language-react extra-class"><pre class="language-text"><code>const changeBannersAction = (banners) =&gt; ({
+  type: CHANGE_BANNER,
+  banners
+}) 
+
+const changeRecommendsAction = (recommends) =&gt; ({
+  type: CHANGE_RECOMMEND,
+  recommends
+})
+</code></pre></div><p><strong>组件中代码代码修改：</strong></p> <p>Home3组件：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { addAction, increAction, changeBannersAction, changeRecommendsAction } from '../store/actionCreators';
+
+class Home extends PureComponent {
+  componentDidMount() {
+    axios.get(&quot;http://123.207.32.32:8000/home/multidata&quot;).then(res =&gt; {
+      const data = res.data.data;
+      this.props.changeBanners(data.banner.list);
+      this.props.changeRecommends(data.recommend.list);
+    })
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;Home3&lt;/h1&gt;
+        &lt;h2&gt;计数：{this.props.counter}&lt;/h2&gt;
+        &lt;button onClick={e =&gt; this.increment()}&gt;+1&lt;/button&gt;
+        &lt;button onClick={e =&gt; this.addNumber()}&gt;+5&lt;/button&gt;
+        &lt;h1&gt;Banners&lt;/h1&gt;
+        &lt;ul&gt;
+          {
+            this.props.banners.map((item, index) =&gt; {
+              return &lt;li key={item.acm}&gt;{item.title}&lt;/li&gt;
+            })
+          }
+        &lt;/ul&gt;
+        &lt;h1&gt;Recommends&lt;/h1&gt;
+        &lt;ul&gt;
+          {
+            this.props.recommends.map((item, index) =&gt; {
+              return &lt;li key={item.acm}&gt;{item.title}&lt;/li&gt;
+            })
+          }
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    )
+  }
+
+  increment() {
+    this.props.increAction();
+  }
+
+  addNumber() {
+    this.props.addAction(5);
+  }
+}
+
+const mapStateToProp = state =&gt; {
+  return {
+    counter: state.counter,
+    banners: state.banners,
+    recommends: state.recommends
+  };
+}
+
+const mapDispatchToProp = dispatch =&gt; {
+  return {
+    increAction() {
+      dispatch(increAction());
+    },
+    addAction(num) {
+      dispatch(addAction(num))
+    },
+    changeBanners(banners) {
+      dispatch(changeBannersAction(banners));
+    },
+    changeRecommends(recommends) {
+      dispatch(changeRecommendsAction(recommends));
+    }
+  };
+}
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(Home);
+</code></pre></div><h3 id="redux中异步请求"><a href="#redux中异步请求" class="header-anchor">#</a> redux中异步请求</h3> <p>上面的代码有一个缺陷：</p> <ul><li>我们必须将网络请求的异步代码放到组件的生命周期中来完成；</li> <li>事实上，网络请求到的数据也属于我们状态管理的一部分，更好的一种方式应该是将其也交给redux来管理；</li></ul> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B534.png" alt="image-20210704184353406"></p> <p>但是在redux中如何可以进行异步的操作呢？</p> <ul><li>答案就是使用<strong>中间件（Middleware）</strong>；</li></ul> <p>redux也引入了中间件（Middleware）的概念：</p> <ul><li>这个中间件的目的是在<code>dispatch的action</code>和<code>最终达到的reducer</code>之间，扩展一些自己的代码；</li> <li>比如日志记录、调用异步接口、添加代码调试功能等等；</li></ul> <p>我们现在要做的事情就是发送异步的网络请求，所以我们可以添加对应的中间件：</p> <ul><li>这里官网推荐的、包括演示的网络请求的中间件是使用 <code>redux-thunk</code></li></ul> <p>redux-thunk是如何做到让我们可以发送异步的请求呢？</p> <ul><li><p>我们知道，默认情况下的dispatch(action)，action需要是一个JavaScript的对象；</p></li> <li><p><code>redux-thunk</code>可以让dispatch(action函数)，<code>action可以是一个函数</code>；</p></li> <li><p>该函数会被调用，并且会传给这个函数一个dispatch函数和getState函数；</p></li> <li><ul><li>dispatch函数用于我们之后再次派发action；</li> <li>getState函数考虑到我们之后的一些操作需要依赖原来的状态，用于让我们可以获取之前的一些状态；</li></ul></li> <li><p><strong>如何使用redux-thunk呢？</strong></p></li> <li><p>1.安装redux-thunk</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>yarn add redux-thunk
+</code></pre></div></li> <li><p>2.在创建store时传入应用了middleware的enhance函数</p></li> <li><ul><li>通过applyMiddleware来结合多个Middleware, 返回一个enhancer；</li> <li>将enhancer作为第二个参数传入到createStore中；</li></ul></li> <li><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 通过applyMiddleware来结合多个Middleware, 返回一个enhancer</span>
+<span class="token keyword">const</span> enhancer <span class="token operator">=</span> <span class="token function">applyMiddleware</span><span class="token punctuation">(</span>thunkMiddleware<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 将enhancer作为第二个参数传入到createStore中</span>
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>reducer<span class="token punctuation">,</span> enhancer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>3.定义返回一个函数的action：</p></li> <li><ul><li>注意：这里不是返回一个对象了，而是一个函数；</li> <li>该函数在dispatch之后会被执行；</li></ul></li> <li><div class="language-react extra-class"><pre class="language-text"><code>export const getAboutMultidataAction = () =&gt; {
+  return (dispatch) =&gt; {
+    axios.get(&quot;http://123.207.32.32:8000/home/multidata&quot;).then(res =&gt; {
+      const data = res.data.data;
+      dispatch(changeBannersAction(data.banner.list));
+      dispatch(changeRecommendsAction(data.recommend.list));
+    })
+  }
+}
+</code></pre></div></li> <li><p>修改about3.js中的代码</p></li> <li><div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+import { subAction, decreAction, getAboutMultidataAction } from '../store/actionCreators';
+import { connect } from 'react-redux';
+
+class About extends PureComponent {
+  componentDidMount() {
+    this.props.getAboutMultidataAction();
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;About3&lt;/h1&gt;
+        &lt;h2&gt;计数：{this.props.counter}&lt;/h2&gt;
+        &lt;button onClick={e =&gt; this.decrement()}&gt;-1&lt;/button&gt;
+        &lt;button onClick={e =&gt; this.subNumber()}&gt;-5&lt;/button&gt;
+        &lt;h1&gt;Banners&lt;/h1&gt;
+        &lt;ul&gt;
+          {
+            this.props.banners.map((item, index) =&gt; {
+              return &lt;li key={item.acm}&gt;{item.title}&lt;/li&gt;
+            })
+          }
+        &lt;/ul&gt;
+        &lt;h1&gt;Recommends&lt;/h1&gt;
+        &lt;ul&gt;
+          {
+            this.props.recommends.map((item, index) =&gt; {
+              return &lt;li key={item.acm}&gt;{item.title}&lt;/li&gt;
+            })
+          }
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    )
+  }
+
+  decrement() {
+    this.props.decreAction();
+  }
+
+  subNumber() {
+    this.props.subAction(5);
+  }
+}
+
+export default connect(
+  state =&gt; ({
+    counter: state.counter,
+    banners: state.banners,
+    recommends: state.recommends
+  }),
+  dispatch =&gt; ({
+    decreAction() {
+      dispatch(decreAction());
+    },
+    subAction(num) {
+      dispatch(subAction(num));
+    },
+    getAboutMultidataAction() {
+      dispatch(getAboutMultidataAction());
+    }
+  })
+)(About);
+</code></pre></div></li> <li><p>trace打开：</p></li> <li><div class="language-react extra-class"><pre class="language-text"><code>const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({trace: true}) || compose;
+</code></pre></div></li></ul> <h3 id="redux-saga"><a href="#redux-saga" class="header-anchor">#</a> redux-saga</h3> <p><a href="https://github.com/redux-saga/redux-saga" target="_blank" rel="noopener noreferrer">redux-saga<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>中间件使用了ES6的generator语法</p> <p>安装redux-saga</p> <div class="language- extra-class"><pre class="language-text"><code>yarn add redux-saga
+</code></pre></div><p>集成redux-saga中间件</p> <div class="language-react extra-class"><pre class="language-text"><code>import { applyMiddleware, createStore, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
+import reducer from './reducer';
+import mySaga from './saga';
+
+// 通过createSagaMiddleware函数来创建saga中间件
+const sagaMiddleware = createSagaMiddleware();
+
+// const enhancer = applyMiddleware(thunkMiddleware);
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true }) || compose;
+
+const enhancer = composeEnhancers(applyMiddleware(thunkMiddleware, sagaMiddleware));
+
+const store = createStore(reducer, enhancer);
+
+sagaMiddleware.run(mySaga);
+
+export default store;
+</code></pre></div><p>saga.js文件的编写</p> <ul><li>takeEvery：可以传入多个监听的actionType，每一个都可以被执行（对应有一个takeLastest，会取消前面的）</li> <li>put：在saga中派发action不再是通过dispatch，而是通过put；</li> <li>all：可以在yield的时候put多个action；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>import { takeEvery, put, all } from 'redux-saga/effects';
+import axios from 'axios';
+import { FETCH_HOME_MULTIDATA } from './constants';
+import { changeBannersAction, changeRecommendsAction } from './actionCreators';
+
+function* fetchHomeMultidata() {
+  const res = yield axios.get('http://123.207.32.32:8000/home/multidata');
+
+  const banner = res.data.data.banner.list;
+  const recommend = res.data.data.recommend.list;
+
+  // yield put(changeBannersAction(banner));
+  // yield put(changeRecommendsAction(recommend));
+
+  yield all([
+    put(changeBannersAction(banner)),
+    put(changeRecommendsAction(recommend))
+  ]);
+}
+
+function* mySaga() {
+  yield takeEvery(FETCH_HOME_MULTIDATA, fetchHomeMultidata)
+}
+
+export default mySaga;
+</code></pre></div><h2 id="中间件的原理"><a href="#中间件的原理" class="header-anchor">#</a> 中间件的原理</h2> <h3 id="打印日志需求"><a href="#打印日志需求" class="header-anchor">#</a> 打印日志需求</h3> <p>前面我们已经提过，中间件的目的是在redux中插入一些自己的操作：</p> <ul><li>比如我们现在有一个需求，在dispatch之前，打印一下本次的action对象，dispatch完成之后可以打印一下最新的store state；</li> <li>也就是我们需要将对应的代码插入到redux的某部分，让之后所有的dispatch都可以包含这样的操作；</li></ul> <p>如果没有中间件，我们是否可以实现类似的代码呢？</p> <p>当然可以，类似下面的方式即可：</p> <div class="language-js extra-class"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;dispatching:&quot;</span><span class="token punctuation">,</span> <span class="token function">addAction</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">addAction</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;new state:&quot;</span><span class="token punctuation">,</span> store<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;dispatching:&quot;</span><span class="token punctuation">,</span> <span class="token function">addAction</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">subAction</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;new state:&quot;</span><span class="token punctuation">,</span> store<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>但是这种方式缺陷非常明显：</p> <ul><li>首先，每一次的dispatch操作，我们都需要在前面加上这样的逻辑代码；</li> <li>其次，存在大量重复的代码，会非常麻烦和臃肿；</li></ul> <p>是否有一种更优雅的方式来处理这样的相同逻辑呢？</p> <ul><li>我们可以将代码封装到一个独立的函数中</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>function dispatchAndLog(action) {
+  console.log(&quot;dispatching:&quot;, action);
+  store.dispatch(addAction(5));
+  console.log(&quot;新的state:&quot;, store.getState());
+}
+
+dispatchAndLog(addAction(10));
+</code></pre></div><p>但是这样的代码有一个非常大的缺陷：</p> <ul><li>调用者（使用者）在使用我的dispatch时，必须使用我另外封装的一个函数dispatchAndLog；</li> <li>显然，对于调用者来说，很难记住这样的API，更加习惯的方式是直接调用dispatch；</li></ul> <p>我们来进一步对代码进行优化；</p> <h3 id="修改dispatch"><a href="#修改dispatch" class="header-anchor">#</a> 修改dispatch</h3> <p>事实上，我们可以利用一个hack一点的技术：Monkey Patching，利用它可以修改原有的程序逻辑；</p> <p>我们对代码进行如下的修改：</p> <ul><li>这样就意味着我们已经直接修改了dispatch的调用过程；</li> <li>在调用dispatch的过程中，真正调用的函数其实是dispatchAndLog；</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> next <span class="token operator">=</span> store<span class="token punctuation">.</span>dispatch<span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">dispatchAndLog</span><span class="token punctuation">(</span><span class="token parameter">action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;dispatching:&quot;</span><span class="token punctuation">,</span> <span class="token function">addAction</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token function">addAction</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;新的state:&quot;</span><span class="token punctuation">,</span> store<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+store<span class="token punctuation">.</span>dispatch <span class="token operator">=</span> dispatchAndLog<span class="token punctuation">;</span>
+</code></pre></div><p>当然，我们可以将它封装到一个模块中，只要调用这个模块中的函数，就可以对store进行这样的处理：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">patchLogging</span><span class="token punctuation">(</span><span class="token parameter">store</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> next <span class="token operator">=</span> store<span class="token punctuation">.</span>dispatch<span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">dispatchAndLog</span><span class="token punctuation">(</span><span class="token parameter">action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;dispatching:&quot;</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token function">addAction</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;新的state:&quot;</span><span class="token punctuation">,</span> store<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  store<span class="token punctuation">.</span>dispatch <span class="token operator">=</span> dispatchAndLog<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="thunk需求"><a href="#thunk需求" class="header-anchor">#</a> thunk需求</h3> <p>redux-thunk的作用：</p> <ul><li>我们知道redux中利用一个中间件redux-thunk可以让我们的dispatch不再只是处理对象，并且可以处理函数；</li> <li>那么redux-thunk中的基本实现过程是怎么样的呢？事实上非常的简单。</li></ul> <p>我们来看下面的代码：</p> <ul><li>我们又对dispatch进行转换，这个dispatch会判断传入的</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">patchThunk</span><span class="token punctuation">(</span><span class="token parameter">store</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> next <span class="token operator">=</span> store<span class="token punctuation">.</span>dispatch<span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">dispatchAndThunk</span><span class="token punctuation">(</span><span class="token parameter">action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> action <span class="token operator">===</span> <span class="token string">&quot;function&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">action</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>dispatch<span class="token punctuation">,</span> store<span class="token punctuation">.</span>getState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token function">next</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  store<span class="token punctuation">.</span>dispatch <span class="token operator">=</span> dispatchAndThunk<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>将两个patch应用起来，进行测试：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">patchLogging</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">patchThunk</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">addAction</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">getData</span><span class="token punctuation">(</span><span class="token parameter">dispatch</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">subAction</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 传入函数</span>
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span>getData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="合并中间件"><a href="#合并中间件" class="header-anchor">#</a> 合并中间件</h3> <p>单个调用某个函数来合并中间件并不是特别的方便，我们可以封装一个函数来实现所有的中间件合并：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">applyMiddleware</span><span class="token punctuation">(</span><span class="token parameter">store<span class="token punctuation">,</span> middlewares</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  middlewares<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">middleware</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    store<span class="token punctuation">.</span>dispatch <span class="token operator">=</span> <span class="token function">middleware</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">applyMiddleware</span><span class="token punctuation">(</span>store<span class="token punctuation">,</span> <span class="token punctuation">[</span>patchLogging<span class="token punctuation">,</span> patchThunk<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B535.png" alt="image-20210705180210533"></p> <p>当然，真实的中间件实现起来会更加的灵活，这里我们仅仅做一个抛砖引玉，有兴趣可以参考redux合并中间件的源码流程。</p> <h2 id="reducer拆分"><a href="#reducer拆分" class="header-anchor">#</a> reducer拆分</h2> <h3 id="reducer代码拆分"><a href="#reducer代码拆分" class="header-anchor">#</a> reducer代码拆分</h3> <p>我们来看一下目前我们的reducer：</p> <ul><li>当前这个reducer既有处理counter的代码，又有处理home页面的数据；</li> <li>后续counter相关的状态或home相关的状态会进一步变得更加复杂；</li> <li>我们也会继续添加其他的相关状态，比如购物车、分类、歌单等等；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>function reducer(state = initialState, action) {
+  switch (action.type) {
+    case ADD_NUMBER:
+      return { ...state, counter: state.counter + action.num };
+    case SUB_NUMBER:
+      return { ...state, counter: state.counter - action.num };
+    case CHANGE_BANNER:
+      return { ...state, banners: action.banners };
+    case CHANGE_RECOMMEND:
+      return { ...state, recommends: action.recommends };
+    default:
+      return state;
+  }
+}
+</code></pre></div><p>如果将所有的状态都放到一个reducer中进行管理，随着项目的日趋庞大，必然会造成代码臃肿、难以维护。</p> <p><strong>因此，我们可以对reducer进行拆分：</strong></p> <p>我们先抽取一个对counter处理的reducer：</p> <div class="language-react extra-class"><pre class="language-text"><code>import { ADD_NUMBER, SUB_NUMBER, INCREMENT, DECREMENT } from './constants';
+
+const initialCounterState = {
+  counter: 0
+};
+
+export default function counterReducer(state = initialCounterState, action) {
+  switch(action.type) {
+    case ADD_NUMBER: 
+      return { ...state, counter: state.counter + action.num };
+    case SUB_NUMBER: 
+      return { ...state, counter: state.counter - action.num };
+    case INCREMENT: 
+      return { ...state, counter: state.counter + 1 };
+    case DECREMENT: 
+      return { ...state, counter: state.counter - 1 };
+    default:
+      return state;
+  }
+}
+</code></pre></div><p>再抽取一个对home处理的reducer：</p> <div class="language-react extra-class"><pre class="language-text"><code>import { CHANGE_BANNER, CHANGE_RECOMMEND } from './constants';
+
+const initialHomeState = {
+  banners: [],
+  recommends: []
+};
+
+export default function homeReducer(state = initialHomeState, action) {
+  switch(action.type) {
+    case CHANGE_BANNER:
+      return { ...state, banners: action.banners };
+    case CHANGE_RECOMMEND:
+      return { ...state, recommends: action.recommends };
+    default:
+      return state;
+  }
+}
+</code></pre></div><p>将它们合并起来:</p> <div class="language-react extra-class"><pre class="language-text"><code>const reducer = (state = {}, action) =&gt; {
+  return {
+    counterInfo: counterReducer(state.counterInfo, action),
+    homeInfo: homeReducer(state.homeInfo, action)
+  };
+}
+</code></pre></div><h3 id="reducer文件拆分"><a href="#reducer文件拆分" class="header-anchor">#</a> reducer文件拆分</h3> <p>目前我们已经将不同的状态处理拆分到不同的reducer中，我们来思考：</p> <ul><li>虽然已经放到不同的函数了，但是这些函数的处理依然是在同一个文件中，代码非常的混乱；</li> <li>另外关于reducer中用到的constant、action等我们也依然是在同一个文件中；</li></ul> <p>所以，接下来，我们可以对文件结构再次进行拆分：</p> <div class="language- extra-class"><pre class="language-text"><code>./store
+├── counter
+│   ├── actioncreators.js
+│   ├── constants.js
+│   ├── index.js
+│   └── reducer.js
+├── home
+│   ├── actioncreators.js
+│   ├── constants.js
+│   ├── index.js
+│   └── reducer.js
+├── index.js
+├── reducer.js
+└── saga.js
+</code></pre></div><p>这里不再给出代码，每个文件中存放的内容即可：</p> <ul><li>home/actioncreators.js：存放home相关的action；</li> <li>home/constants.js：存放home相关的常量；</li> <li>home/reducer.js：存放分离的reducer代码；</li> <li>index.js：统一对外暴露的内容；</li></ul> <h3 id="combinereducers"><a href="#combinereducers" class="header-anchor">#</a> combineReducers</h3> <p>redux给我们提供了一个combineReducers函数可以方便的让我们对多个reducer进行合并：</p> <div class="language-react extra-class"><pre class="language-text"><code>import { combineReducers } from 'redux';
+
+import { reducer as counterReducer } from './counter';
+import { reducer as homeReducer } from './home';
+
+const reducer = combineReducers({
+  counterInfo: counterReducer,
+  homeInfo: homeReducer
+})
+
+export default reducer;
+</code></pre></div><p>那么combineReducers是如何实现的呢？</p> <ul><li>事实上，它也是讲我们传入的reducers合并到一个对象中，最终返回一个combination的函数（相当于我们之前的reducer函数了）；</li> <li>在执行combination函数的过程中，它会通过判断前后返回的数据是否相同来决定返回之前的state还是新的state；</li> <li>新的state会触发订阅者发生对应的刷新，而旧的state可以有效的组织订阅者发生刷新；</li></ul> <p>redux\src\combineReducers.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">combineReducers</span><span class="token punctuation">(</span><span class="token parameter">reducers</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> reducerKeys <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>reducers<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> finalReducers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> reducerKeys<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> key <span class="token operator">=</span> reducerKeys<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">!==</span> <span class="token string">'production'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> reducers<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">warning</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">No reducer provided for key &quot;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&quot;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> reducers<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      finalReducers<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> reducers<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> finalReducerKeys <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>finalReducers<span class="token punctuation">)</span>
+
+  <span class="token comment">// This is used to make sure we don't warn about the same</span>
+  <span class="token comment">// keys multiple times.</span>
+  <span class="token keyword">let</span> unexpectedKeyCache
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">!==</span> <span class="token string">'production'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    unexpectedKeyCache <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">let</span> shapeAssertionError
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token function">assertReducerShape</span><span class="token punctuation">(</span>finalReducers<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    shapeAssertionError <span class="token operator">=</span> e
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">combination</span><span class="token punctuation">(</span><span class="token parameter">state <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>shapeAssertionError<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> shapeAssertionError
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">!==</span> <span class="token string">'production'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> warningMessage <span class="token operator">=</span> <span class="token function">getUnexpectedStateShapeWarningMessage</span><span class="token punctuation">(</span>
+        state<span class="token punctuation">,</span>
+        finalReducers<span class="token punctuation">,</span>
+        action<span class="token punctuation">,</span>
+        unexpectedKeyCache
+      <span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>warningMessage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">warning</span><span class="token punctuation">(</span>warningMessage<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">let</span> hasChanged <span class="token operator">=</span> <span class="token boolean">false</span>
+    <span class="token keyword">const</span> nextState <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> finalReducerKeys<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> key <span class="token operator">=</span> finalReducerKeys<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+      <span class="token keyword">const</span> reducer <span class="token operator">=</span> finalReducers<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+      <span class="token keyword">const</span> previousStateForKey <span class="token operator">=</span> state<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+      <span class="token keyword">const</span> nextStateForKey <span class="token operator">=</span> <span class="token function">reducer</span><span class="token punctuation">(</span>previousStateForKey<span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> nextStateForKey <span class="token operator">===</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> actionType <span class="token operator">=</span> action <span class="token operator">&amp;&amp;</span> action<span class="token punctuation">.</span>type
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>
+          <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">When called with an action of type </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>
+            actionType <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&quot;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">String</span><span class="token punctuation">(</span>actionType<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&quot;</span><span class="token template-punctuation string">`</span></span> <span class="token operator">:</span> <span class="token string">'(unknown type)'</span>
+          <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, the slice reducer for key &quot;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&quot; returned undefined. </span><span class="token template-punctuation string">`</span></span> <span class="token operator">+</span>
+            <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">To ignore an action, you must explicitly return the previous state. </span><span class="token template-punctuation string">`</span></span> <span class="token operator">+</span>
+            <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">If you want this reducer to hold no value, you can return null instead of undefined.</span><span class="token template-punctuation string">`</span></span>
+        <span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      nextState<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> nextStateForKey
+      hasChanged <span class="token operator">=</span> hasChanged <span class="token operator">||</span> nextStateForKey <span class="token operator">!==</span> previousStateForKey
+    <span class="token punctuation">}</span>
+    hasChanged <span class="token operator">=</span>
+      hasChanged <span class="token operator">||</span> finalReducerKeys<span class="token punctuation">.</span>length <span class="token operator">!==</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">.</span>length
+    <span class="token keyword">return</span> hasChanged <span class="token operator">?</span> nextState <span class="token operator">:</span> state
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="immutablejs"><a href="#immutablejs" class="header-anchor">#</a> ImmutableJS</h2> <h3 id="数据可变性的问题"><a href="#数据可变性的问题" class="header-anchor">#</a> 数据可变性的问题</h3> <p>在React开发中，我们总是会强调数据的不可变性：</p> <ul><li>无论是类组件中的state，还是redux中管理的state；</li> <li>事实上在整个JavaScript编码过程中，数据的不可变性都是非常重要的；</li></ul> <p>数据的可变性引发的问题：</p> <ul><li>我们明明没有修改obj，只是修改了obj2，但是最终obj也被我们修改掉了；</li> <li>原因非常简单，对象是引用类型，它们指向同一块内存空间，两个引用都可以任意修改；</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;why&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {name: &quot;ccbean&quot;, age: 18}</span>
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+obj2<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;kobe&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {name: &quot;kobe&quot;, age: 18}</span>
+</code></pre></div><p>有没有办法解决上面的问题呢？</p> <ul><li>进行对象的拷贝即可：Object.assign或扩展运算符</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {name: &quot;ccbean&quot;, age: 18}</span>
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token operator">...</span>obj<span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj2<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;kobe&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {name: &quot;kobe&quot;, age: 18}</span>
+</code></pre></div><p>这种对象的浅拷贝有没有问题呢？</p> <ul><li>从代码的角度来说，没有问题，也解决了我们实际开发中一些潜在风险；</li> <li>从性能的角度来说，有问题，如果对象过于庞大，这种拷贝的方式会带来性能问题以及内存浪费；</li></ul> <h3 id="认识immutablejs"><a href="#认识immutablejs" class="header-anchor">#</a> 认识ImmutableJS</h3> <p>为了解决上面的问题，出现了Immutable对象的概念：</p> <ul><li>Immutable对象的特点是只要修改了对象，就会返回一个新的对象，旧的对象不会发生改变；</li></ul> <p>但是这样的方式就不会浪费内存了吗？</p> <ul><li>为了节约内存，又出现了一个新的算法：Persistent Data Structure（持久化数据结构或一致性数据结构）；</li></ul> <p>当然，我们一听到持久化第一反应应该是数据被保存到本地或者数据库，但是这里并不是这个含义：</p> <ul><li>用一种数据结构来保存数据；</li> <li>当数据被修改时，会返回一个对象，但是新的对象会尽可能的利用之前的数据结构而不会对内存造成浪费；</li></ul> <p>如何做到这一点呢？结构共享：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B536.gif" alt="640"></p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B537.png" alt="640"></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> imjs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'immutable'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 1.定义JavaScript的Array和转换成immutable的List</span>
+<span class="token keyword">const</span> friends <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;why&quot;</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;kobe&quot;</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment">// 不会进行深层转换</span>
+<span class="token keyword">const</span> imArray1 <span class="token operator">=</span> imjs<span class="token punctuation">.</span><span class="token function">List</span><span class="token punctuation">(</span>friends<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 会进行深层转换</span>
+<span class="token keyword">const</span> imArray2 <span class="token operator">=</span> imjs<span class="token punctuation">.</span><span class="token function">fromJS</span><span class="token punctuation">(</span>friends<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">// 2.定义JavaScript的Object和转换成immutable的Map</span>
+<span class="token keyword">const</span> info <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;coderwhy&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">friend</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;kobe&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> imObj1 <span class="token operator">=</span> imjs<span class="token punctuation">.</span><span class="token function">Map</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> imObj2 <span class="token operator">=</span> imjs<span class="token punctuation">.</span><span class="token function">fromJS</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imObj1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imObj2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3.对immutable操作</span>
+<span class="token comment">// 3.1.添加数据</span>
+<span class="token comment">// 产生一个新的immutable对象</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;aaaa&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray1<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&quot;aaaa&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 原来的是不变的</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3.2.修改数据</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray1<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&quot;aaaa&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray2<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> imjs<span class="token punctuation">.</span><span class="token function">fromJS</span><span class="token punctuation">(</span><span class="token string">&quot;bbbb&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3.3.删除数据</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray1<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {name: &quot;kobe&quot;, age: 30}</span>
+
+<span class="token comment">// 3.4.查询数据</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray1<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray1<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>imArray2<span class="token punctuation">.</span><span class="token function">getIn</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 4.转换成JavaScript对象</span>
+<span class="token keyword">const</span> array <span class="token operator">=</span> imArray1<span class="token punctuation">.</span><span class="token function">toJS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> imObj1<span class="token punctuation">.</span><span class="token function">toJS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div></div>  <div class="page-edit"><div class="edit-link"><a href="https://github.com/ccbeango/blog/edit/master/docs/React核心技术与开发实战/15.Redux中间件和state管理.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/11/10, 12:11:50</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/blog/pages/d3c53b/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">React-Redux</div></a> <a href="/blog/pages/f60ca3/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">React-router</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/pages/d3c53b/" class="prev">React-Redux</a></span> <span class="next"><a href="/blog/pages/f60ca3/">React-router</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/blog/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/blog/pages/78ad41/"><div>
+            阅读精通正则表达式总结
+            <!----></div></a> <span class="date">09-29</span></dt></dl><dl><dd>02</dd> <dt><a href="/blog/pages/1e1cbc/"><div>
+            项目搭建规范的配置
+            <!----></div></a> <span class="date">07-15</span></dt></dl><dl><dd>03</dd> <dt><a href="/blog/pages/4c97eb/"><div>
+            Vite的使用
+            <!----></div></a> <span class="date">07-03</span></dt></dl> <dl><dd></dd> <dt><a href="/blog/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="liuyh940@gamil.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/ccbeango" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://space.bilibili.com/316494239" title="Bilibili" target="_blank" class="iconfont icon-bilibili"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2018-2023
+    <span>Ccbeango</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.0ed7b280.js" defer></script><script src="/blog/assets/js/2.7308dfd9.js" defer></script><script src="/blog/assets/js/101.0db39944.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React的样式 | CcbeanBlog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/blog/img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <meta name="description" content="web技术博客,简洁至上。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,NodeJS,Node,Node.js,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,react,css3,html5,git,github,markdown">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.76d42078.css" as="style"><link rel="preload" href="/blog/assets/js/app.0ed7b280.js" as="script"><link rel="preload" href="/blog/assets/js/2.7308dfd9.js" as="script"><link rel="preload" href="/blog/assets/js/96.eaafaf11.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.166b2ca6.js"><link rel="prefetch" href="/blog/assets/js/100.194e839b.js"><link rel="prefetch" href="/blog/assets/js/101.0db39944.js"><link rel="prefetch" href="/blog/assets/js/102.e13c8470.js"><link rel="prefetch" href="/blog/assets/js/103.0ae2f2ee.js"><link rel="prefetch" href="/blog/assets/js/104.a261556e.js"><link rel="prefetch" href="/blog/assets/js/105.4d458a5f.js"><link rel="prefetch" href="/blog/assets/js/106.6d2f15cf.js"><link rel="prefetch" href="/blog/assets/js/107.a770982a.js"><link rel="prefetch" href="/blog/assets/js/108.0be9ce8f.js"><link rel="prefetch" href="/blog/assets/js/109.88d01e84.js"><link rel="prefetch" href="/blog/assets/js/11.faae5f41.js"><link rel="prefetch" href="/blog/assets/js/110.d3186629.js"><link rel="prefetch" href="/blog/assets/js/111.37d2b500.js"><link rel="prefetch" href="/blog/assets/js/112.d94648de.js"><link rel="prefetch" href="/blog/assets/js/113.a7cf5597.js"><link rel="prefetch" href="/blog/assets/js/114.a339354f.js"><link rel="prefetch" href="/blog/assets/js/115.597976cc.js"><link rel="prefetch" href="/blog/assets/js/116.c64f1f49.js"><link rel="prefetch" href="/blog/assets/js/117.bbbbb20b.js"><link rel="prefetch" href="/blog/assets/js/118.c9ba24ea.js"><link rel="prefetch" href="/blog/assets/js/119.25208df7.js"><link rel="prefetch" href="/blog/assets/js/12.782cd676.js"><link rel="prefetch" href="/blog/assets/js/120.2e0a20ad.js"><link rel="prefetch" href="/blog/assets/js/121.7bb8f6f5.js"><link rel="prefetch" href="/blog/assets/js/122.562fe94b.js"><link rel="prefetch" href="/blog/assets/js/123.9562f569.js"><link rel="prefetch" href="/blog/assets/js/124.fd67828f.js"><link rel="prefetch" href="/blog/assets/js/125.3262b310.js"><link rel="prefetch" href="/blog/assets/js/126.c6f106af.js"><link rel="prefetch" href="/blog/assets/js/127.4b7016d1.js"><link rel="prefetch" href="/blog/assets/js/128.b3ac8038.js"><link rel="prefetch" href="/blog/assets/js/129.3ef9af3d.js"><link rel="prefetch" href="/blog/assets/js/13.508b65ad.js"><link rel="prefetch" href="/blog/assets/js/130.4b925feb.js"><link rel="prefetch" href="/blog/assets/js/131.37cb5d18.js"><link rel="prefetch" href="/blog/assets/js/132.76026f1f.js"><link rel="prefetch" href="/blog/assets/js/133.5d3d2938.js"><link rel="prefetch" href="/blog/assets/js/134.89b4fe3b.js"><link rel="prefetch" href="/blog/assets/js/135.dd2731dc.js"><link rel="prefetch" href="/blog/assets/js/136.e5cacc53.js"><link rel="prefetch" href="/blog/assets/js/137.39282e0b.js"><link rel="prefetch" href="/blog/assets/js/138.b3801697.js"><link rel="prefetch" href="/blog/assets/js/14.88ac5afd.js"><link rel="prefetch" href="/blog/assets/js/15.b4227c88.js"><link rel="prefetch" href="/blog/assets/js/16.98d2ae02.js"><link rel="prefetch" href="/blog/assets/js/17.6f25717f.js"><link rel="prefetch" href="/blog/assets/js/18.ae934359.js"><link rel="prefetch" href="/blog/assets/js/19.ffe2dcb2.js"><link rel="prefetch" href="/blog/assets/js/20.2c614eab.js"><link rel="prefetch" href="/blog/assets/js/21.4b7f3180.js"><link rel="prefetch" href="/blog/assets/js/22.03f8def7.js"><link rel="prefetch" href="/blog/assets/js/23.861aebfe.js"><link rel="prefetch" href="/blog/assets/js/24.e842cb60.js"><link rel="prefetch" href="/blog/assets/js/25.5685dfd1.js"><link rel="prefetch" href="/blog/assets/js/26.9487cf2a.js"><link rel="prefetch" href="/blog/assets/js/27.cd3b98f4.js"><link rel="prefetch" href="/blog/assets/js/28.1010db9b.js"><link rel="prefetch" href="/blog/assets/js/29.cff77b90.js"><link rel="prefetch" href="/blog/assets/js/3.b0a270e2.js"><link rel="prefetch" href="/blog/assets/js/30.d9d88b77.js"><link rel="prefetch" href="/blog/assets/js/31.4c816fae.js"><link rel="prefetch" href="/blog/assets/js/32.c414f2c2.js"><link rel="prefetch" href="/blog/assets/js/33.cae1fde7.js"><link rel="prefetch" href="/blog/assets/js/34.c149f32c.js"><link rel="prefetch" href="/blog/assets/js/35.36ce97e5.js"><link rel="prefetch" href="/blog/assets/js/36.b7c514b6.js"><link rel="prefetch" href="/blog/assets/js/37.d9459ed5.js"><link rel="prefetch" href="/blog/assets/js/38.84d4e80e.js"><link rel="prefetch" href="/blog/assets/js/39.21769d8b.js"><link rel="prefetch" href="/blog/assets/js/4.1de495bd.js"><link rel="prefetch" href="/blog/assets/js/40.ba8b2c33.js"><link rel="prefetch" href="/blog/assets/js/41.dbc723df.js"><link rel="prefetch" href="/blog/assets/js/42.6d7ee2ec.js"><link rel="prefetch" href="/blog/assets/js/43.3065c2de.js"><link rel="prefetch" href="/blog/assets/js/44.95652c6b.js"><link rel="prefetch" href="/blog/assets/js/45.1bfb7eee.js"><link rel="prefetch" href="/blog/assets/js/46.21f42bfd.js"><link rel="prefetch" href="/blog/assets/js/47.5cf0a7f8.js"><link rel="prefetch" href="/blog/assets/js/48.80e7bcba.js"><link rel="prefetch" href="/blog/assets/js/49.75bf925a.js"><link rel="prefetch" href="/blog/assets/js/5.7e93193d.js"><link rel="prefetch" href="/blog/assets/js/50.1a08250f.js"><link rel="prefetch" href="/blog/assets/js/51.63d67d9a.js"><link rel="prefetch" href="/blog/assets/js/52.4527b3c2.js"><link rel="prefetch" href="/blog/assets/js/53.928eb7b1.js"><link rel="prefetch" href="/blog/assets/js/54.b2c8392c.js"><link rel="prefetch" href="/blog/assets/js/55.84f7c241.js"><link rel="prefetch" href="/blog/assets/js/56.6773809d.js"><link rel="prefetch" href="/blog/assets/js/57.aed02421.js"><link rel="prefetch" href="/blog/assets/js/58.16532c6b.js"><link rel="prefetch" href="/blog/assets/js/59.43238c8c.js"><link rel="prefetch" href="/blog/assets/js/6.d42d0f48.js"><link rel="prefetch" href="/blog/assets/js/60.d868f9ec.js"><link rel="prefetch" href="/blog/assets/js/61.8bc02b72.js"><link rel="prefetch" href="/blog/assets/js/62.83e6c8d0.js"><link rel="prefetch" href="/blog/assets/js/63.ade81187.js"><link rel="prefetch" href="/blog/assets/js/64.cc73a529.js"><link rel="prefetch" href="/blog/assets/js/65.d002206a.js"><link rel="prefetch" href="/blog/assets/js/66.f0665b6d.js"><link rel="prefetch" href="/blog/assets/js/67.11c613ec.js"><link rel="prefetch" href="/blog/assets/js/68.8e2479dd.js"><link rel="prefetch" href="/blog/assets/js/69.02772367.js"><link rel="prefetch" href="/blog/assets/js/7.2b3bcb3f.js"><link rel="prefetch" href="/blog/assets/js/70.3545ebb5.js"><link rel="prefetch" href="/blog/assets/js/71.b7c76516.js"><link rel="prefetch" href="/blog/assets/js/72.035b6ee2.js"><link rel="prefetch" href="/blog/assets/js/73.9feda52a.js"><link rel="prefetch" href="/blog/assets/js/74.d62cf235.js"><link rel="prefetch" href="/blog/assets/js/75.db2ada7c.js"><link rel="prefetch" href="/blog/assets/js/76.8569647d.js"><link rel="prefetch" href="/blog/assets/js/77.ebb5e006.js"><link rel="prefetch" href="/blog/assets/js/78.463a3566.js"><link rel="prefetch" href="/blog/assets/js/79.25bf57ea.js"><link rel="prefetch" href="/blog/assets/js/8.3cf902c7.js"><link rel="prefetch" href="/blog/assets/js/80.4d3043a3.js"><link rel="prefetch" href="/blog/assets/js/81.e6ac7aff.js"><link rel="prefetch" href="/blog/assets/js/82.39390874.js"><link rel="prefetch" href="/blog/assets/js/83.52a99a2b.js"><link rel="prefetch" href="/blog/assets/js/84.4efad80d.js"><link rel="prefetch" href="/blog/assets/js/85.dce1dc90.js"><link rel="prefetch" href="/blog/assets/js/86.3050d700.js"><link rel="prefetch" href="/blog/assets/js/87.67d7c4e3.js"><link rel="prefetch" href="/blog/assets/js/88.4a3a4132.js"><link rel="prefetch" href="/blog/assets/js/89.861690de.js"><link rel="prefetch" href="/blog/assets/js/9.f2b8862e.js"><link rel="prefetch" href="/blog/assets/js/90.f1cdccba.js"><link rel="prefetch" href="/blog/assets/js/91.3abb6471.js"><link rel="prefetch" href="/blog/assets/js/92.66e441c7.js"><link rel="prefetch" href="/blog/assets/js/93.3ae60e73.js"><link rel="prefetch" href="/blog/assets/js/94.b6f4569f.js"><link rel="prefetch" href="/blog/assets/js/95.81abfad5.js"><link rel="prefetch" href="/blog/assets/js/97.f464844d.js"><link rel="prefetch" href="/blog/assets/js/98.5b594a5f.js"><link rel="prefetch" href="/blog/assets/js/99.8a12c6d2.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.76d42078.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/EB-logo.png" alt="CcbeanBlog" class="logo"> <span class="site-name can-hide">CcbeanBlog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://avatars.githubusercontent.com/u/16501284?v=4"> <div class="blogger-info"><h3>Ccbean</h3> <span>靡不有初，鲜克有终</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/blog/pages/3f937c/" class="sidebar-link">Hello World</a></li><li><a href="/blog/pages/65114a/" class="sidebar-link">JSX语法</a></li><li><a href="/blog/pages/919785/" class="sidebar-link">JSX语法的本质</a></li><li><a href="/blog/pages/c5633c/" class="sidebar-link">脚手架</a></li><li><a href="/blog/pages/bd5f26/" class="sidebar-link">什么是组件化开发</a></li><li><a href="/blog/pages/f34018/" class="sidebar-link">组件化开发</a></li><li><a href="/blog/pages/3b1483/" class="sidebar-link">setState详解和React性能优化</a></li><li><a href="/blog/pages/77cea2/" class="sidebar-link">受控和非受控组件</a></li><li><a href="/blog/pages/ad645b/" class="sidebar-link">高阶组件</a></li><li><a href="/blog/pages/809a87/" aria-current="page" class="active sidebar-link">React的样式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/blog/pages/809a87/#react中的css方案" class="sidebar-link">React中的css方案</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/809a87/#_1-1-react中的css" class="sidebar-link">1.1. react中的css</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/809a87/#普通的解决方案" class="sidebar-link">普通的解决方案</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/809a87/#内联样式" class="sidebar-link">内联样式</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/809a87/#普通的css" class="sidebar-link">普通的css</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/809a87/#css-modules" class="sidebar-link">css modules</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog/pages/809a87/#css-in-js" class="sidebar-link">CSS in JS</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/809a87/#认识css-in-js" class="sidebar-link">认识CSS in JS</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/809a87/#标签模板字符串" class="sidebar-link">标签模板字符串</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/809a87/#styled基本使用" class="sidebar-link">styled基本使用</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/809a87/#props、attrs属性" class="sidebar-link">props、attrs属性</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/809a87/#styled高级特性" class="sidebar-link">styled高级特性</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/809a87/#classnames" class="sidebar-link">classnames</a></li></ul></li></ul></li><li><a href="/blog/pages/ce6916/" class="sidebar-link">React的过渡动画</a></li><li><a href="/blog/pages/7f1191/" class="sidebar-link">ReactHooks的使用</a></li><li><a href="/blog/pages/18ce7b/" class="sidebar-link">Redux的使用</a></li><li><a href="/blog/pages/d3c53b/" class="sidebar-link">React-Redux</a></li><li><a href="/blog/pages/facc20/" class="sidebar-link">Redux中间件和state管理</a></li><li><a href="/blog/pages/f60ca3/" class="sidebar-link">React-router</a></li><li><a href="/blog/pages/96924f/" class="sidebar-link">React打包发布</a></li><li><a href="/blog/pages/1b0384/" class="sidebar-link">React SSR</a></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/blog/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/blog/note/react-learn/#React核心技术与开发实战" data-v-06225672>React核心技术与开发实战</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="https://github.com/ccbeango" target="_blank" title="作者" class="beLink" data-v-06225672>ccbean</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2021-06-24</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">React的样式<!----></h1>  <div class="theme-vdoing-content content__default"><h1 id="react中的样式"><a href="#react中的样式" class="header-anchor">#</a> React中的样式</h1> <h2 id="react中的css方案"><a href="#react中的css方案" class="header-anchor">#</a> React中的css方案</h2> <h3 id="_1-1-react中的css"><a href="#_1-1-react中的css" class="header-anchor">#</a> 1.1. react中的css</h3> <p>事实上，css一直是React的痛点，也是被很多开发者吐槽、诟病的一个点。</p> <p>在组件化中选择合适的CSS解决方案应该符合以下条件：</p> <ul><li>可以编写局部css：css具备自己的局部作用域，不会随意污染其他组件内的原生；</li> <li>可以编写动态的css：可以获取当前组件的一些状态，根据状态的变化生成不同的css样式；</li> <li>支持所有的css特性：伪类、动画、媒体查询等；</li> <li>编写起来简洁方便、最好符合一贯的css风格特点；</li> <li>等等...</li></ul> <p>在这一点上，Vue做的要远远好于React：</p> <ul><li>Vue通过在.vue文件中编写 <code>&lt;style&gt;&lt;style&gt;</code> 标签来编写自己的样式；</li> <li>通过是否添加 <code>scoped</code> 属性来决定编写的样式是全局有效还是局部有效；</li> <li>通过 <code>lang</code> 属性来设置你喜欢的 <code>less</code>、<code>sass</code>等预处理器；</li> <li>通过内联样式风格的方式来根据最新状态设置和改变css；</li> <li>等等...</li></ul> <p>Vue在CSS上虽然不能称之为完美，但是已经足够简洁、自然、方便了，至少统一的样式风格不会出现多个开发人员、多个项目采用不一样的样式风格。</p> <p>相比而言，React官方并没有给出在React中统一的样式风格：</p> <ul><li>由此，从普通的css，到css modules，再到css in js，有几十种不同的解决方案，上百个不同的库；</li> <li>大家一致在寻找最好的或者说最适合自己的CSS方案，但是到目前为止也没有统一的方案；</li></ul> <p>在这篇文章中，会介绍挑选四种解决方案来介绍：</p> <ul><li>方案一：内联样式的写法；</li> <li>方案二：普通的css写法；</li> <li>方案三：css modules；</li> <li>方案四：css in js（styled-components）；</li></ul> <h3 id="普通的解决方案"><a href="#普通的解决方案" class="header-anchor">#</a> 普通的解决方案</h3> <h4 id="内联样式"><a href="#内联样式" class="header-anchor">#</a> 内联样式</h4> <p>内联样式是官方推荐的一种css样式的写法：</p> <ul><li><code>style</code> 接受一个采用小驼峰命名属性的 JavaScript 对象，，而不是 CSS 字符串；</li> <li>并且可以引用state中的状态来设置相关的样式；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>export default class App extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      titleColor: &quot;red&quot;
+    }
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h2 style={{color: this.state.titleColor, fontSize: &quot;20px&quot;}}&gt;我是App标题&lt;/h2&gt;
+        &lt;p style={{color: &quot;green&quot;, textDecoration: &quot;underline&quot;}}&gt;我是一段文字描述&lt;/p&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>内联样式的优点:</p> <ul><li>1.内联样式, 样式之间不会有冲突</li> <li>2.可以动态获取当前state中的状态</li></ul> <p>内联样式的缺点：</p> <ul><li>1.写法上都需要使用驼峰标识</li> <li>2.某些样式没有提示</li> <li>3.大量的样式, 代码混乱</li> <li>4.某些样式无法编写(比如伪类/伪元素)</li></ul> <p>所以官方依然是希望内联合适和普通的css来结合编写；</p> <h4 id="普通的css"><a href="#普通的css" class="header-anchor">#</a> 普通的css</h4> <p>普通的css我们通常会编写到一个单独的文件。</p> <p>App.js中编写React逻辑代码：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+
+import Home from './Home';
+
+import './App.css';
+
+export default class App extends PureComponent {
+  render() {
+    return (
+      &lt;div className=&quot;app&quot;&gt;
+        &lt;h2 className=&quot;title&quot;&gt;我是App的标题&lt;/h2&gt;
+        &lt;p className=&quot;desc&quot;&gt;我是App中的一段文字描述&lt;/p&gt;
+        &lt;Home/&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>App.css中编写React样式代码：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.title</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.desc</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这样的编写方式和普通的网页开发中编写方式是一致的：</p> <ul><li>如果我们按照普通的网页标准去编写，那么也不会有太大的问题；</li> <li>但是组件化开发中我们总是希望组件是一个独立的模块，即便是样式也只是在自己内部生效，不会相互影响；</li> <li>但是普通的css都属于全局的css，样式之间会相互影响；</li></ul> <p>比如编写Home.js的逻辑代码：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+
+import './Home.css';
+
+export default class Home extends PureComponent {
+  render() {
+    return (
+      &lt;div className=&quot;home&quot;&gt;
+        &lt;h2 className=&quot;title&quot;&gt;我是Home标题&lt;/h2&gt;
+        &lt;span className=&quot;desc&quot;&gt;我是Home中的span段落&lt;/span&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>又编写了Home.css的样式代码：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.title</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.desc</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> purple<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>最终样式之间会相互层叠，只有一个样式会生效；</p> <h4 id="css-modules"><a href="#css-modules" class="header-anchor">#</a> css modules</h4> <p>css modules并不是React特有的解决方案，而是所有使用了类似于webpack配置的环境下都可以使用的。</p> <p>但是，如果在其他项目中使用，那么我们需要自己来进行配置，比如配置webpack.config.js中的<code>modules: true</code>等。</p> <p>但是React的脚手架已经内置了css modules的配置：</p> <ul><li>.css/.less/.scss 等样式文件都修改成 .module.css/.module.less/.module.scss 等；</li> <li>之后就可以引用并且进行使用了；</li> <li>使用代码如下</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+import style from './style.module.css';
+
+export default class Home extends PureComponent {
+  render() {
+    return (
+      &lt;div className=&quot;home&quot;&gt;
+        &lt;h2 className={style.title}&gt;我是Home标题&lt;/h2&gt;
+        &lt;span className={style.desc}&gt;我是Home中的span段落&lt;/span&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>这种css使用方式最终生成的class名称会全局唯一：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B528.png" alt="image-20210625104537278"></p> <p>css modules确实解决了局部作用域的问题，也是很多人喜欢在React中使用的一种方案。</p> <p>但是这种方案也有自己的缺陷：</p> <ul><li><p>引用的类名，不能使用连接符(.home-title)，在JavaScript中是不识别的；</p></li> <li><p>所有的className都必须使用<code>{style.className}</code> 的形式来编写；</p></li> <li><p>不方便动态来修改某些样式，依然需要使用内联样式的方式；</p> <p>如使用state中的颜色设置，就要使用内联样式</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+import style from './style.module.css';
+
+export default class Home extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      color: 'purple'
+    };
+  }
+
+  render() {
+    return (
+      &lt;div className=&quot;home&quot;&gt;
+        &lt;h2 className={style.title} style={{ color: this.state.color }} &gt;我是Home标题&lt;/h2&gt;
+        &lt;span className={style.desc}&gt;我是Home中的span段落&lt;/span&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div></li></ul> <p>如果觉得上面的缺陷还算OK，那么你在开发中完全可以选择使用css modules来编写，并且也是在React中很受欢迎的一种方式。</p> <h2 id="css-in-js"><a href="#css-in-js" class="header-anchor">#</a> CSS in JS</h2> <h3 id="认识css-in-js"><a href="#认识css-in-js" class="header-anchor">#</a> 认识CSS in JS</h3> <p>实际上，官方文档也有提到过CSS in JS这种方案：</p> <ul><li>“CSS-in-JS” 是指一种模式，其中 CSS 由 JavaScript 生成而不是在外部文件中定义；</li> <li><em>注意此功能并不是 React 的一部分，而是由第三方库提供。</em> React 对样式如何定义并没有明确态度；</li></ul> <p>在传统的前端开发中，我们通常会将结构（HTML）、样式（CSS）、逻辑（JavaScript）进行分离。</p> <ul><li>但是在前面的学习中，我们就提到过，React的思想中认为逻辑本身和UI是无法分离的，所以才会有了JSX的语法。</li> <li>样式呢？样式也是属于UI的一部分；</li> <li>事实上CSS-in-JS的模式就是一种将样式（CSS）也写入到JavaScript中的方式，并且可以方便的使用JavaScript的状态；</li> <li>所以React有被人称之为 <code>All in JS</code>；</li></ul> <p>当然，这种开发的方式也受到了很多的批评：</p> <ul><li>Stop using CSS in JavaScript for web development</li> <li>https://hackernoon.com/stop-using-css-in-javascript-for-web-development-fa32fb873dcc</li></ul> <p>不同的声音虽然有，但是在我们看来很多优秀的CSS-in-JS的库依然非常强大、方便：</p> <ul><li>CSS-in-JS通过JavaScript来为CSS赋予一些能力，包括类似于CSS预处理器一样的样式嵌套、函数定义、逻辑复用、动态修改状态等等；</li> <li>依然CSS预处理器也具备某些能力，但是获取动态状态依然是一个不好处理的点；</li> <li>所以，目前可以说CSS-in-JS是React编写CSS最为受欢迎的一种解决方案；</li></ul> <p>目前比较流行的CSS-in-JS的库有哪些呢？</p> <ul><li><a href="https://github.com/styled-components/styled-components" target="_blank" rel="noopener noreferrer">styled-components<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/emotion-js/emotion" target="_blank" rel="noopener noreferrer">emotion<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/paypal/glamorous" target="_blank" rel="noopener noreferrer">glamorous DEPRECATED <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <p>目前可以说styled-components依然是社区最流行的CSS-in-JS库，所以以styled-components的讲解为主；</p> <h4 id="标签模板字符串"><a href="#标签模板字符串" class="header-anchor">#</a> 标签模板字符串</h4> <p>ES6中增加了<code>模板字符串</code>的语法，这个对于很多人来说都会使用。</p> <p>但是模板字符串还有另外一种用法：标签模板字符串（Tagged Template Literals）。</p> <p>我们一起来看一个普通的JavaScript的函数：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token string">&quot;Hello World&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>正常情况下，我们都是通过 <code>函数名()</code> 方式来进行调用的，其实函数还有另外一种调用方式：</p> <div class="language-js extra-class"><pre class="language-js"><code>foo<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello World</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span> <span class="token comment">// [[&quot;Hello World&quot;]]</span>
+</code></pre></div><p>如果我们在调用的时候插入其他的变量：</p> <ul><li>模板字符串被拆分了；</li> <li>第一个元素是数组，是被模块字符串拆分的字符串组合；</li> <li>后面的元素是一个个模块字符串传入的内容；</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>foo<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span> <span class="token comment">// [[&quot;Hello &quot;, &quot;&quot;], &quot;tom&quot;];</span>
+</code></pre></div><p>在styled component中，就是通过这种方式来解析模块字符串，最终生成我们想要的样式的。</p> <h4 id="styled基本使用"><a href="#styled基本使用" class="header-anchor">#</a> styled基本使用</h4> <p>styled-components的本质是通过函数的调用，最终创建出一个<code>组件</code>：</p> <ul><li>这个组件会被自动添加上一个不重复的class；</li> <li>styled-components会给该class添加相关的样式；</li></ul> <p>比如我们正常开发出来的Home组件是这样的格式：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+import styled from 'styled-components';
+
+const HomeWrapper = styled.div`
+  font-size: 50px;
+  color: red;
+
+  .banner {
+    background: gray;
+    li {
+      color: chartreuse;
+      &amp;.active {
+        color: red;
+      }
+
+      &amp;:hover {
+        color: white;
+      }
+
+      &amp;::after {
+        content: &quot;a&quot;;
+      }
+    }
+  }
+`;
+
+const TitleWrapper = styled.h2`
+  text-decoration: underline;
+`;
+
+export default class Home extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      color: 'purple'
+    };
+  }
+
+  render() {
+    return (
+      &lt;HomeWrapper className=&quot;home&quot;&gt;
+        &lt;TitleWrapper&gt;我是Home标题&lt;/TitleWrapper&gt;
+        &lt;ul className=&quot;banner&quot;&gt;
+          &lt;li&gt;我是Home中的span段落2&lt;/li&gt;
+          &lt;li className=&quot;active&quot;&gt;我是Home中的span段落3&lt;/li&gt;
+          &lt;li&gt;我是Home中的span段落4&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/HomeWrapper&gt;
+    )
+  }
+}
+</code></pre></div><p>我们希望给外层的div添加一个特殊的class，并且添加相关的样式。</p> <p>它支持类似于CSS预处理器一样的样式嵌套：</p> <ul><li>支持直接子代选择器或后代选择器，并且直接编写样式；</li> <li>可以通过&amp;符号获取当前元素；</li> <li>直接伪类选择器、伪元素等；</li></ul> <p>可以看到效果如下</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B529.png" alt="image-20210625114818760"></p> <h4 id="props、attrs属性"><a href="#props、attrs属性" class="header-anchor">#</a> props、attrs属性</h4> <p><strong>props可以穿透</strong></p> <p>定义一个styled组件：</p> <div class="language-react extra-class"><pre class="language-text"><code>const HYInput = styled.input`
+  border-color: red;
+
+  &amp;:focus {
+    outline-color: orange;
+  }
+`
+</code></pre></div><p>使用styled的组件：</p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;HYInput type=&quot;password&quot;/&gt;
+</code></pre></div><p><strong>props可以被传递给styled组件</strong></p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;HomeWrapper color=&quot;blue&quot;&gt;
+&lt;/HomeWrapper&gt;
+</code></pre></div><p>使用时可以获取到传入的color：</p> <ul><li>获取props需要通过${}传入一个插值函数，props会作为该函数的参数；</li> <li>这种方式可以有效的解决动态样式的问题；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>const HomeWrapper = styled.div`
+  color: ${props =&gt; props.color};
+}
+</code></pre></div><p><strong>添加attrs属性</strong></p> <div class="language-react extra-class"><pre class="language-text"><code>const HYInput = styled.input.attrs({
+  placeholder: &quot;请填写密码&quot;,
+  paddingLeft: props =&gt; props.left || &quot;5px&quot;
+})`
+  border-color: red;
+  padding-left: ${props =&gt; props.paddingLeft};
+
+  &amp;:focus {
+    outline-color: orange;
+  }
+`
+</code></pre></div><p>一个完整的例子</p> <ul><li>特点</li> <li>1.props穿透</li> <li>2.attrs的使用</li> <li>3.传入state作为props属性</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+import styled from 'styled-components';
+
+/**
+ * 特点
+ *  1.props穿透
+ *  2.attrs的使用
+ *  3.传入state作为props属性
+ */
+
+const MyInput = styled.input.attrs({
+  placeholder: '请输入密码',
+  bColor: 'green'
+})`
+  background-color: lightblue;
+  border-color: ${props =&gt; props.bColor};
+  color: ${props =&gt; props.color};
+`;
+
+export default class Home extends PureComponent {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      color: 'red'
+    };
+  }
+
+  render() {
+    return (
+      &lt;div className=&quot;home&quot;&gt;
+        &lt;MyInput type=&quot;password&quot; color={this.state.color} /&gt;
+        &lt;h2&gt;我是Profile标题&lt;/h2&gt;
+        &lt;span&gt;我是Profile中的span段落&lt;/span&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><h4 id="styled高级特性"><a href="#styled高级特性" class="header-anchor">#</a> styled高级特性</h4> <p><strong>支持样式的继承</strong></p> <p>编写styled组件</p> <div class="language-react extra-class"><pre class="language-text"><code>const HYButton = styled.button`
+  padding: 8px 30px;
+  border-radius: 5px;
+`
+
+const HYWarnButton = styled(HYButton)`
+  background-color: red;
+  color: #fff;
+`
+
+const HYPrimaryButton = styled(HYButton)`
+  background-color: green;
+  color: #fff;
+`
+</code></pre></div><p>按钮的使用</p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;HYButton&gt;我是普通按钮&lt;/HYButton&gt;
+&lt;HYWarnButton&gt;我是警告按钮&lt;/HYWarnButton&gt;
+&lt;HYPrimaryButton&gt;我是主要按钮&lt;/HYPrimaryButton&gt;
+</code></pre></div><p>完整代码</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+import styled from 'styled-components';
+
+const HYButton = styled.button`
+  padding: 8px 30px;
+  border-radius: 5px;
+`
+
+const HYWarnButton = styled(HYButton)`
+  background-color: red;
+  color: #fff;
+`
+
+const HYPrimaryButton = styled(HYButton)`
+  background-color: green;
+  color: #fff;
+`
+
+export default class App extends PureComponent {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;HYButton&gt;我是普通按钮&lt;/HYButton&gt;
+        &lt;HYWarnButton&gt;我是警告按钮&lt;/HYWarnButton&gt;
+        &lt;HYPrimaryButton&gt;我是主要按钮&lt;/HYPrimaryButton&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p><strong>styled设置主题</strong></p> <p>在全局定制自己的主题，通过Provider进行共享：</p> <div class="language-react extra-class"><pre class="language-text"><code>import { ThemeProvider } from 'styled-components';
+
+&lt;ThemeProvider theme={{color: &quot;red&quot;, fontSize: &quot;30px&quot;}}&gt;
+  &lt;Home /&gt;
+  &lt;Profile /&gt;
+&lt;/ThemeProvider&gt;
+</code></pre></div><p>在styled组件中可以获取到主题的内容：</p> <div class="language-react extra-class"><pre class="language-text"><code>const ProfileWrapper = styled.div`
+  color: ${props =&gt; props.theme.color};
+  font-size: ${props =&gt; props.theme.fontSize};
+`
+</code></pre></div><div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+import Home from './home';
+import Profile from './profile';
+import styled, { ThemeProvider } from 'styled-components';
+
+const HYButton = styled.button`
+  padding: 8px 30px;
+  border-radius: 5px;
+`
+
+const HYWarnButton = styled(HYButton)`
+  background-color: red;
+  color: #fff;
+`
+
+const HYPrimaryButton = styled(HYButton)`
+  background-color: green;
+  color: #fff;
+  // 使用主题
+  border-color: ${props =&gt; props.theme.themeColor};
+`
+
+export default class App extends PureComponent {
+  render() {
+    return (
+      &lt;ThemeProvider theme={{ themeColor: 'blue', fontSize: '30px' }}&gt;
+        &lt;Home/&gt;
+        &lt;Profile/&gt;
+        &lt;HYButton&gt;我是普通按钮&lt;/HYButton&gt;
+        &lt;HYWarnButton&gt;我是警告按钮&lt;/HYWarnButton&gt;
+        &lt;HYPrimaryButton&gt;我是主要按钮&lt;/HYPrimaryButton&gt;
+      &lt;/ThemeProvider&gt;
+    )
+  }
+}
+</code></pre></div><h3 id="classnames"><a href="#classnames" class="header-anchor">#</a> classnames</h3> <p><strong>vue中添加class</strong></p> <p>在vue中给一个元素添加动态的class是一件非常简单的事情：</p> <p>你可以通过传入一个对象：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div
+  class=&quot;static&quot;
+  v-bind:class=&quot;{ active: isActive, 'text-danger': hasError }&quot;
+&gt;&lt;/div&gt;
+</code></pre></div><p>你也可以传入一个数组：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-bind:class=&quot;[activeClass, errorClass]&quot;&gt;&lt;/div&gt;
+</code></pre></div><p>甚至是对象和数组混合使用：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-bind:class=&quot;[{ active: isActive }, errorClass]&quot;&gt;&lt;/div&gt;
+</code></pre></div><p><strong>react中添加class</strong></p> <p>React在JSX给了我们开发者足够多的灵活性，你可以像编写JavaScript代码一样，通过一些逻辑来决定是否添加某些class：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react'
+
+export default class App extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isActive: true
+    }
+  }
+
+  render() {
+    const {isActive} = this.state; 
+
+    return (
+      &lt;div&gt;
+        &lt;h2 className={&quot;title &quot; + (isActive ? &quot;active&quot;: &quot;&quot;)}&gt;我是标题&lt;/h2&gt;
+        &lt;h2 className={[&quot;title&quot;, (isActive ? &quot;active&quot;: &quot;&quot;)].join(&quot; &quot;)}&gt;我是标题&lt;/h2&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>这个时候我们可以借助于一个第三方的库：<a href="https://github.com/JedWatson/classnames" target="_blank" rel="noopener noreferrer">classnames<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <ul><li>很明显，这是一个用于动态添加classnames的一个库。</li></ul> <p>我们来使用一下最常见的使用案例：</p> <div class="language-react extra-class"><pre class="language-text"><code>classNames('foo', 'bar'); // =&gt; 'foo bar'
+classNames('foo', { bar: true }); // =&gt; 'foo bar'
+classNames({ 'foo-bar': true }); // =&gt; 'foo-bar'
+classNames({ 'foo-bar': false }); // =&gt; ''
+classNames({ foo: true }, { bar: true }); // =&gt; 'foo bar'
+classNames({ foo: true, bar: true }); // =&gt; 'foo bar'
+classNames(['foo', 'bar']); // =&gt; 'foo bar'
+classNames(['foo', { bar: true }]); // =&gt; 'foo bar'
+
+// lots of arguments of various types
+classNames('foo', { bar: true, duck: false }, 'baz', { quux: true }); // =&gt; 'foo bar baz quux'
+
+// other falsy values are just ignored
+classNames(null, false, 'bar', undefined, 0, 1, { baz: null }, ''); // =&gt; 'bar 1'
+</code></pre></div></div></div>  <div class="page-edit"><div class="edit-link"><a href="https://github.com/ccbeango/blog/edit/master/docs/React核心技术与开发实战/10.React的样式.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/11/10, 12:11:50</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/blog/pages/ad645b/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">高阶组件</div></a> <a href="/blog/pages/ce6916/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">React的过渡动画</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/pages/ad645b/" class="prev">高阶组件</a></span> <span class="next"><a href="/blog/pages/ce6916/">React的过渡动画</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/blog/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/blog/pages/78ad41/"><div>
+            阅读精通正则表达式总结
+            <!----></div></a> <span class="date">09-29</span></dt></dl><dl><dd>02</dd> <dt><a href="/blog/pages/1e1cbc/"><div>
+            项目搭建规范的配置
+            <!----></div></a> <span class="date">07-15</span></dt></dl><dl><dd>03</dd> <dt><a href="/blog/pages/4c97eb/"><div>
+            Vite的使用
+            <!----></div></a> <span class="date">07-03</span></dt></dl> <dl><dd></dd> <dt><a href="/blog/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="liuyh940@gamil.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/ccbeango" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://space.bilibili.com/316494239" title="Bilibili" target="_blank" class="iconfont icon-bilibili"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2018-2023
+    <span>Ccbeango</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.0ed7b280.js" defer></script><script src="/blog/assets/js/2.7308dfd9.js" defer></script><script src="/blog/assets/js/96.eaafaf11.js" defer></script>
+  </body>
+</html>

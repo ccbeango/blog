@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据结构与算法-链表 | CcbeanBlog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/blog/img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <meta name="description" content="web技术博客,简洁至上。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,NodeJS,Node,Node.js,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,react,css3,html5,git,github,markdown">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.76d42078.css" as="style"><link rel="preload" href="/blog/assets/js/app.0ed7b280.js" as="script"><link rel="preload" href="/blog/assets/js/2.7308dfd9.js" as="script"><link rel="preload" href="/blog/assets/js/72.035b6ee2.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.166b2ca6.js"><link rel="prefetch" href="/blog/assets/js/100.194e839b.js"><link rel="prefetch" href="/blog/assets/js/101.0db39944.js"><link rel="prefetch" href="/blog/assets/js/102.e13c8470.js"><link rel="prefetch" href="/blog/assets/js/103.0ae2f2ee.js"><link rel="prefetch" href="/blog/assets/js/104.a261556e.js"><link rel="prefetch" href="/blog/assets/js/105.4d458a5f.js"><link rel="prefetch" href="/blog/assets/js/106.6d2f15cf.js"><link rel="prefetch" href="/blog/assets/js/107.a770982a.js"><link rel="prefetch" href="/blog/assets/js/108.0be9ce8f.js"><link rel="prefetch" href="/blog/assets/js/109.88d01e84.js"><link rel="prefetch" href="/blog/assets/js/11.faae5f41.js"><link rel="prefetch" href="/blog/assets/js/110.d3186629.js"><link rel="prefetch" href="/blog/assets/js/111.37d2b500.js"><link rel="prefetch" href="/blog/assets/js/112.d94648de.js"><link rel="prefetch" href="/blog/assets/js/113.a7cf5597.js"><link rel="prefetch" href="/blog/assets/js/114.a339354f.js"><link rel="prefetch" href="/blog/assets/js/115.597976cc.js"><link rel="prefetch" href="/blog/assets/js/116.c64f1f49.js"><link rel="prefetch" href="/blog/assets/js/117.bbbbb20b.js"><link rel="prefetch" href="/blog/assets/js/118.c9ba24ea.js"><link rel="prefetch" href="/blog/assets/js/119.25208df7.js"><link rel="prefetch" href="/blog/assets/js/12.782cd676.js"><link rel="prefetch" href="/blog/assets/js/120.2e0a20ad.js"><link rel="prefetch" href="/blog/assets/js/121.7bb8f6f5.js"><link rel="prefetch" href="/blog/assets/js/122.562fe94b.js"><link rel="prefetch" href="/blog/assets/js/123.9562f569.js"><link rel="prefetch" href="/blog/assets/js/124.fd67828f.js"><link rel="prefetch" href="/blog/assets/js/125.3262b310.js"><link rel="prefetch" href="/blog/assets/js/126.c6f106af.js"><link rel="prefetch" href="/blog/assets/js/127.4b7016d1.js"><link rel="prefetch" href="/blog/assets/js/128.b3ac8038.js"><link rel="prefetch" href="/blog/assets/js/129.3ef9af3d.js"><link rel="prefetch" href="/blog/assets/js/13.508b65ad.js"><link rel="prefetch" href="/blog/assets/js/130.4b925feb.js"><link rel="prefetch" href="/blog/assets/js/131.37cb5d18.js"><link rel="prefetch" href="/blog/assets/js/132.76026f1f.js"><link rel="prefetch" href="/blog/assets/js/133.5d3d2938.js"><link rel="prefetch" href="/blog/assets/js/134.89b4fe3b.js"><link rel="prefetch" href="/blog/assets/js/135.dd2731dc.js"><link rel="prefetch" href="/blog/assets/js/136.e5cacc53.js"><link rel="prefetch" href="/blog/assets/js/137.39282e0b.js"><link rel="prefetch" href="/blog/assets/js/138.b3801697.js"><link rel="prefetch" href="/blog/assets/js/14.88ac5afd.js"><link rel="prefetch" href="/blog/assets/js/15.b4227c88.js"><link rel="prefetch" href="/blog/assets/js/16.98d2ae02.js"><link rel="prefetch" href="/blog/assets/js/17.6f25717f.js"><link rel="prefetch" href="/blog/assets/js/18.ae934359.js"><link rel="prefetch" href="/blog/assets/js/19.ffe2dcb2.js"><link rel="prefetch" href="/blog/assets/js/20.2c614eab.js"><link rel="prefetch" href="/blog/assets/js/21.4b7f3180.js"><link rel="prefetch" href="/blog/assets/js/22.03f8def7.js"><link rel="prefetch" href="/blog/assets/js/23.861aebfe.js"><link rel="prefetch" href="/blog/assets/js/24.e842cb60.js"><link rel="prefetch" href="/blog/assets/js/25.5685dfd1.js"><link rel="prefetch" href="/blog/assets/js/26.9487cf2a.js"><link rel="prefetch" href="/blog/assets/js/27.cd3b98f4.js"><link rel="prefetch" href="/blog/assets/js/28.1010db9b.js"><link rel="prefetch" href="/blog/assets/js/29.cff77b90.js"><link rel="prefetch" href="/blog/assets/js/3.b0a270e2.js"><link rel="prefetch" href="/blog/assets/js/30.d9d88b77.js"><link rel="prefetch" href="/blog/assets/js/31.4c816fae.js"><link rel="prefetch" href="/blog/assets/js/32.c414f2c2.js"><link rel="prefetch" href="/blog/assets/js/33.cae1fde7.js"><link rel="prefetch" href="/blog/assets/js/34.c149f32c.js"><link rel="prefetch" href="/blog/assets/js/35.36ce97e5.js"><link rel="prefetch" href="/blog/assets/js/36.b7c514b6.js"><link rel="prefetch" href="/blog/assets/js/37.d9459ed5.js"><link rel="prefetch" href="/blog/assets/js/38.84d4e80e.js"><link rel="prefetch" href="/blog/assets/js/39.21769d8b.js"><link rel="prefetch" href="/blog/assets/js/4.1de495bd.js"><link rel="prefetch" href="/blog/assets/js/40.ba8b2c33.js"><link rel="prefetch" href="/blog/assets/js/41.dbc723df.js"><link rel="prefetch" href="/blog/assets/js/42.6d7ee2ec.js"><link rel="prefetch" href="/blog/assets/js/43.3065c2de.js"><link rel="prefetch" href="/blog/assets/js/44.95652c6b.js"><link rel="prefetch" href="/blog/assets/js/45.1bfb7eee.js"><link rel="prefetch" href="/blog/assets/js/46.21f42bfd.js"><link rel="prefetch" href="/blog/assets/js/47.5cf0a7f8.js"><link rel="prefetch" href="/blog/assets/js/48.80e7bcba.js"><link rel="prefetch" href="/blog/assets/js/49.75bf925a.js"><link rel="prefetch" href="/blog/assets/js/5.7e93193d.js"><link rel="prefetch" href="/blog/assets/js/50.1a08250f.js"><link rel="prefetch" href="/blog/assets/js/51.63d67d9a.js"><link rel="prefetch" href="/blog/assets/js/52.4527b3c2.js"><link rel="prefetch" href="/blog/assets/js/53.928eb7b1.js"><link rel="prefetch" href="/blog/assets/js/54.b2c8392c.js"><link rel="prefetch" href="/blog/assets/js/55.84f7c241.js"><link rel="prefetch" href="/blog/assets/js/56.6773809d.js"><link rel="prefetch" href="/blog/assets/js/57.aed02421.js"><link rel="prefetch" href="/blog/assets/js/58.16532c6b.js"><link rel="prefetch" href="/blog/assets/js/59.43238c8c.js"><link rel="prefetch" href="/blog/assets/js/6.d42d0f48.js"><link rel="prefetch" href="/blog/assets/js/60.d868f9ec.js"><link rel="prefetch" href="/blog/assets/js/61.8bc02b72.js"><link rel="prefetch" href="/blog/assets/js/62.83e6c8d0.js"><link rel="prefetch" href="/blog/assets/js/63.ade81187.js"><link rel="prefetch" href="/blog/assets/js/64.cc73a529.js"><link rel="prefetch" href="/blog/assets/js/65.d002206a.js"><link rel="prefetch" href="/blog/assets/js/66.f0665b6d.js"><link rel="prefetch" href="/blog/assets/js/67.11c613ec.js"><link rel="prefetch" href="/blog/assets/js/68.8e2479dd.js"><link rel="prefetch" href="/blog/assets/js/69.02772367.js"><link rel="prefetch" href="/blog/assets/js/7.2b3bcb3f.js"><link rel="prefetch" href="/blog/assets/js/70.3545ebb5.js"><link rel="prefetch" href="/blog/assets/js/71.b7c76516.js"><link rel="prefetch" href="/blog/assets/js/73.9feda52a.js"><link rel="prefetch" href="/blog/assets/js/74.d62cf235.js"><link rel="prefetch" href="/blog/assets/js/75.db2ada7c.js"><link rel="prefetch" href="/blog/assets/js/76.8569647d.js"><link rel="prefetch" href="/blog/assets/js/77.ebb5e006.js"><link rel="prefetch" href="/blog/assets/js/78.463a3566.js"><link rel="prefetch" href="/blog/assets/js/79.25bf57ea.js"><link rel="prefetch" href="/blog/assets/js/8.3cf902c7.js"><link rel="prefetch" href="/blog/assets/js/80.4d3043a3.js"><link rel="prefetch" href="/blog/assets/js/81.e6ac7aff.js"><link rel="prefetch" href="/blog/assets/js/82.39390874.js"><link rel="prefetch" href="/blog/assets/js/83.52a99a2b.js"><link rel="prefetch" href="/blog/assets/js/84.4efad80d.js"><link rel="prefetch" href="/blog/assets/js/85.dce1dc90.js"><link rel="prefetch" href="/blog/assets/js/86.3050d700.js"><link rel="prefetch" href="/blog/assets/js/87.67d7c4e3.js"><link rel="prefetch" href="/blog/assets/js/88.4a3a4132.js"><link rel="prefetch" href="/blog/assets/js/89.861690de.js"><link rel="prefetch" href="/blog/assets/js/9.f2b8862e.js"><link rel="prefetch" href="/blog/assets/js/90.f1cdccba.js"><link rel="prefetch" href="/blog/assets/js/91.3abb6471.js"><link rel="prefetch" href="/blog/assets/js/92.66e441c7.js"><link rel="prefetch" href="/blog/assets/js/93.3ae60e73.js"><link rel="prefetch" href="/blog/assets/js/94.b6f4569f.js"><link rel="prefetch" href="/blog/assets/js/95.81abfad5.js"><link rel="prefetch" href="/blog/assets/js/96.eaafaf11.js"><link rel="prefetch" href="/blog/assets/js/97.f464844d.js"><link rel="prefetch" href="/blog/assets/js/98.5b594a5f.js"><link rel="prefetch" href="/blog/assets/js/99.8a12c6d2.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.76d42078.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/EB-logo.png" alt="CcbeanBlog" class="logo"> <span class="site-name can-hide">CcbeanBlog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://avatars.githubusercontent.com/u/16501284?v=4"> <div class="blogger-info"><h3>Ccbean</h3> <span>靡不有初，鲜克有终</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/blog/pages/d2c2b3/" class="sidebar-link">认识数据结构与算法</a></li><li><a href="/blog/pages/e422b9/" class="sidebar-link">数据结构与算法-数组</a></li><li><a href="/blog/pages/7e2173/" class="sidebar-link">数据结构与算法-栈</a></li><li><a href="/blog/pages/22d79a/" class="sidebar-link">数据结构与算法-队列</a></li><li><a href="/blog/pages/182ff8/" aria-current="page" class="active sidebar-link">数据结构与算法-链表</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/blog/pages/182ff8/#数组和链表" class="sidebar-link">数组和链表</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/182ff8/#数组" class="sidebar-link">数组</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/182ff8/#链表" class="sidebar-link">链表</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog/pages/182ff8/#单向链表" class="sidebar-link">单向链表</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/182ff8/#常见操作" class="sidebar-link">常见操作</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/182ff8/#封装" class="sidebar-link">封装</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/182ff8/#append-尾部添加节点" class="sidebar-link">append - 尾部添加节点</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/182ff8/#insert-任意位置插入节点" class="sidebar-link">insert - 任意位置插入节点</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/182ff8/#removeat-位置移除节点" class="sidebar-link">removeAt - 位置移除节点</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/182ff8/#indexof-获取节点位置" class="sidebar-link">indexOf - 获取节点位置</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/182ff8/#remove-根据元素删除节点" class="sidebar-link">remove - 根据元素删除节点</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/182ff8/#get-位置获取元素" class="sidebar-link">get - 位置获取元素</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/182ff8/#update-更新位置节点" class="sidebar-link">update - 更新位置节点</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/182ff8/#其它-isempty-size-tostring" class="sidebar-link">其它 - isEmpty size toString</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/182ff8/#完整实现" class="sidebar-link">完整实现</a></li></ul></li></ul></li><li><a href="/blog/pages/689217/" class="sidebar-link">数据结构与算法-双向链表</a></li><li><a href="/blog/pages/29a8d3/" class="sidebar-link">数据结构与算法-集合</a></li><li><a href="/blog/pages/529961/" class="sidebar-link">数据结构与算法-字典</a></li><li><a href="/blog/pages/c1778a/" class="sidebar-link">数据结构与算法-哈希表</a></li><li><a href="/blog/pages/698b1c/" class="sidebar-link">数据结构与算法-树</a></li><li><a href="/blog/pages/43a3be/" class="sidebar-link">数据结构与算法-二叉搜索树</a></li><li><a href="/blog/pages/a84937/" class="sidebar-link">数据结构与算法-红黑树（一）</a></li><li><a href="/blog/pages/2be117/" class="sidebar-link">数据结构与算法-红黑树（二）</a></li><li><a href="/blog/pages/fdcb4c/" class="sidebar-link">数据结构与算法-二叉堆</a></li><li><a href="/blog/pages/7a0cec/" class="sidebar-link">数据结构与算法-图</a></li><li><a href="/blog/pages/0c5a57/" class="sidebar-link">数据结构与算法-排序</a></li><li><a href="/blog/pages/38f11a/" class="sidebar-link">数据结构与算法-总结</a></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/blog/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/blog/categories/?category=JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95" title="分类" data-v-06225672>JavaScript数据结构与算法</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="https://github.com/ccbeango" target="_blank" title="作者" class="beLink" data-v-06225672>ccbean</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2021-12-17</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">数据结构与算法-链表<!----></h1>  <div class="theme-vdoing-content content__default"><h1 id="数据结构与算法-链表"><a href="#数据结构与算法-链表" class="header-anchor">#</a> 数据结构与算法-链表</h1> <p>链表和数组一样，可以用于存储一系列的元素，但是链表和数组的实现机制完全不同。</p> <h2 id="数组和链表"><a href="#数组和链表" class="header-anchor">#</a> 数组和链表</h2> <h3 id="数组"><a href="#数组" class="header-anchor">#</a> 数组</h3> <p>我们先来回顾下数组的特点：</p> <ul><li>存储多个元素，数组（或列表）可能是最常用的数据结构。</li> <li>几乎每一种编程语言都有默认实现数组结构，提供了一个便利的 <code>[]</code> 语法来访问数组元素。</li></ul> <p>但是数组存在一些缺点：</p> <ul><li>数组的创建需要申请一段连续的内存空间即一整块内存，并且大小是固定的，当前数组不能满足容量需求时，需要扩容。 一般情况下是申请一个更大的数组，比如 2 倍，然后将原数组中的元素复制过去，再添加新的元素。</li> <li>在数组开头或中间位置插入数据的成本很高，需要进行大量元素的位移。尽管我们已经学过的JavaScript的<code>Array</code>类方法可以帮我们做这些事，但背后的原理也是这样的。</li></ul> <h3 id="链表"><a href="#链表" class="header-anchor">#</a> 链表</h3> <p>存储多个元素，另外一个选择就是使用链表。接下来我们来看下链表。</p> <p>不同于数组，链表中的元素在内存中不必是连续的空间。链表的每个元素由一个存储元素本身的节点和一个指向下一个元素的引用(有些语言称为指针或连接)组成。</p> <p>链表的优点：</p> <ul><li>内存空间不必是连续的，可以充分利用计算机的内存，实现灵活的内存动态管理。</li> <li>链表不必在创建时就确定大小，并且大小可以无限延伸下去。</li> <li>链表在插入和删除数据时，时间复杂度可以达到O(1)，相对数组效率高很多。</li></ul> <p>链表的缺点：</p> <ul><li>访问任何一个位置的元素时，需要从头开始访问。无法跳过第一个元素访问任何一个元素。那么也就无法通过下标值直接访问元素，需要从头开始一个个访问，直到找到对应的元素。</li> <li>虽然可以轻松地到达下一个节点，但是回到前一个节点是很难的。</li></ul> <h2 id="单向链表"><a href="#单向链表" class="header-anchor">#</a> 单向链表</h2> <p>单向链表类似于火车，有一个火车头，火车头会连接一个节点，节点上有乘客，并且这个节点会连接下一个节点，以此类推。</p> <p>如下图所示</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A801.png" alt="链表01"></p> <p>那么，链表的数据结构会有一个<code>head</code>属性指向链表的第一个节点。链表中的最后一个节点指向<code>null</code>；当链表中一个节点也没有的时候，<code>head</code>就直接指向<code>null</code>。</p> <p>如下图所示</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A802.png" alt="链表02"></p> <p>加上数据后</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A803.png" alt="链表03"></p> <h3 id="常见操作"><a href="#常见操作" class="header-anchor">#</a> 常见操作</h3> <ul><li><code>append(element)</code> 向链表尾部添加一个新的元素。</li> <li><code>insert(position, element)</code> 向链表的特定位置插入一个新的元素。</li> <li><code>get(position)</code> 获取对应位置的元素。</li> <li><code>indexOf(element)</code> 返回元素在链表中的索引。如果链表中没有该元素就返回-1。</li> <li><code>update(position, element)</code> 修改某个位置的元素。</li> <li><code>removeAt(position)</code> 从链表的特定位置移除一项。</li> <li><code>remove(element)</code> 从链表中移除指定元素。</li> <li><code>isEmpty()</code> 如果链表中不包含任何元素，返回 trun，如果链表长度大于 0 则返回 false。</li> <li><code>size()</code> 返回链表包含的元素个数，与数组的 length 属性类似。</li> <li><code>toString()</code> 由于链表项使用了 Node 类，就需要重写继承自 JavaScript 对象默认的 toString 方法，让其只输出元素的值。</li></ul> <p>整体操作方法和数组类似，因为链表本身就是一种可以代替数组的结构。</p> <h3 id="封装"><a href="#封装" class="header-anchor">#</a> 封装</h3> <p>创建一个链表类，和链表中的节点类。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 链表节点</span>
+<span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>data <span class="token operator">=</span> element
+    <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 链表
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">LinkedList</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// head指向链表的第一个节点 初始为null</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token comment">// 初始链表的长度</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>接下来向<code>LinkedList</code>中扩展相关操作方法</p> <h4 id="append-尾部添加节点"><a href="#append-尾部添加节点" class="header-anchor">#</a> append - 尾部添加节点</h4> <p>向链表尾部添加一个新的节点</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 向链表尾部添加一个节点</span>
+<span class="token function">append</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 空链表</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> newNode
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// 链表非空</span>
+    <span class="token comment">// 保存找到的节点 从head开始</span>
+    <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+
+    <span class="token comment">// 遍历到最后一个节点</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>currentNode<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 最后一个节点 next 指向新增节点</span>
+    currentNode<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 链表长度加1</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>分析：</p> <ol><li><p>将传入element包装成一个Node</p></li> <li><p>判断链表，链表本身为空。如这种情况下我们插入了一个15作为元素。</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A84.png" alt="链表4"></p></li> <li><p>链表中已经有元素，需要向最后的节点的next中添加节点。</p> <ul><li>这个时候要向链表的尾部添加一个元素，首先我们需要找到这个尾部元素。</li> <li>我们只有第一个元素的引用，因此需要循环访问链表，直接找到最后一个项。</li> <li>找到最后一项后，最后一项的next为null，这时将其next指向新创建的节点即可。</li> <li>如再插入一个10作为元素，那么会线从head即15的节点开始查找，循环找到结尾，添加10到链尾。</li></ul> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A85.5i5muokc95s0.png" alt="链表5"></p></li></ol> <h4 id="insert-任意位置插入节点"><a href="#insert-任意位置插入节点" class="header-anchor">#</a> insert - 任意位置插入节点</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 向链表的特定位置插入一个节点 返回Boolean标识添加是否成功</span>
+<span class="token function">insert</span> <span class="token punctuation">(</span><span class="token parameter">position<span class="token punctuation">,</span> element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 越界处理</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> position <span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
+  <span class="token comment">// 新节点</span>
+  <span class="token keyword">const</span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 首位插入</span>
+    newNode<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+    <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> newNode
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 0 &lt; position &lt;= this.length 插入</span>
+    <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+    <span class="token keyword">let</span> previousNode <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      previousNode <span class="token operator">=</span> currentNode <span class="token comment">// 原position -1位置节点</span>
+      currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next <span class="token comment">// 原position位置节点</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 插入新的节点到position 即 改变原节点指向</span>
+    previousNode<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode
+    newNode<span class="token punctuation">.</span>next <span class="token operator">=</span> currentNode
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 链表长度加1</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>分析：</p> <ol><li><p>越界处理，如果越界则返回<code>false</code>，即添加失败。</p></li> <li><p>接着创建新节点newNode，如果是添加到首位，表示新添加的节点是head，就需要将原来的头节点作为新节点的next，然后head应该指向新节点</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A806.png" alt="链表06"></p></li> <li><p>如果新节点添加位置<code>0 &lt; position &lt;= length</code>，则遍历查找需要添加的节点位置，循环找到position位置的原节点<code>currentNode</code>以及原节点的上一个节点<code>previousNode</code>，将新节点的next指向下一个节点，将上一个节点的next指向新的节点。</p> <p>添加到末尾：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A807.png" alt="链表07"></p> <p>添加到中间位置：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A808.png" alt="链表08"></p></li> <li><p>最后链表长度加1，再返回<code>true</code>添加成功</p></li></ol> <h4 id="removeat-位置移除节点"><a href="#removeat-位置移除节点" class="header-anchor">#</a> removeAt - 位置移除节点</h4> <p>根据位置移除对应的节点，并返回移除节点的元素data</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 根据位置移除对应的节点 并返回被移除节点的数据</span>
+<span class="token function">removeAt</span> <span class="token punctuation">(</span><span class="token parameter">position</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> position <span class="token operator">&gt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">null</span>
+
+  <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 移除第一个节点</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> previousNode <span class="token operator">=</span> <span class="token keyword">null</span>
+
+    <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      previousNode <span class="token operator">=</span> currentNode <span class="token comment">// 原position -1位置节点</span>
+      currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next <span class="token comment">// 原position位置节点</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 将previousNode.next指向position + 1位置的Node</span>
+    previousNode<span class="token punctuation">.</span>next <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 链表长度减1</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">--</span>
+  <span class="token keyword">return</span> currentNode<span class="token punctuation">.</span>element
+<span class="token punctuation">}</span>
+</code></pre></div><p>分析：</p> <ol><li><p>越界处理，如果越界则返回<code>null</code>，即移除失败。 这里越界判断中的等于length也是越界的，因为下标值是从0开始的</p></li> <li><p>第一个节点移除，直接让head指向第二个节点即可；第一个节点没有引用指向，就在链表中不再有效，后面会被回收掉</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A809.png" alt="链表09"></p></li> <li><p>移除其它节点，与插入节点操作确定position逻辑相同，遍历查找需要添加的节点位置，循环找到position位置的原节点<code>currentNode</code>以及原节点的上一个节点<code>previousNode</code>，将上一项的next指向current项的next，这样中间的项就没有引用指向它，也就不再存在于链表后，会面会被回收掉。</p> <p>移除末尾节点</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A810.png" alt="链表10"></p> <p>移除中间节点</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages@master/JS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A811.png" alt="链表11"></p></li> <li><p>最后链表长度减1，再返回被移除的节点数据。</p></li></ol> <h4 id="indexof-获取节点位置"><a href="#indexof-获取节点位置" class="header-anchor">#</a> indexOf - 获取节点位置</h4> <p>获取节点在链表中的位置</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 获取节点在链表中的位置</span>
+<span class="token function">indexOf</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+
+  <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>currentNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>currentNode<span class="token punctuation">.</span>data <span class="token operator">===</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 找到节点 返回index</span>
+      <span class="token keyword">return</span> index
+    <span class="token punctuation">}</span>
+
+    currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+    i<span class="token operator">++</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 未找到 返回-1</span>
+  <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>分析：</p> <ol><li>通过while循环获取节点，通过节点获取data和传入data进行对比，如果和传入data相同，表示找到，直接返回index即可。</li> <li>如果没有找到，指向下一个节点，且<code>index++</code></li> <li>最后都没有找到，说明链表中没有对应的元素，那么返回-1即可</li></ol> <h4 id="remove-根据元素删除节点"><a href="#remove-根据元素删除节点" class="header-anchor">#</a> remove - 根据元素删除节点</h4> <p>根据数据移除对应的节点，并返回节点对应的元素data</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 根据元素删除节点</span>
+<span class="token function">remove</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> index <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeAt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>分析：</p> <ol><li><code>indexOf(data)</code> 获取元素所在位置</li> <li><code>removeAt</code> 根据位置移除元素</li></ol> <h4 id="get-位置获取元素"><a href="#get-位置获取元素" class="header-anchor">#</a> get - 位置获取元素</h4> <p>根据位置获取元素</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 根据位置获取元素</span>
+<span class="token function">get</span> <span class="token punctuation">(</span>position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 越界处理</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> position <span class="token operator">&gt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">null</span>
+
+  <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+  <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> currentNode<span class="token punctuation">.</span>data
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="update-更新位置节点"><a href="#update-更新位置节点" class="header-anchor">#</a> update - 更新位置节点</h4> <p>更新链表对应位置的节点，并返回更新后的节点</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 更新节点 并返回更新后的节点</span>
+<span class="token function">update</span> <span class="token punctuation">(</span><span class="token parameter">position<span class="token punctuation">,</span> element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 越界处理</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> position <span class="token operator">&gt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
+
+  <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+
+  <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 更新position位置的element</span>
+  currentNode<span class="token punctuation">.</span>element <span class="token operator">=</span> element
+
+  <span class="token keyword">return</span> currentNode
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="其它-isempty-size-tostring"><a href="#其它-isempty-size-tostring" class="header-anchor">#</a> 其它 - isEmpty size toString</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 判断链表是否为空</span>
+<span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 获取链表的长度</span>
+<span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 以字符串形式返回链表内元素节点</span>
+<span class="token function">toString</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+  <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token string">''</span>
+  <span class="token comment">// 遍历所有节点</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>currentNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    result <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>currentNode<span class="token punctuation">.</span>element<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token template-punctuation string">`</span></span>
+
+    currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+</code></pre></div><p>分析：</p> <ol><li><code>toString()</code>从head开始，因为获取链表的任何元素都必须从第一个节点开头，循环遍历每一个节点，并且取出其中的element，拼接成字符串。</li></ol> <h3 id="完整实现"><a href="#完整实现" class="header-anchor">#</a> 完整实现</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 链表节点</span>
+<span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>element <span class="token operator">=</span> element
+    <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 链表
+ */</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token class-name">LinkedList</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// head指向链表的第一个节点 初始为null</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token comment">// 初始链表的长度</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 向链表尾部添加一个节点</span>
+  <span class="token function">append</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 空链表</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> newNode
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// 链表非空</span>
+      <span class="token comment">// 保存找到的节点 从head开始</span>
+      <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+
+      <span class="token comment">// 遍历到最后一个节点</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>currentNode<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">// 最后一个节点 next 指向新增节点</span>
+      currentNode<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 链表长度加1</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 向链表的特定位置插入一个节点 返回Boolean标识添加是否成功</span>
+  <span class="token function">insert</span> <span class="token punctuation">(</span><span class="token parameter">position<span class="token punctuation">,</span> element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 越界处理</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> position <span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token comment">// 新节点</span>
+    <span class="token keyword">const</span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 首位插入</span>
+      newNode<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+      <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> newNode
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 0 &lt; position &lt;= this.length 插入</span>
+      <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+      <span class="token keyword">let</span> previousNode <span class="token operator">=</span> <span class="token keyword">null</span>
+      <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        previousNode <span class="token operator">=</span> currentNode <span class="token comment">// 原position -1位置节点</span>
+        currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next <span class="token comment">// 原position位置节点</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// 插入新的节点到position 即 改变原节点指向</span>
+      previousNode<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode
+      newNode<span class="token punctuation">.</span>next <span class="token operator">=</span> currentNode
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 链表长度加1</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 根据位置获取元素</span>
+  <span class="token function">get</span> <span class="token punctuation">(</span>position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 越界处理</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> position <span class="token operator">&gt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">null</span>
+
+    <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> currentNode<span class="token punctuation">.</span>element
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 根据位置移除对应的节点 并返回被移除节点的数据</span>
+  <span class="token function">removeAt</span> <span class="token punctuation">(</span><span class="token parameter">position</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> position <span class="token operator">&gt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">null</span>
+
+    <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 移除第一个节点</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> previousNode <span class="token operator">=</span> <span class="token keyword">null</span>
+
+      <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        previousNode <span class="token operator">=</span> currentNode <span class="token comment">// 原position -1位置节点</span>
+        currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next <span class="token comment">// 原position位置节点</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// 将previousNode.next指向position + 1位置的Node</span>
+      previousNode<span class="token punctuation">.</span>next <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 链表长度减1</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">--</span>
+    <span class="token keyword">return</span> currentNode<span class="token punctuation">.</span>element
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 获取节点在链表中的位置</span>
+  <span class="token function">indexOf</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>currentNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>currentNode<span class="token punctuation">.</span>element <span class="token operator">===</span> element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 找到节点 返回index</span>
+        <span class="token keyword">return</span> index
+      <span class="token punctuation">}</span>
+
+      currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+      index<span class="token operator">++</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 未找到 返回-1</span>
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 根据元素删除节点</span>
+  <span class="token function">remove</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> index <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeAt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 更新节点 并返回更新后的节点</span>
+  <span class="token function">update</span> <span class="token punctuation">(</span><span class="token parameter">position<span class="token punctuation">,</span> element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 越界处理</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> position <span class="token operator">&gt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
+
+    <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 更新position位置的element</span>
+    currentNode<span class="token punctuation">.</span>element <span class="token operator">=</span> element
+
+    <span class="token keyword">return</span> currentNode
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 判断链表是否为空</span>
+  <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 获取链表的长度</span>
+  <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 以字符串形式返回链表内元素节点</span>
+  <span class="token function">toString</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> currentNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+    <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token comment">// 遍历所有节点</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>currentNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      result <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>currentNode<span class="token punctuation">.</span>element<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token template-punctuation string">`</span></span>
+
+      currentNode <span class="token operator">=</span> currentNode<span class="token punctuation">.</span>next
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> result
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>测试</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> LinkedList <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../../lib/LinkedList'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> linkedList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// append</span>
+linkedList<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'15'</span><span class="token punctuation">)</span>
+linkedList<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'10'</span><span class="token punctuation">)</span>
+linkedList<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'5'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'linkedList'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">)</span>
+<span class="token comment">// linkedList LinkedList {</span>
+<span class="token comment">//   head: Node {</span>
+<span class="token comment">//     data: '15',</span>
+<span class="token comment">//     next: Node {</span>
+<span class="token comment">//       data: '10',</span>
+<span class="token comment">//       next: Node {</span>
+<span class="token comment">//         data: '5',</span>
+<span class="token comment">//         next: null</span>
+<span class="token comment">//       } </span>
+<span class="token comment">//     } </span>
+<span class="token comment">//   },</span>
+<span class="token comment">//   length: 3</span>
+<span class="token comment">// }</span>
+
+<span class="token comment">// insert</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'insert'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'14'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'insert'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'9'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'insert'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">'4'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'insert'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'-1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// indexOf</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'indexOf'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'5'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'indexOf'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'100'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// get</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 测试 update 方法</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'100'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'90'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// removeAt</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'removeAt'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">removeAt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'removeAt'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">removeAt</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'removeAt'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">removeAt</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'removeAt'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">removeAt</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// remove</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'remove'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'5'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'remove'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 测试 isEmpty 方法</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'isEmpty'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 测试 size 方法</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'size'</span><span class="token punctuation">,</span> linkedList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div></div></div>  <div class="page-edit"><div class="edit-link"><a href="https://github.com/ccbeango/blog/edit/master/docs/JavaScript数据结构与算法/05.数据结构与算法-链表.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/12/21, 17:36:40</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/blog/pages/22d79a/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">数据结构与算法-队列</div></a> <a href="/blog/pages/689217/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">数据结构与算法-双向链表</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/pages/22d79a/" class="prev">数据结构与算法-队列</a></span> <span class="next"><a href="/blog/pages/689217/">数据结构与算法-双向链表</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/blog/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/blog/pages/78ad41/"><div>
+            阅读精通正则表达式总结
+            <!----></div></a> <span class="date">09-29</span></dt></dl><dl><dd>02</dd> <dt><a href="/blog/pages/1e1cbc/"><div>
+            项目搭建规范的配置
+            <!----></div></a> <span class="date">07-15</span></dt></dl><dl><dd>03</dd> <dt><a href="/blog/pages/4c97eb/"><div>
+            Vite的使用
+            <!----></div></a> <span class="date">07-03</span></dt></dl> <dl><dd></dd> <dt><a href="/blog/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="liuyh940@gamil.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/ccbeango" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://space.bilibili.com/316494239" title="Bilibili" target="_blank" class="iconfont icon-bilibili"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2018-2023
+    <span>Ccbeango</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.0ed7b280.js" defer></script><script src="/blog/assets/js/2.7308dfd9.js" defer></script><script src="/blog/assets/js/72.035b6ee2.js" defer></script>
+  </body>
+</html>

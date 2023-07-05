@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux下搭建LNMP环境 | CcbeanBlog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/blog/img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <meta name="description" content="web技术博客,简洁至上。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,NodeJS,Node,Node.js,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,react,css3,html5,git,github,markdown">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.76d42078.css" as="style"><link rel="preload" href="/blog/assets/js/app.0ed7b280.js" as="script"><link rel="preload" href="/blog/assets/js/2.7308dfd9.js" as="script"><link rel="preload" href="/blog/assets/js/45.1bfb7eee.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.166b2ca6.js"><link rel="prefetch" href="/blog/assets/js/100.194e839b.js"><link rel="prefetch" href="/blog/assets/js/101.0db39944.js"><link rel="prefetch" href="/blog/assets/js/102.e13c8470.js"><link rel="prefetch" href="/blog/assets/js/103.0ae2f2ee.js"><link rel="prefetch" href="/blog/assets/js/104.a261556e.js"><link rel="prefetch" href="/blog/assets/js/105.4d458a5f.js"><link rel="prefetch" href="/blog/assets/js/106.6d2f15cf.js"><link rel="prefetch" href="/blog/assets/js/107.a770982a.js"><link rel="prefetch" href="/blog/assets/js/108.0be9ce8f.js"><link rel="prefetch" href="/blog/assets/js/109.88d01e84.js"><link rel="prefetch" href="/blog/assets/js/11.faae5f41.js"><link rel="prefetch" href="/blog/assets/js/110.d3186629.js"><link rel="prefetch" href="/blog/assets/js/111.37d2b500.js"><link rel="prefetch" href="/blog/assets/js/112.d94648de.js"><link rel="prefetch" href="/blog/assets/js/113.a7cf5597.js"><link rel="prefetch" href="/blog/assets/js/114.a339354f.js"><link rel="prefetch" href="/blog/assets/js/115.597976cc.js"><link rel="prefetch" href="/blog/assets/js/116.c64f1f49.js"><link rel="prefetch" href="/blog/assets/js/117.bbbbb20b.js"><link rel="prefetch" href="/blog/assets/js/118.c9ba24ea.js"><link rel="prefetch" href="/blog/assets/js/119.25208df7.js"><link rel="prefetch" href="/blog/assets/js/12.782cd676.js"><link rel="prefetch" href="/blog/assets/js/120.2e0a20ad.js"><link rel="prefetch" href="/blog/assets/js/121.7bb8f6f5.js"><link rel="prefetch" href="/blog/assets/js/122.562fe94b.js"><link rel="prefetch" href="/blog/assets/js/123.9562f569.js"><link rel="prefetch" href="/blog/assets/js/124.fd67828f.js"><link rel="prefetch" href="/blog/assets/js/125.3262b310.js"><link rel="prefetch" href="/blog/assets/js/126.c6f106af.js"><link rel="prefetch" href="/blog/assets/js/127.4b7016d1.js"><link rel="prefetch" href="/blog/assets/js/128.b3ac8038.js"><link rel="prefetch" href="/blog/assets/js/129.3ef9af3d.js"><link rel="prefetch" href="/blog/assets/js/13.508b65ad.js"><link rel="prefetch" href="/blog/assets/js/130.4b925feb.js"><link rel="prefetch" href="/blog/assets/js/131.37cb5d18.js"><link rel="prefetch" href="/blog/assets/js/132.76026f1f.js"><link rel="prefetch" href="/blog/assets/js/133.5d3d2938.js"><link rel="prefetch" href="/blog/assets/js/134.89b4fe3b.js"><link rel="prefetch" href="/blog/assets/js/135.dd2731dc.js"><link rel="prefetch" href="/blog/assets/js/136.e5cacc53.js"><link rel="prefetch" href="/blog/assets/js/137.39282e0b.js"><link rel="prefetch" href="/blog/assets/js/138.b3801697.js"><link rel="prefetch" href="/blog/assets/js/14.88ac5afd.js"><link rel="prefetch" href="/blog/assets/js/15.b4227c88.js"><link rel="prefetch" href="/blog/assets/js/16.98d2ae02.js"><link rel="prefetch" href="/blog/assets/js/17.6f25717f.js"><link rel="prefetch" href="/blog/assets/js/18.ae934359.js"><link rel="prefetch" href="/blog/assets/js/19.ffe2dcb2.js"><link rel="prefetch" href="/blog/assets/js/20.2c614eab.js"><link rel="prefetch" href="/blog/assets/js/21.4b7f3180.js"><link rel="prefetch" href="/blog/assets/js/22.03f8def7.js"><link rel="prefetch" href="/blog/assets/js/23.861aebfe.js"><link rel="prefetch" href="/blog/assets/js/24.e842cb60.js"><link rel="prefetch" href="/blog/assets/js/25.5685dfd1.js"><link rel="prefetch" href="/blog/assets/js/26.9487cf2a.js"><link rel="prefetch" href="/blog/assets/js/27.cd3b98f4.js"><link rel="prefetch" href="/blog/assets/js/28.1010db9b.js"><link rel="prefetch" href="/blog/assets/js/29.cff77b90.js"><link rel="prefetch" href="/blog/assets/js/3.b0a270e2.js"><link rel="prefetch" href="/blog/assets/js/30.d9d88b77.js"><link rel="prefetch" href="/blog/assets/js/31.4c816fae.js"><link rel="prefetch" href="/blog/assets/js/32.c414f2c2.js"><link rel="prefetch" href="/blog/assets/js/33.cae1fde7.js"><link rel="prefetch" href="/blog/assets/js/34.c149f32c.js"><link rel="prefetch" href="/blog/assets/js/35.36ce97e5.js"><link rel="prefetch" href="/blog/assets/js/36.b7c514b6.js"><link rel="prefetch" href="/blog/assets/js/37.d9459ed5.js"><link rel="prefetch" href="/blog/assets/js/38.84d4e80e.js"><link rel="prefetch" href="/blog/assets/js/39.21769d8b.js"><link rel="prefetch" href="/blog/assets/js/4.1de495bd.js"><link rel="prefetch" href="/blog/assets/js/40.ba8b2c33.js"><link rel="prefetch" href="/blog/assets/js/41.dbc723df.js"><link rel="prefetch" href="/blog/assets/js/42.6d7ee2ec.js"><link rel="prefetch" href="/blog/assets/js/43.3065c2de.js"><link rel="prefetch" href="/blog/assets/js/44.95652c6b.js"><link rel="prefetch" href="/blog/assets/js/46.21f42bfd.js"><link rel="prefetch" href="/blog/assets/js/47.5cf0a7f8.js"><link rel="prefetch" href="/blog/assets/js/48.80e7bcba.js"><link rel="prefetch" href="/blog/assets/js/49.75bf925a.js"><link rel="prefetch" href="/blog/assets/js/5.7e93193d.js"><link rel="prefetch" href="/blog/assets/js/50.1a08250f.js"><link rel="prefetch" href="/blog/assets/js/51.63d67d9a.js"><link rel="prefetch" href="/blog/assets/js/52.4527b3c2.js"><link rel="prefetch" href="/blog/assets/js/53.928eb7b1.js"><link rel="prefetch" href="/blog/assets/js/54.b2c8392c.js"><link rel="prefetch" href="/blog/assets/js/55.84f7c241.js"><link rel="prefetch" href="/blog/assets/js/56.6773809d.js"><link rel="prefetch" href="/blog/assets/js/57.aed02421.js"><link rel="prefetch" href="/blog/assets/js/58.16532c6b.js"><link rel="prefetch" href="/blog/assets/js/59.43238c8c.js"><link rel="prefetch" href="/blog/assets/js/6.d42d0f48.js"><link rel="prefetch" href="/blog/assets/js/60.d868f9ec.js"><link rel="prefetch" href="/blog/assets/js/61.8bc02b72.js"><link rel="prefetch" href="/blog/assets/js/62.83e6c8d0.js"><link rel="prefetch" href="/blog/assets/js/63.ade81187.js"><link rel="prefetch" href="/blog/assets/js/64.cc73a529.js"><link rel="prefetch" href="/blog/assets/js/65.d002206a.js"><link rel="prefetch" href="/blog/assets/js/66.f0665b6d.js"><link rel="prefetch" href="/blog/assets/js/67.11c613ec.js"><link rel="prefetch" href="/blog/assets/js/68.8e2479dd.js"><link rel="prefetch" href="/blog/assets/js/69.02772367.js"><link rel="prefetch" href="/blog/assets/js/7.2b3bcb3f.js"><link rel="prefetch" href="/blog/assets/js/70.3545ebb5.js"><link rel="prefetch" href="/blog/assets/js/71.b7c76516.js"><link rel="prefetch" href="/blog/assets/js/72.035b6ee2.js"><link rel="prefetch" href="/blog/assets/js/73.9feda52a.js"><link rel="prefetch" href="/blog/assets/js/74.d62cf235.js"><link rel="prefetch" href="/blog/assets/js/75.db2ada7c.js"><link rel="prefetch" href="/blog/assets/js/76.8569647d.js"><link rel="prefetch" href="/blog/assets/js/77.ebb5e006.js"><link rel="prefetch" href="/blog/assets/js/78.463a3566.js"><link rel="prefetch" href="/blog/assets/js/79.25bf57ea.js"><link rel="prefetch" href="/blog/assets/js/8.3cf902c7.js"><link rel="prefetch" href="/blog/assets/js/80.4d3043a3.js"><link rel="prefetch" href="/blog/assets/js/81.e6ac7aff.js"><link rel="prefetch" href="/blog/assets/js/82.39390874.js"><link rel="prefetch" href="/blog/assets/js/83.52a99a2b.js"><link rel="prefetch" href="/blog/assets/js/84.4efad80d.js"><link rel="prefetch" href="/blog/assets/js/85.dce1dc90.js"><link rel="prefetch" href="/blog/assets/js/86.3050d700.js"><link rel="prefetch" href="/blog/assets/js/87.67d7c4e3.js"><link rel="prefetch" href="/blog/assets/js/88.4a3a4132.js"><link rel="prefetch" href="/blog/assets/js/89.861690de.js"><link rel="prefetch" href="/blog/assets/js/9.f2b8862e.js"><link rel="prefetch" href="/blog/assets/js/90.f1cdccba.js"><link rel="prefetch" href="/blog/assets/js/91.3abb6471.js"><link rel="prefetch" href="/blog/assets/js/92.66e441c7.js"><link rel="prefetch" href="/blog/assets/js/93.3ae60e73.js"><link rel="prefetch" href="/blog/assets/js/94.b6f4569f.js"><link rel="prefetch" href="/blog/assets/js/95.81abfad5.js"><link rel="prefetch" href="/blog/assets/js/96.eaafaf11.js"><link rel="prefetch" href="/blog/assets/js/97.f464844d.js"><link rel="prefetch" href="/blog/assets/js/98.5b594a5f.js"><link rel="prefetch" href="/blog/assets/js/99.8a12c6d2.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.76d42078.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/EB-logo.png" alt="CcbeanBlog" class="logo"> <span class="site-name can-hide">CcbeanBlog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://avatars.githubusercontent.com/u/16501284?v=4"> <div class="blogger-info"><h3>Ccbean</h3> <span>靡不有初，鲜克有终</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Linux</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/pages/4db4cb/" class="sidebar-link">Linux系统目录结构</a></li><li><a href="/blog/pages/1dd124/" class="sidebar-link">Linux下安装phpMyAdmin</a></li><li><a href="/blog/pages/f7f52a/" aria-current="page" class="active sidebar-link">Linux下搭建LNMP环境</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/blog/pages/f7f52a/#一、安装php" class="sidebar-link">一、安装PHP</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_1-安装php的必要依赖" class="sidebar-link">1. 安装php的必要依赖</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_2-获取安装包" class="sidebar-link">2.获取安装包</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_3-配置安装变量" class="sidebar-link">3.配置安装变量</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog/pages/f7f52a/#二、安装nginx" class="sidebar-link">二、安装Nginx</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_1-官网上下载nginx-并安装依赖" class="sidebar-link">1.官网上下载Nginx，并安装依赖</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_2-安装" class="sidebar-link">2.安装</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_3-访问" class="sidebar-link">3.访问</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_4-配置nginx" class="sidebar-link">4.配置Nginx</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_5-测试" class="sidebar-link">5.测试</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_6-配置nginx全局变量" class="sidebar-link">6.配置Nginx全局变量</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog/pages/f7f52a/#三、安装mysql" class="sidebar-link">三、安装Mysql</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_1-安装必要依赖" class="sidebar-link">1.安装必要依赖</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_2-官网上下载mysql" class="sidebar-link">2.官网上下载mysql</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_3、编译" class="sidebar-link">3、编译</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_4-修改配置文件" class="sidebar-link">4.修改配置文件</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_5-创建用户-修改所属关系" class="sidebar-link">5.创建用户，修改所属关系</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_6-初始化mysql" class="sidebar-link">6.初始化mysql</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_7-规划启动脚本" class="sidebar-link">7.规划启动脚本</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f7f52a/#_8-启动服务-构建数据库账户信息" class="sidebar-link">8.启动服务，构建数据库账户信息</a></li></ul></li></ul></li><li><a href="/blog/pages/688f50/" class="sidebar-link">小视频笔记（一）</a></li><li><a href="/blog/pages/443d99/" class="sidebar-link">小视频笔记（二）</a></li><li><a href="/blog/pages/fb6e6e/" class="sidebar-link">小视频笔记（三）</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>小技巧</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>杂记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>系列笔记</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/blog/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/blog/more/#更多" data-v-06225672>更多</a></li><li data-v-06225672><a href="/blog/more/#Linux" data-v-06225672>Linux</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="https://github.com/ccbeango" target="_blank" title="作者" class="beLink" data-v-06225672>ccbean</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2018-03-02</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">Linux下搭建LNMP环境<!----></h1>  <div class="theme-vdoing-content content__default"><h1 id="linux下搭建lnmp环境"><a href="#linux下搭建lnmp环境" class="header-anchor">#</a> Linux下搭建LNMP环境</h1> <p><strong>装环境之前，首先配置好yum源</strong></p> <h2 id="一、安装php"><a href="#一、安装php" class="header-anchor">#</a> 一、安装PHP</h2> <h3 id="_1-安装php的必要依赖"><a href="#_1-安装php的必要依赖" class="header-anchor">#</a> 1. 安装php的必要依赖</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc gcc-c++ openssl openssl-devel bzip2-devel libxslt libxslt-devel libmcrypt libmcrypt-devel libxml2 libxml2-devel autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel  zlib zlib-devel glibc glibc-devel glib2 glib2-devel
+</code></pre></div> <h3 id="_2-获取安装包"><a href="#_2-获取安装包" class="header-anchor">#</a> 2.获取安装包</h3> <p>官网上下载需要的包，解压进入解压目录。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> php-7.0.22.tar.gz
+<span class="token builtin class-name">cd</span> php-7.0.22
+</code></pre></div><h3 id="_3-配置安装变量"><a href="#_3-配置安装变量" class="header-anchor">#</a> 3.配置安装变量</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>./configure <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/usr/local/php  --enable-fpm  --enable-mysqlnd --with-mysqli<span class="token operator">=</span>mysqlnd --with-pdo-mysql<span class="token operator">=</span>mysqlnd --with-iconv-dir --with-freetype-dir<span class="token operator">=</span>/usr/local/freetype --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir<span class="token operator">=</span>/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --enable-intl --with-mcrypt --enable-ftp --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --with-gettext --enable-fileinfo --enable-opcache --with-xsl --with-xpm-dir<span class="token operator">=</span>/usr
+</code></pre></div><p><code>--with-fpm-user=admin --with-fpm-group=admin</code> 如果需要设置php-fpm的用户和用户组，加上这个 不用的话别加，要不然后面启动的时候会报错</p> <blockquote><p>ERROR: [pool www] cannot get uid for user 'admin'</p> <p>ERROR: FPM initialization failed</p></blockquote> <p>此时，找到php-fpm的配置文件修改user=nobody group=nobody 如果谁都可以启的话</p> <p>报错：</p> <blockquote><p>configure: error: mcrypt.h not found. Please reinstall libmcrypt.</p></blockquote> <p>解决： <code>yum install libmcrypt-devel -y</code></p> <p>==./configure 作用： 软件配置与检查==</p> <ul><li>定义需要的功能选项</li> <li>检测系统环境是否符合安装要求</li> <li>把定义好的功能选项和检测系统环境的信息都写入Makefile文件，用于后续的编辑</li></ul> <p>配置安装变量时提示：</p> <p>​	No package libmcrypt available.</p> <p>​	No package libmcrypt-devel available.</p> <p>之前安装依赖时候，安装过这个两个包，但是yum源中没有这两个包，更新yum源</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token parameter variable">-y</span> upgrade
+
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> epel-release  //扩展包更新包
+
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> libmcrypt libmcrypt-devel  // 重新安装这两个包
+
+</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/Linux/Linux%E4%B8%8B%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%8301.jpeg" alt="Linux下搭建LNMP环境"></p> <p>安装成功。</p> <p>重新执行 ./configure</p> <p>出现 <strong>Thank you for using PHP</strong>.</p> <p>###4.进行make操作</p> <p>编译会花费一些时间，耐心等待即可。编译完成的最后会提示你执行make test命令。就是对上一步 make 的检查，要确保 make 是没有错误的，也就是这一步的 test、check要全部是 OK 的，error 为0。</p> <p>###5.安装</p> <p>make install</p> <p>###6.配置PHP</p> <p>将PHP源码包中的<code>php.ini-development</code>文件复制到<code>/usr/local/php/</code>下，更名为<code>php.ini</code>。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">cp</span> /usr/local/src/php-7.0.22/php.ini-development /usr/local/php/php.ini
+
+<span class="token function">cp</span> /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
+
+<span class="token function">cp</span> /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
+</code></pre></div><p>配置php.ini   <code>cgi.fix_pathinfo=0</code></p> <p>####启动php-fpm服务：</p> <div class="language- extra-class"><pre class="language-text"><code>/usr/local/php/sbin/php-fpm
+</code></pre></div><p><strong>设置php-fpm开机自启</strong></p> <ol><li><p>创建脚本文件</p> <div class="language- extra-class"><pre class="language-text"><code>vi  /etc/init.d/php-fpm
+</code></pre></div></li> <li><p>写入脚本并保存退出</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token shebang important">#!/bin/sh</span>
+       <span class="token comment">#</span>
+       <span class="token comment"># php-fpm - this script starts and stops the php-fpm daemin</span>
+       <span class="token comment">#</span>
+       <span class="token comment"># chkconfig: - 85 15</span>
+       <span class="token comment"># processname: php-fpm</span>
+       <span class="token comment"># config:      /usr/local/php/etc/php-fpm.conf</span>
+
+       <span class="token builtin class-name">set</span> <span class="token parameter variable">-e</span>
+
+       <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span>/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+       <span class="token assign-left variable">DESC</span><span class="token operator">=</span><span class="token string">&quot;php-fpm daemon&quot;</span>
+       <span class="token assign-left variable">NAME</span><span class="token operator">=</span>php-fpm
+       <span class="token assign-left variable">DAEMON</span><span class="token operator">=</span>/usr/local/php/sbin/<span class="token variable">$NAME</span>     
+       <span class="token assign-left variable">CONFIGFILE</span><span class="token operator">=</span>/usr/local/php/etc/php-fpm.conf   
+       <span class="token assign-left variable">PIDFILE</span><span class="token operator">=</span>/usr/local/php/var/run/<span class="token variable">$NAME</span>.pid   
+       <span class="token assign-left variable">SCRIPTNAME</span><span class="token operator">=</span>/etc/init.d/<span class="token variable">$NAME</span>  
+       
+       <span class="token comment"># If the daemon file is not found, terminate the script.</span>
+       <span class="token builtin class-name">test</span> <span class="token parameter variable">-x</span> <span class="token variable">$DAEMON</span> <span class="token operator">||</span> <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+
+       <span class="token function-name function">d_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+           <span class="token variable">$DAEMON</span> <span class="token parameter variable">-y</span> <span class="token variable">$CONFIGFILE</span> <span class="token operator">||</span> <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot; already running&quot;</span>
+       <span class="token punctuation">}</span>
+
+       <span class="token function-name function">d_stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+           <span class="token function">kill</span> <span class="token parameter variable">-QUIT</span> <span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> $PIDFILE<span class="token variable">`</span></span> <span class="token operator">||</span> <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot; no running&quot;</span>
+       <span class="token punctuation">}</span>
+
+       <span class="token function-name function">d_reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+           <span class="token function">kill</span> <span class="token parameter variable">-HUP</span> <span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> $PIDFILE<span class="token variable">`</span></span> <span class="token operator">||</span> <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot; could not reload&quot;</span>
+       <span class="token punctuation">}</span>
+
+       <span class="token keyword">case</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token keyword">in</span>
+           start<span class="token punctuation">)</span>
+               <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;Starting <span class="token variable">$DESC</span>: <span class="token variable">$NAME</span>&quot;</span>
+               d_start
+               <span class="token builtin class-name">echo</span> <span class="token string">&quot;.&quot;</span>
+               <span class="token punctuation">;</span><span class="token punctuation">;</span>
+           stop<span class="token punctuation">)</span>
+               <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;Stopping <span class="token variable">$DESC</span>: <span class="token variable">$NAME</span>&quot;</span>
+               d_stop
+               <span class="token builtin class-name">echo</span> <span class="token string">&quot;.&quot;</span>
+               <span class="token punctuation">;</span><span class="token punctuation">;</span>
+           reload<span class="token punctuation">)</span>
+               <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;Reloading <span class="token variable">$DESC</span> configuration...&quot;</span>
+               d_reload
+               <span class="token builtin class-name">echo</span> <span class="token string">&quot;Reloaded.&quot;</span>
+               <span class="token punctuation">;</span><span class="token punctuation">;</span>
+           restart<span class="token punctuation">)</span>
+               <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;Restarting <span class="token variable">$DESC</span>: <span class="token variable">$NAME</span>&quot;</span>
+               d_stop
+               <span class="token comment"># Sleep for two seconds before starting again, this should give the nginx daemon some time to perform a graceful stop</span>
+               <span class="token function">sleep</span> <span class="token number">2</span>
+               d_start
+               <span class="token builtin class-name">echo</span> <span class="token string">&quot;.&quot;</span>
+               <span class="token punctuation">;</span><span class="token punctuation">;</span>
+           *<span class="token punctuation">)</span>
+               <span class="token builtin class-name">echo</span> <span class="token string">&quot;Usage: <span class="token variable">$SCRIPTNAME</span> {start|stop|restart|force-reload)&quot;</span> <span class="token operator">&gt;</span><span class="token file-descriptor important">&amp;2</span>
+               <span class="token builtin class-name">exit</span> <span class="token number">3</span>
+               <span class="token punctuation">;</span><span class="token punctuation">;</span>
+       <span class="token keyword">esac</span>
+       <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+</code></pre></div></li> <li><p>修改权限</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">chmod</span> a+x php-fpm
+</code></pre></div></li> <li><p>测试并设置开机自启</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ /etc/init.d/php-fpm <span class="token parameter variable">--help</span>
+
+   Usage: /etc/init.d/php-fpm <span class="token punctuation">{</span>start<span class="token operator">|</span>stop<span class="token operator">|</span>restart<span class="token operator">|</span>force-reload<span class="token punctuation">)</span>
+
+$ <span class="token function">chkconfig</span> php-fpm on    
+</code></pre></div></li></ol> <h2 id="二、安装nginx"><a href="#二、安装nginx" class="header-anchor">#</a> 二、安装Nginx</h2> <h3 id="_1-官网上下载nginx-并安装依赖"><a href="#_1-官网上下载nginx-并安装依赖" class="header-anchor">#</a> 1.官网上下载Nginx，并安装依赖</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc pcre-devel zlib-devel openssl openssl-devel 
+</code></pre></div><h3 id="_2-安装"><a href="#_2-安装" class="header-anchor">#</a> 2.安装</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## 解压</span>
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> nginx-1.9.9.tar.gz
+<span class="token comment">##进入nginx目录</span>
+<span class="token builtin class-name">cd</span> nginx-1.9.9
+<span class="token comment">## 配置</span>
+./configure <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/usr/local/nginx
+<span class="token comment"># make</span>
+<span class="token function">make</span>
+<span class="token function">make</span> <span class="token function">install</span>
+
+<span class="token comment"># cd到刚才配置的安装目录/usr/loca/nginx/</span>
+./sbin/nginx <span class="token parameter variable">-t</span>
+
+提示成功
+nginx: the configuration <span class="token function">file</span> /usr/local/nginx/conf/nginx.conf syntax is ok
+nginx: configuration <span class="token function">file</span> /usr/local/nginx/conf/nginx.conf <span class="token builtin class-name">test</span> is successful
+</code></pre></div><h3 id="_3-访问"><a href="#_3-访问" class="header-anchor">#</a> 3.访问</h3> <p>浏览器中访问ip，网页没有任何显示，是防火墙，80端口没开，开启80端口</p> <div class="language-shell extra-class"><pre class="language-shell"><code>/sbin/iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">80</span> <span class="token parameter variable">-j</span> ACCEPT
+/etc/rc.d/init.d/iptables save
+/etc/init.d/iptables restart
+</code></pre></div><p>再访问就正常了。</p> <h3 id="_4-配置nginx"><a href="#_4-配置nginx" class="header-anchor">#</a> 4.配置Nginx</h3> <p>编辑nginx配置文件/usr/local/nginx/conf/nginx.conf，主要修改nginx的server {}配置块中的内容，修改location块，追加index.php让nginx服务器默认支持index.php为首页：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/Linux/Linux%E4%B8%8B%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%8303.png" alt=""></p> <p>打开php配置模块：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/Linux/Linux%E4%B8%8B%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%8304.png" alt=""></p> <p>这里面很多都是默认的，<code>root</code>是配置php程序放置的根目录，主要修改的就是<code>fastcgi_param</code>中的<code>/scripts</code>为<code>$document_root</code></p> <p>修改完这些保存并退出，然后重启nginx:</p> <div class="language-shell extra-class"><pre class="language-shell"><code>/usr/local/nginx/sbin/nginx <span class="token parameter variable">-s</span> reload
+</code></pre></div><h3 id="_5-测试"><a href="#_5-测试" class="header-anchor">#</a> 5.测试</h3> <p>创建index.php：</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+    <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?&gt;</span></span>
+</code></pre></div><p>访问：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/Linux/Linux%E4%B8%8B%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%8305.png" alt=""></p> <h3 id="_6-配置nginx全局变量"><a href="#_6-配置nginx全局变量" class="header-anchor">#</a> 6.配置Nginx全局变量</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 在linux系统的/etc/init.d/目录下创建nginx文件</span>
+<span class="token function">vim</span> /etc/init.d/nginx
+</code></pre></div><p>在文件中添加如下脚本，自定义安装的话：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">nginx</span><span class="token operator">=</span>”/usr/sbin/nginx”                         <span class="token comment">#修改成nginx执行程序的路径。</span>
+<span class="token assign-left variable">NGINX_CONF_FILE</span><span class="token operator">=</span>”/etc/nginx/nginx.conf”         <span class="token comment">#修改成配置文件的路径。</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token shebang important">#!/bin/sh</span>
+<span class="token comment">#</span>
+<span class="token comment"># nginx - this script starts and stops the nginx daemon</span>
+<span class="token comment">#</span>
+<span class="token comment"># chkconfig:   - 85 15</span>
+<span class="token comment"># description:  Nginx is an HTTP(S) server, HTTP(S) reverse \</span>
+<span class="token comment">#               proxy and IMAP/POP3 proxy server</span>
+<span class="token comment"># Source function library.</span>
+<span class="token builtin class-name">.</span> /etc/rc.d/init.d/functions
+<span class="token comment"># Source networking configuration.</span>
+<span class="token builtin class-name">.</span> /etc/sysconfig/network
+<span class="token comment"># Check that networking is up.</span>
+<span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$NETWORKING</span>&quot;</span> <span class="token operator">=</span> <span class="token string">&quot;no&quot;</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+<span class="token assign-left variable">nginx</span><span class="token operator">=</span><span class="token string">&quot;/usr/local/nginx/sbin/nginx&quot;</span>
+<span class="token assign-left variable">prog</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">basename</span> $nginx<span class="token variable">)</span></span>
+<span class="token assign-left variable">NGINX_CONF_FILE</span><span class="token operator">=</span><span class="token string">&quot;/usr/local/nginx/conf/nginx.conf&quot;</span>
+<span class="token punctuation">[</span> <span class="token parameter variable">-f</span> /etc/sysconfig/nginx <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">.</span> /etc/sysconfig/nginx
+<span class="token assign-left variable">lockfile</span><span class="token operator">=</span>/var/lock/subsys/nginx
+<span class="token function-name function">make_dirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment"># make required directories</span>
+   <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>nginx <span class="token parameter variable">-V</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;configure arguments:&quot;</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/[^*]*--user=\([^ ]*\).*/\1/g'</span> -<span class="token variable">`</span></span>
+   <span class="token assign-left variable">options</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>$nginx <span class="token parameter variable">-V</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'configure arguments:'</span><span class="token variable">`</span></span>
+   <span class="token keyword">for</span> <span class="token for-or-select variable">opt</span> <span class="token keyword">in</span> <span class="token variable">$options</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+       <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">echo</span> $opt <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'.*-temp-path'</span><span class="token variable">`</span></span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+           <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">echo</span> $opt <span class="token operator">|</span> <span class="token function">cut</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;=&quot;</span> <span class="token parameter variable">-f</span> <span class="token number">2</span><span class="token variable">`</span></span>
+           <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;<span class="token variable">$value</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+               <span class="token comment"># echo &quot;creating&quot; $value</span>
+               <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token variable">$value</span> <span class="token operator">&amp;&amp;</span> <span class="token function">chown</span> <span class="token parameter variable">-R</span> <span class="token variable">$user</span> <span class="token variable">$value</span>
+           <span class="token keyword">fi</span>
+       <span class="token keyword">fi</span>
+   <span class="token keyword">done</span>
+<span class="token punctuation">}</span>
+<span class="token function-name function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span> <span class="token parameter variable">-x</span> <span class="token variable">$nginx</span> <span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token builtin class-name">exit</span> <span class="token number">5</span>
+    <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token variable">$NGINX_CONF_FILE</span> <span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token builtin class-name">exit</span> <span class="token number">6</span>
+    make_dirs
+    <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> $<span class="token string">&quot;Starting <span class="token variable">$prog</span>: &quot;</span>
+    daemon <span class="token variable">$nginx</span> <span class="token parameter variable">-c</span> <span class="token variable">$NGINX_CONF_FILE</span>
+    <span class="token assign-left variable">retval</span><span class="token operator">=</span><span class="token variable">$?</span>
+    <span class="token builtin class-name">echo</span>
+    <span class="token punctuation">[</span> <span class="token variable">$retval</span> <span class="token parameter variable">-eq</span> <span class="token number">0</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token function">touch</span> <span class="token variable">$lockfile</span>
+    <span class="token builtin class-name">return</span> <span class="token variable">$retval</span>
+<span class="token punctuation">}</span>
+<span class="token function-name function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> $<span class="token string">&quot;Stopping <span class="token variable">$prog</span>: &quot;</span>
+    killproc <span class="token variable">$prog</span> <span class="token parameter variable">-QUIT</span>
+    <span class="token assign-left variable">retval</span><span class="token operator">=</span><span class="token variable">$?</span>
+    <span class="token builtin class-name">echo</span>
+    <span class="token punctuation">[</span> <span class="token variable">$retval</span> <span class="token parameter variable">-eq</span> <span class="token number">0</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> <span class="token parameter variable">-f</span> <span class="token variable">$lockfile</span>
+    <span class="token builtin class-name">return</span> <span class="token variable">$retval</span>
+<span class="token punctuation">}</span>
+<span class="token function-name function">restart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    configtest <span class="token operator">||</span> <span class="token builtin class-name">return</span> <span class="token variable">$?</span>
+    stop
+    <span class="token function">sleep</span> <span class="token number">1</span>
+    start
+<span class="token punctuation">}</span>
+<span class="token function-name function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    configtest <span class="token operator">||</span> <span class="token builtin class-name">return</span> <span class="token variable">$?</span>
+    <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> $<span class="token string">&quot;Reloading <span class="token variable">$prog</span>: &quot;</span>
+    killproc <span class="token variable">$nginx</span> <span class="token parameter variable">-HUP</span>
+    <span class="token assign-left variable">RETVAL</span><span class="token operator">=</span><span class="token variable">$?</span>
+    <span class="token builtin class-name">echo</span>
+<span class="token punctuation">}</span>
+<span class="token function-name function">force_reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    restart
+<span class="token punctuation">}</span>
+<span class="token function-name function">configtest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token variable">$nginx</span> <span class="token parameter variable">-t</span> <span class="token parameter variable">-c</span> <span class="token variable">$NGINX_CONF_FILE</span>
+<span class="token punctuation">}</span>
+<span class="token function-name function">rh_status</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    status <span class="token variable">$prog</span>
+<span class="token punctuation">}</span>
+<span class="token function-name function">rh_status_q</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    rh_status <span class="token operator">&gt;</span>/dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">case</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token keyword">in</span>
+    start<span class="token punctuation">)</span>
+        rh_status_q <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+        <span class="token variable">$1</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    stop<span class="token punctuation">)</span>
+        rh_status_q <span class="token operator">||</span> <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+        <span class="token variable">$1</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    restart<span class="token operator">|</span>configtest<span class="token punctuation">)</span>
+        <span class="token variable">$1</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    reload<span class="token punctuation">)</span>
+        rh_status_q <span class="token operator">||</span> <span class="token builtin class-name">exit</span> <span class="token number">7</span>
+        <span class="token variable">$1</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    force-reload<span class="token punctuation">)</span>
+        force_reload
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    status<span class="token punctuation">)</span>
+        rh_status
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    condrestart<span class="token operator">|</span>try-restart<span class="token punctuation">)</span>
+        rh_status_q <span class="token operator">||</span> <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+            <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span>
+        <span class="token builtin class-name">echo</span> $<span class="token string">&quot;Usage: <span class="token variable">$0</span> {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}&quot;</span>
+        <span class="token builtin class-name">exit</span> <span class="token number">2</span>
+<span class="token keyword">esac</span>
+</code></pre></div><p>保存脚本文件后设置文件的执行权限:</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">chmod</span> a+x /etc/init.d/nginx   <span class="token comment"># a+x参数表示 ==&gt; all user can execute  所有用户可执行</span>
+</code></pre></div><p>然后就可以通过这个脚本对nginx进行管理了</p> <div class="language-shell extra-class"><pre class="language-shell"><code>/etc/init.d/nginx —status-all
+
+Usage: /etc/init.d/nginx <span class="token punctuation">{</span>start<span class="token operator">|</span>stop<span class="token operator">|</span>status<span class="token operator">|</span>restart<span class="token operator">|</span>condrestart<span class="token operator">|</span>try-restart<span class="token operator">|</span>reload<span class="token operator">|</span>force-reload<span class="token operator">|</span>configtest<span class="token punctuation">}</span>
+</code></pre></div><p><strong>使用chkconfig管理列表：</strong></p> <ol><li><p>先将nginx服务加入chkconfig管理列表：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">chkconfig</span> <span class="token parameter variable">--add</span> /etc/init.d/nginx
+</code></pre></div></li> <li><p>加完这个之后，就可以使用service对nginx进行启动，重启等操作</p> <div class="language-shell extra-class"><pre class="language-shell"><code>
+</code></pre></div><p>$ service nginx --status-all
+Usage: /etc/init.d/nginx {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}</p> <div class="language- extra-class"><pre class="language-text"><code>
+</code></pre></div></li> <li><p>设置终端模式开机启动</p> <div class="language-shell extra-class"><pre class="language-shell"><code> $ <span class="token function">chkconfig</span> nginx on
+</code></pre></div></li> <li><p>查看</p> <div class="language-shell extra-class"><pre class="language-shell"><code>   <span class="token function">chkconfig</span> <span class="token parameter variable">--list</span>      
+</code></pre></div></li></ol> <h2 id="三、安装mysql"><a href="#三、安装mysql" class="header-anchor">#</a> 三、安装Mysql</h2> <h3 id="_1-安装必要依赖"><a href="#_1-安装必要依赖" class="header-anchor">#</a> 1.安装必要依赖</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>yum –y <span class="token function">install</span> gcc gcc-c++ gcc-lib ncurses-devel cmake
+</code></pre></div><h3 id="_2-官网上下载mysql"><a href="#_2-官网上下载mysql" class="header-anchor">#</a> 2.官网上下载mysql</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> mysql-5.6.37.tar.gz
+<span class="token builtin class-name">cd</span> mysql-5.6.37
+</code></pre></div><h3 id="_3、编译"><a href="#_3、编译" class="header-anchor">#</a> 3、编译</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 1</span>
+cmake <span class="token punctuation">\</span>
+<span class="token parameter variable">-DCMAKE_INSTALL_PREFIX</span><span class="token operator">=</span>/usr/local/mysql <span class="token punctuation">\</span>
+<span class="token parameter variable">-DMYSQL_DATADIR</span><span class="token operator">=</span>/usr/local/mysql/data <span class="token punctuation">\</span>
+<span class="token parameter variable">-DSYSCONFDIR</span><span class="token operator">=</span>/usr/local/mysql <span class="token punctuation">\</span>
+<span class="token parameter variable">-DWITH_MYISAM_STORAGE_ENGINE</span><span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-DWITH_INNOBASE_STORAGE_ENGINE</span><span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-DWITH_MEMORY_STORAGE_ENGINE</span><span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-DWITH_READLINE</span><span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-DMYSQL_UNIX_ADDR</span><span class="token operator">=</span>/var/lib/mysql/mysql.sock <span class="token punctuation">\</span>
+<span class="token parameter variable">-DMYSQL_TCP_PORT</span><span class="token operator">=</span><span class="token number">3306</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-DENABLED_LOCAL_INFILE</span><span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-DWITH_PARTITION_STORAGE_ENGINE</span><span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-DEXTRA_CHARSETS</span><span class="token operator">=</span>all <span class="token punctuation">\</span>
+<span class="token parameter variable">-DDEFAULT_CHARSET</span><span class="token operator">=</span>utf8 <span class="token punctuation">\</span>
+<span class="token parameter variable">-DDEFAULT_COLLATION</span><span class="token operator">=</span>utf8_general_ci
+
+<span class="token comment">####################################################</span>
+CMake Warning:
+  Manually-specified variables were not used by the project:
+    WITH_MEMORY_STORAGE_ENGINE
+    WITH_READLINE
+<span class="token comment">######################################################</span>
+
+
+<span class="token comment">#2################################</span>
+<span class="token function">make</span> –j <span class="token comment">#</span>
+<span class="token comment">#3################################</span>
+<span class="token function">make</span> <span class="token function">install</span>
+</code></pre></div><h3 id="_4-修改配置文件"><a href="#_4-修改配置文件" class="header-anchor">#</a> 4.修改配置文件</h3> <p><code>my.cnf</code>配置文件放置<code>/usr/local/myslql</code>目录下，配置文件如下，根据具体情况修改:</p> <div class="language-mysql extra-class"><pre class="language-text"><code>[mysqld]
+user = mysql
+port = 3306
+socket = /var/lib/mysql/mysql.sock
+basedir = /usr/local/mysql
+datadir = /usr/local/mysql/data
+
+#default-character-set=utf8
+#skip-name-resolve
+
+lower_case_table_names=1
+back_log = 600   
+max_connections = 3000   
+max_connect_errors = 1000
+
+table_open_cache = 4096  
+max_allowed_packet = 32M  
+sort_buffer_size = 16M  
+join_buffer_size = 16M   
+thread_cache_size = 512
+thread_concurrency = 16
+query_cache_size = 128M
+query_cache_limit = 4M    
+query_cache_min_res_unit = 2k    
+default-storage-engine = InnoDB
+thread_stack = 512K
+tmp_table_size = 256M   
+max_heap_table_size = 256M
+
+long_query_time = 6
+slow-query-log=1
+slow-query-log-file=/usr/local/mysql/logs/slow.log
+#log-queries-not-using-indexes
+
+log-bin=/usr/local/mysql/data/mysql-bin
+binlog_cache_size = 4M
+max_binlog_cache_size = 512M
+max_binlog_size = 512M
+binlog-ignore-db=mysql
+log-slave-updates
+replicate-ignore-db=mysql
+binlog_format=ROW
+
+innodb_additional_mem_pool_size = 64M   
+innodb_buffer_pool_size = 512M   
+innodb_data_file_path = ibdata1:32M:autoextend   
+innodb_file_io_threads = 4   
+innodb_thread_concurrency = 8   
+innodb_flush_log_at_trx_commit = 2   
+innodb_log_buffer_size = 16M  
+innodb_log_file_size = 128M   
+innodb_log_files_in_group = 3   
+innodb_max_dirty_pages_pct = 90   
+innodb_lock_wait_timeout = 120   
+
+[mysqldump]
+quick
+max_allowed_packet = 32M
+
+[mysqld_safe]
+log-error=/usr/local/mysql/logs/mysql.err
+pid-file=/usr/local/mysql/data/mysqld.pid
+open_files_limit = 20480
+</code></pre></div><p>切换到已经安装的目录，创建配置文件中的<code>logs</code>文件夹</p> <h3 id="_5-创建用户-修改所属关系"><a href="#_5-创建用户-修改所属关系" class="header-anchor">#</a> 5.创建用户，修改所属关系</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">groupadd</span> mysql
+<span class="token function">useradd</span> <span class="token parameter variable">-g</span> mysql mysql <span class="token parameter variable">-s</span> /bin/false
+</code></pre></div><h3 id="_6-初始化mysql"><a href="#_6-初始化mysql" class="header-anchor">#</a> 6.初始化mysql</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">cd</span> /usr/loca/mysql/scripts
+
+./mysql_install_db <span class="token parameter variable">--datadir</span><span class="token operator">=</span>/usr/local/mysql/data <span class="token parameter variable">--user</span><span class="token operator">=</span>mysql <span class="token parameter variable">--basedir</span><span class="token operator">=</span>/usr/local/mysql
+</code></pre></div><h3 id="_7-规划启动脚本"><a href="#_7-规划启动脚本" class="header-anchor">#</a> 7.规划启动脚本</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">cp</span> /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+<span class="token comment"># 设置开机自启</span>
+<span class="token function">chkconfig</span> mysqld on  
+</code></pre></div><p>输入mysqld提示command not found 把mysql配置到环境变量 创建mysql.sh并添加</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#1、 创建mysql.sh文件</span>
+<span class="token function">vim</span> /etc/profile.d/mysql.sh 
+<span class="token comment">#2、添加 保存</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/mysql/bin
+<span class="token comment">#3、执行</span>
+<span class="token builtin class-name">source</span> /etc/profile.d/mysql.sh
+<span class="token comment">#4、测试 查看配置的环境变量是否有效</span>
+<span class="token function">service</span> mysqld —help
+<span class="token function">service</span> mysqld --status-all
+</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/Linux/Linux%E4%B8%8B%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%8306.png" alt=""></p> <div class="language-shell extra-class"><pre class="language-shell"><code>./support-files/mysql.server start
+
+<span class="token comment"># 报错了</span>
+Starting MySQL.170802 <span class="token number">23</span>:25:04 mysqld_safe error: log-error <span class="token builtin class-name">set</span> to <span class="token string">'/usr/local/mysql/logs/mysql.err'</span>, however <span class="token function">file</span> don<span class="token string">'t exists. Create writable for user '</span>mysql'.
+The server quit without updating PID <span class="token function">file</span> <span class="token punctuation">(</span>/usr/local/mysql/data/192.168.11.201.pid<span class="token punctuation">)</span>.
+
+解决：
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;&quot;</span> <span class="token operator">&gt;</span> /usr/local/mysql/logs/mysql.err
+<span class="token function">chown</span> <span class="token parameter variable">-R</span> mysql:mysql /usr/local/mysql/logs/mysql.err
+<span class="token function">service</span> mysql restart
+</code></pre></div><h3 id="_8-启动服务-构建数据库账户信息"><a href="#_8-启动服务-构建数据库账户信息" class="header-anchor">#</a> 8.启动服务，构建数据库账户信息</h3> <div class="language-mysql extra-class"><pre class="language-text"><code>grant all on *.* to 'root'@'192.168.%.%' identified by 'root';
+create database DATABASE_NAME;
+</code></pre></div><p>删除行:<code>delete from DB_name.tb_name where *=x ;</code></p></div></div>  <div class="page-edit"><div class="edit-link"><a href="https://github.com/ccbeango/blog/edit/master/docs/10.更多/07.Linux/03.Linux下搭建LNMP环境.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/11/10, 12:11:50</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/blog/pages/1dd124/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">Linux下安装phpMyAdmin</div></a> <a href="/blog/pages/688f50/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">小视频笔记（一）</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/pages/1dd124/" class="prev">Linux下安装phpMyAdmin</a></span> <span class="next"><a href="/blog/pages/688f50/">小视频笔记（一）</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/blog/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/blog/pages/78ad41/"><div>
+            阅读精通正则表达式总结
+            <!----></div></a> <span class="date">09-29</span></dt></dl><dl><dd>02</dd> <dt><a href="/blog/pages/1e1cbc/"><div>
+            项目搭建规范的配置
+            <!----></div></a> <span class="date">07-15</span></dt></dl><dl><dd>03</dd> <dt><a href="/blog/pages/4c97eb/"><div>
+            Vite的使用
+            <!----></div></a> <span class="date">07-03</span></dt></dl> <dl><dd></dd> <dt><a href="/blog/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="liuyh940@gamil.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/ccbeango" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://space.bilibili.com/316494239" title="Bilibili" target="_blank" class="iconfont icon-bilibili"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2018-2023
+    <span>Ccbeango</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.0ed7b280.js" defer></script><script src="/blog/assets/js/2.7308dfd9.js" defer></script><script src="/blog/assets/js/45.1bfb7eee.js" defer></script>
+  </body>
+</html>

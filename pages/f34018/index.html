@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>组件化开发 | CcbeanBlog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/blog/img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <meta name="description" content="web技术博客,简洁至上。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,NodeJS,Node,Node.js,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,react,css3,html5,git,github,markdown">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.76d42078.css" as="style"><link rel="preload" href="/blog/assets/js/app.0ed7b280.js" as="script"><link rel="preload" href="/blog/assets/js/2.7308dfd9.js" as="script"><link rel="preload" href="/blog/assets/js/92.66e441c7.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.166b2ca6.js"><link rel="prefetch" href="/blog/assets/js/100.194e839b.js"><link rel="prefetch" href="/blog/assets/js/101.0db39944.js"><link rel="prefetch" href="/blog/assets/js/102.e13c8470.js"><link rel="prefetch" href="/blog/assets/js/103.0ae2f2ee.js"><link rel="prefetch" href="/blog/assets/js/104.a261556e.js"><link rel="prefetch" href="/blog/assets/js/105.4d458a5f.js"><link rel="prefetch" href="/blog/assets/js/106.6d2f15cf.js"><link rel="prefetch" href="/blog/assets/js/107.a770982a.js"><link rel="prefetch" href="/blog/assets/js/108.0be9ce8f.js"><link rel="prefetch" href="/blog/assets/js/109.88d01e84.js"><link rel="prefetch" href="/blog/assets/js/11.faae5f41.js"><link rel="prefetch" href="/blog/assets/js/110.d3186629.js"><link rel="prefetch" href="/blog/assets/js/111.37d2b500.js"><link rel="prefetch" href="/blog/assets/js/112.d94648de.js"><link rel="prefetch" href="/blog/assets/js/113.a7cf5597.js"><link rel="prefetch" href="/blog/assets/js/114.a339354f.js"><link rel="prefetch" href="/blog/assets/js/115.597976cc.js"><link rel="prefetch" href="/blog/assets/js/116.c64f1f49.js"><link rel="prefetch" href="/blog/assets/js/117.bbbbb20b.js"><link rel="prefetch" href="/blog/assets/js/118.c9ba24ea.js"><link rel="prefetch" href="/blog/assets/js/119.25208df7.js"><link rel="prefetch" href="/blog/assets/js/12.782cd676.js"><link rel="prefetch" href="/blog/assets/js/120.2e0a20ad.js"><link rel="prefetch" href="/blog/assets/js/121.7bb8f6f5.js"><link rel="prefetch" href="/blog/assets/js/122.562fe94b.js"><link rel="prefetch" href="/blog/assets/js/123.9562f569.js"><link rel="prefetch" href="/blog/assets/js/124.fd67828f.js"><link rel="prefetch" href="/blog/assets/js/125.3262b310.js"><link rel="prefetch" href="/blog/assets/js/126.c6f106af.js"><link rel="prefetch" href="/blog/assets/js/127.4b7016d1.js"><link rel="prefetch" href="/blog/assets/js/128.b3ac8038.js"><link rel="prefetch" href="/blog/assets/js/129.3ef9af3d.js"><link rel="prefetch" href="/blog/assets/js/13.508b65ad.js"><link rel="prefetch" href="/blog/assets/js/130.4b925feb.js"><link rel="prefetch" href="/blog/assets/js/131.37cb5d18.js"><link rel="prefetch" href="/blog/assets/js/132.76026f1f.js"><link rel="prefetch" href="/blog/assets/js/133.5d3d2938.js"><link rel="prefetch" href="/blog/assets/js/134.89b4fe3b.js"><link rel="prefetch" href="/blog/assets/js/135.dd2731dc.js"><link rel="prefetch" href="/blog/assets/js/136.e5cacc53.js"><link rel="prefetch" href="/blog/assets/js/137.39282e0b.js"><link rel="prefetch" href="/blog/assets/js/138.b3801697.js"><link rel="prefetch" href="/blog/assets/js/14.88ac5afd.js"><link rel="prefetch" href="/blog/assets/js/15.b4227c88.js"><link rel="prefetch" href="/blog/assets/js/16.98d2ae02.js"><link rel="prefetch" href="/blog/assets/js/17.6f25717f.js"><link rel="prefetch" href="/blog/assets/js/18.ae934359.js"><link rel="prefetch" href="/blog/assets/js/19.ffe2dcb2.js"><link rel="prefetch" href="/blog/assets/js/20.2c614eab.js"><link rel="prefetch" href="/blog/assets/js/21.4b7f3180.js"><link rel="prefetch" href="/blog/assets/js/22.03f8def7.js"><link rel="prefetch" href="/blog/assets/js/23.861aebfe.js"><link rel="prefetch" href="/blog/assets/js/24.e842cb60.js"><link rel="prefetch" href="/blog/assets/js/25.5685dfd1.js"><link rel="prefetch" href="/blog/assets/js/26.9487cf2a.js"><link rel="prefetch" href="/blog/assets/js/27.cd3b98f4.js"><link rel="prefetch" href="/blog/assets/js/28.1010db9b.js"><link rel="prefetch" href="/blog/assets/js/29.cff77b90.js"><link rel="prefetch" href="/blog/assets/js/3.b0a270e2.js"><link rel="prefetch" href="/blog/assets/js/30.d9d88b77.js"><link rel="prefetch" href="/blog/assets/js/31.4c816fae.js"><link rel="prefetch" href="/blog/assets/js/32.c414f2c2.js"><link rel="prefetch" href="/blog/assets/js/33.cae1fde7.js"><link rel="prefetch" href="/blog/assets/js/34.c149f32c.js"><link rel="prefetch" href="/blog/assets/js/35.36ce97e5.js"><link rel="prefetch" href="/blog/assets/js/36.b7c514b6.js"><link rel="prefetch" href="/blog/assets/js/37.d9459ed5.js"><link rel="prefetch" href="/blog/assets/js/38.84d4e80e.js"><link rel="prefetch" href="/blog/assets/js/39.21769d8b.js"><link rel="prefetch" href="/blog/assets/js/4.1de495bd.js"><link rel="prefetch" href="/blog/assets/js/40.ba8b2c33.js"><link rel="prefetch" href="/blog/assets/js/41.dbc723df.js"><link rel="prefetch" href="/blog/assets/js/42.6d7ee2ec.js"><link rel="prefetch" href="/blog/assets/js/43.3065c2de.js"><link rel="prefetch" href="/blog/assets/js/44.95652c6b.js"><link rel="prefetch" href="/blog/assets/js/45.1bfb7eee.js"><link rel="prefetch" href="/blog/assets/js/46.21f42bfd.js"><link rel="prefetch" href="/blog/assets/js/47.5cf0a7f8.js"><link rel="prefetch" href="/blog/assets/js/48.80e7bcba.js"><link rel="prefetch" href="/blog/assets/js/49.75bf925a.js"><link rel="prefetch" href="/blog/assets/js/5.7e93193d.js"><link rel="prefetch" href="/blog/assets/js/50.1a08250f.js"><link rel="prefetch" href="/blog/assets/js/51.63d67d9a.js"><link rel="prefetch" href="/blog/assets/js/52.4527b3c2.js"><link rel="prefetch" href="/blog/assets/js/53.928eb7b1.js"><link rel="prefetch" href="/blog/assets/js/54.b2c8392c.js"><link rel="prefetch" href="/blog/assets/js/55.84f7c241.js"><link rel="prefetch" href="/blog/assets/js/56.6773809d.js"><link rel="prefetch" href="/blog/assets/js/57.aed02421.js"><link rel="prefetch" href="/blog/assets/js/58.16532c6b.js"><link rel="prefetch" href="/blog/assets/js/59.43238c8c.js"><link rel="prefetch" href="/blog/assets/js/6.d42d0f48.js"><link rel="prefetch" href="/blog/assets/js/60.d868f9ec.js"><link rel="prefetch" href="/blog/assets/js/61.8bc02b72.js"><link rel="prefetch" href="/blog/assets/js/62.83e6c8d0.js"><link rel="prefetch" href="/blog/assets/js/63.ade81187.js"><link rel="prefetch" href="/blog/assets/js/64.cc73a529.js"><link rel="prefetch" href="/blog/assets/js/65.d002206a.js"><link rel="prefetch" href="/blog/assets/js/66.f0665b6d.js"><link rel="prefetch" href="/blog/assets/js/67.11c613ec.js"><link rel="prefetch" href="/blog/assets/js/68.8e2479dd.js"><link rel="prefetch" href="/blog/assets/js/69.02772367.js"><link rel="prefetch" href="/blog/assets/js/7.2b3bcb3f.js"><link rel="prefetch" href="/blog/assets/js/70.3545ebb5.js"><link rel="prefetch" href="/blog/assets/js/71.b7c76516.js"><link rel="prefetch" href="/blog/assets/js/72.035b6ee2.js"><link rel="prefetch" href="/blog/assets/js/73.9feda52a.js"><link rel="prefetch" href="/blog/assets/js/74.d62cf235.js"><link rel="prefetch" href="/blog/assets/js/75.db2ada7c.js"><link rel="prefetch" href="/blog/assets/js/76.8569647d.js"><link rel="prefetch" href="/blog/assets/js/77.ebb5e006.js"><link rel="prefetch" href="/blog/assets/js/78.463a3566.js"><link rel="prefetch" href="/blog/assets/js/79.25bf57ea.js"><link rel="prefetch" href="/blog/assets/js/8.3cf902c7.js"><link rel="prefetch" href="/blog/assets/js/80.4d3043a3.js"><link rel="prefetch" href="/blog/assets/js/81.e6ac7aff.js"><link rel="prefetch" href="/blog/assets/js/82.39390874.js"><link rel="prefetch" href="/blog/assets/js/83.52a99a2b.js"><link rel="prefetch" href="/blog/assets/js/84.4efad80d.js"><link rel="prefetch" href="/blog/assets/js/85.dce1dc90.js"><link rel="prefetch" href="/blog/assets/js/86.3050d700.js"><link rel="prefetch" href="/blog/assets/js/87.67d7c4e3.js"><link rel="prefetch" href="/blog/assets/js/88.4a3a4132.js"><link rel="prefetch" href="/blog/assets/js/89.861690de.js"><link rel="prefetch" href="/blog/assets/js/9.f2b8862e.js"><link rel="prefetch" href="/blog/assets/js/90.f1cdccba.js"><link rel="prefetch" href="/blog/assets/js/91.3abb6471.js"><link rel="prefetch" href="/blog/assets/js/93.3ae60e73.js"><link rel="prefetch" href="/blog/assets/js/94.b6f4569f.js"><link rel="prefetch" href="/blog/assets/js/95.81abfad5.js"><link rel="prefetch" href="/blog/assets/js/96.eaafaf11.js"><link rel="prefetch" href="/blog/assets/js/97.f464844d.js"><link rel="prefetch" href="/blog/assets/js/98.5b594a5f.js"><link rel="prefetch" href="/blog/assets/js/99.8a12c6d2.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.76d42078.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/EB-logo.png" alt="CcbeanBlog" class="logo"> <span class="site-name can-hide">CcbeanBlog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://avatars.githubusercontent.com/u/16501284?v=4"> <div class="blogger-info"><h3>Ccbean</h3> <span>靡不有初，鲜克有终</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/blog/pages/3f937c/" class="sidebar-link">Hello World</a></li><li><a href="/blog/pages/65114a/" class="sidebar-link">JSX语法</a></li><li><a href="/blog/pages/919785/" class="sidebar-link">JSX语法的本质</a></li><li><a href="/blog/pages/c5633c/" class="sidebar-link">脚手架</a></li><li><a href="/blog/pages/bd5f26/" class="sidebar-link">什么是组件化开发</a></li><li><a href="/blog/pages/f34018/" aria-current="page" class="active sidebar-link">组件化开发</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/blog/pages/f34018/#组件的分类" class="sidebar-link">组件的分类</a></li><li class="sidebar-sub-header level2"><a href="/blog/pages/f34018/#类组件和函数组件" class="sidebar-link">类组件和函数组件</a></li><li class="sidebar-sub-header level2"><a href="/blog/pages/f34018/#生命周期" class="sidebar-link">生命周期</a></li><li class="sidebar-sub-header level2"><a href="/blog/pages/f34018/#组件通信" class="sidebar-link">组件通信</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/f34018/#组件间的嵌套" class="sidebar-link">组件间的嵌套</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f34018/#父组件传递子组件" class="sidebar-link">父组件传递子组件</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/f34018/#参数proptypes" class="sidebar-link">参数propTypes</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f34018/#子组件传递父组件" class="sidebar-link">子组件传递父组件</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f34018/#组件间通信练习案例" class="sidebar-link">组件间通信练习案例</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f34018/#react实现slot" class="sidebar-link">React实现slot</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f34018/#跨组件通信" class="sidebar-link">跨组件通信</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/f34018/#使用props" class="sidebar-link">使用props</a></li><li class="sidebar-sub-header level4"><a href="/blog/pages/f34018/#使用context" class="sidebar-link">使用context</a></li><li class="sidebar-sub-header level5"><a href="/blog/pages/f34018/#相关api" class="sidebar-link">相关API</a></li><li class="sidebar-sub-header level5"><a href="/blog/pages/f34018/#实现通信" class="sidebar-link">实现通信</a></li></ul></li></ul></li><li><a href="/blog/pages/3b1483/" class="sidebar-link">setState详解和React性能优化</a></li><li><a href="/blog/pages/77cea2/" class="sidebar-link">受控和非受控组件</a></li><li><a href="/blog/pages/ad645b/" class="sidebar-link">高阶组件</a></li><li><a href="/blog/pages/809a87/" class="sidebar-link">React的样式</a></li><li><a href="/blog/pages/ce6916/" class="sidebar-link">React的过渡动画</a></li><li><a href="/blog/pages/7f1191/" class="sidebar-link">ReactHooks的使用</a></li><li><a href="/blog/pages/18ce7b/" class="sidebar-link">Redux的使用</a></li><li><a href="/blog/pages/d3c53b/" class="sidebar-link">React-Redux</a></li><li><a href="/blog/pages/facc20/" class="sidebar-link">Redux中间件和state管理</a></li><li><a href="/blog/pages/f60ca3/" class="sidebar-link">React-router</a></li><li><a href="/blog/pages/96924f/" class="sidebar-link">React打包发布</a></li><li><a href="/blog/pages/1b0384/" class="sidebar-link">React SSR</a></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/blog/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/blog/note/react-learn/#React核心技术与开发实战" data-v-06225672>React核心技术与开发实战</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="https://github.com/ccbeango" target="_blank" title="作者" class="beLink" data-v-06225672>ccbean</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2021-01-09</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">组件化开发<!----></h1>  <div class="theme-vdoing-content content__default"><h1 id="react学习-六-组件化开发"><a href="#react学习-六-组件化开发" class="header-anchor">#</a> React学习（六）—— 组件化开发</h1> <p>组件化设计思维3个关键点：</p> <ol><li>完整组件方案：将组件视为一个独立的产品，从多维度，多场景输出组件的方案和组合标准。</li> <li>组件化思维：从需求出发，拆解页面表达结构和所需组件。</li> <li>通用页面规则：通用的页面与组件的栅格体系及替换规则。</li></ol> <p>注：https://www.zcool.com.cn/article/ZNTQ5NzM2.html</p> <h2 id="组件的分类"><a href="#组件的分类" class="header-anchor">#</a> 组件的分类</h2> <p>React组件灵活多样，按照不同的方式可以分为很多类组件：</p> <ul><li><p>根据组件的定义方式，可以分为：函数组件<code>Functional Component</code> 和类组件<code>Class Component</code>；</p></li> <li><p>根据组件内部是否有状态需要维护，可以分成：无状态组件<code>Stateless Component</code>和有状态组件<code>Stateful Component</code></p></li> <li><p>根据组件的不同职责，可以分成：展示型组件<code>Presentational Component</code>和容器型组件<code>Container Component</code>；</p></li> <li><p>还有其他概念的组件，如异步组件、高阶组件等。</p></li></ul> <p>这些概念有很多重叠，当时他们最主要是关注数据逻辑和UI展示的分离：</p> <ul><li>函数组件、无状态组件、展示型组件主要关注UI的展示</li> <li>类组件、有状态组件、容器组件主要关注数据逻辑；</li></ul> <h2 id="类组件和函数组件"><a href="#类组件和函数组件" class="header-anchor">#</a> 类组件和函数组件</h2> <p>类组件的定义有如下要求：</p> <ul><li>组件的名称是大写的</li> <li>需要继承<code>React.Component</code></li> <li>必须实现<code>render</code>函数</li></ul> <p>创建一个类组件，我们会使用<code>class</code>创建一个组件：</p> <ul><li><p><code>constructor</code>是可选的，我们通常会在<code>constructor</code>中初始化一些数据；</p></li> <li><p><code>this.state</code>中维护的就是我们组件内部的数据</p></li> <li><p><code>render()</code>方法是class组件中必须实现的方法</p> <div class="language-react extra-class"><pre class="language-text"><code>import React from 'react';
+
+export default class App extends React.Component {
+  render() {
+    return (
+      &lt;div&gt;Hello World&lt;/div&gt;
+    );
+  }
+}                                           
+</code></pre></div><p>当render被调用时，它会检查<code>this.props</code>和<code>this.state</code>的变化并返回以下类型之一：</p> <ul><li>React元素：通常通过JSX创建，如<code>&lt;div&gt;</code>会被React渲染成DOM节点，<code>&lt;Component/&gt;</code>会被React渲染为自定义组件，无论是html标签元素还是<code>&lt;Compoennt/&gt;</code>均为React元素。</li> <li>数组或<code>fragments</code>：使得<code>render</code>方法可以返回多个元素</li> <li><code>Portals</code>：可以渲染子节点到不同的DOM子树中。</li> <li>字符串或数值类型：它们在DOM中会被渲染为文本节点</li> <li>布尔类型或<code>null</code>：什么都不渲染</li></ul></li></ul> <p>函数组件：</p> <p>函数组件是使用<code>function</code>来进行定义的函数，只是这个函数会返回和类组件中<code>render</code>函数返回一样的内容。</p> <p>函数自建的特点：</p> <ul><li>没有生命周期，也会被更新并挂在，没有生命周期函数；</li> <li>没有<code>this</code></li> <li>没有内部状态<code>state</code></li></ul> <div class="language-react extra-class"><pre class="language-text"><code>export default function App() {
+  return (
+    &lt;h2&gt;我是函数组件&lt;/h2&gt;
+  );
+}
+</code></pre></div><h2 id="生命周期"><a href="#生命周期" class="header-anchor">#</a> 生命周期</h2> <blockquote><p>React生命周期详情：</p> <p>https://zh-hans.reactjs.org/docs/react-component.html</p> <p>https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/</p></blockquote> <p>很多的事物都有从创建到销毁的整个过程，这个过程称之为是生命周期。</p> <p>React组件有自己的生命周期，React内部为了告诉我们当前处于哪些阶段，会对我们组件内部实现的某些函数进行回调，这些函数就是生命周期函数。</p> <p>我们在谈React的生命周期时，主要谈的是类的生命周期，因为函数式组件是没有生命周期函数的；</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B517.png" alt="img"></p> <p>生命周期大致可分为如下几个阶段：</p> <ul><li><p>挂载（初始化）</p> <ul><li><code>constructor()</code> <ul><li>如果不初始化或不进行方法绑定，则不需要为React组件实现构造函数</li> <li>一般做两件事情：
+<ul><li>通过给 this.state 赋值对象来初始化内部的state；</li> <li>为事件绑定实例（this）</li></ul></li></ul></li> <li><code>getDerivedStateFromProps()</code> 不常用
+<ul><li>state 的值在任何时候都
+依赖于 props时使用；该方法返回一个对象来更新state；</li></ul></li> <li><code>render()</code></li> <li><code>componentDidMount()</code> <ul><li>会在组件挂载后（插入 DOM 树中）立即调用</li> <li>通常进行的操作是：
+<ul><li>依赖于DOM的操作可以在这里进行</li> <li>在此处发送网络请求（官方建议）</li> <li>在此处添加一些订阅（在<code>componentWillUnmount</code>取消订阅）</li></ul></li></ul></li></ul></li> <li><p>更新</p> <ul><li><p><code>static getDeriveStateFromProps()</code> 不常用</p></li> <li><p><code>shouldComponentUpdate()</code></p> <ul><li>根据返回值，判断 React 组件的输出是否受当前 state 或 props 更改的影响。默认行为是 state 每次发生变化组件都会重新渲染</li></ul></li> <li><p><code>render()</code></p></li> <li><p><code>getSnapshotBeforeUpdate()</code> 不常用</p> <ul><li>在React更新DOM之前回调的一个函数，可以获取DOM更新前的一些信息（比如说滚动位置）；</li></ul></li> <li><p><code>componentDidUpdate()</code></p> <ul><li><p>会在更新后会被立即调用，首次渲染不会执行此方法</p></li> <li><p>当组件更新后，可以在此处对 DOM 进行操作；</p></li> <li><p>如果你对更新前后的 props 进行了比较，也可以选择在此处进行网络请求；</p> <div class="language-react extra-class"><pre class="language-text"><code>componentDidUpdate(prevProps) {
+  // 典型用法（不要忘记比较 props）：
+  if (this.props.userID !== prevProps.userID) {
+    this.fetchData(this.props.userID);
+  }
+}
+</code></pre></div></li></ul></li></ul></li> <li><p>卸载</p> <ul><li><code>componentWillUnmount()</code> <ul><li>会在组件卸载及销毁之前直接调用</li> <li>在此方法中执行必要的清理操作；例如，清除 timer，取消网络请求或清除；在componentDidMount() 中创建的订阅等；</li></ul></li></ul></li></ul> <p>当渲染过程，生命周期，或子组件的构造函数中抛出错误时，会调用如下方法：</p> <ul><li><code>static getDerivedStateFromError()</code></li> <li><code>componnetDidCatch()</code></li></ul> <p>下面是一个简单的生命周期例子：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B518.gif" alt="11111"></p> <p>效果如上，当首次进入页面时，执行挂在阶段生命周期。当点击<code>+1</code>按钮，执行更新生命周期。再点击切换按钮，第一次看到<code>&lt;TipCom/&gt;</code>组件执行了卸载生命周期函数，第二次点击，可以看到<code>&lt;App/&gt;</code>组件再次执行了更新。</p> <p>代码如下：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+class TipCom extends Component {
+  render() {
+    return (
+      &lt;div&gt;你好，你来了&lt;/div&gt;
+    );
+  }
+
+  componentWillUnmount() {
+    console.log('调用TipCom组件的componentWillUnmount方法');
+  }
+}
+
+export default class App extends Component {
+  constructor() {
+    super();
+    console.log('执行组件的constructor方法');
+
+    this.state = {
+      counter: 0,
+      isShowTip: true
+    };
+  }
+
+  increment() {
+    console.log('点击+1按钮更新');
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  }
+
+  changeTipShow() {
+    console.log('点击切换按钮更新');
+
+    this.setState({
+      isShowTip: !this.state.isShowTip
+    });
+  }
+
+  render() {
+    console.log('执行组件的render方法');
+
+    return (
+      &lt;div&gt;
+        我是生命周期过程组件 | {this.state.counter}
+        &lt;button onClick={() =&gt; this.increment()}&gt;+&lt;/button&gt; 
+        &lt;hr/&gt;
+        &lt;button onClick={() =&gt; this.changeTipShow()}&gt;切换&lt;/button&gt;
+        { this.state.isShowTip &amp;&amp; &lt;TipCom/&gt; }
+      &lt;/div&gt;
+    )
+  }
+  
+  componentDidMount() {
+    console.log('执行组件的componentDidMount方法');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('执行组件的shouldComponentUpdate方法');
+    
+    return true;
+  }
+
+  componentDidUpdate() {
+    console.log('执行组件的componentDidUpdate方法');
+  }
+}
+</code></pre></div><h2 id="组件通信"><a href="#组件通信" class="header-anchor">#</a> 组件通信</h2> <h3 id="组件间的嵌套"><a href="#组件间的嵌套" class="header-anchor">#</a> 组件间的嵌套</h3> <p>在开发过程中，组件之间的嵌套是很常见的一个现象，正式一个个组件，构成了我们的应用，如果所有的逻辑都放在一个组件中，那么这组件就会变得非常臃肿难以维护。将组件进行拆分，然后再进行组合嵌套一起，最终便形成了应用。</p> <p>一个页面的构成，往往有多层嵌套，下面是一个简单的例子：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B519.png" alt="image-20210109161329779"></p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+function Header() {
+  return (
+    &lt;h2&gt;我是Header组件&lt;/h2&gt;
+  );
+}
+
+function Banner() {
+  return (
+    &lt;h3&gt;我是Banner组件&lt;/h3&gt;
+  );
+}
+
+function ProductList() {
+  return (
+    &lt;div&gt;
+      &lt;ul&gt;
+        &lt;li&gt;商品1&lt;/li&gt;
+        &lt;li&gt;商品2&lt;/li&gt;
+        &lt;li&gt;商品3&lt;/li&gt;
+        &lt;li&gt;商品4&lt;/li&gt;
+        &lt;li&gt;商品5&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+function Main() {
+  return (
+    &lt;div&gt;
+      &lt;Banner /&gt;
+      &lt;ProductList /&gt;
+    &lt;/div&gt;
+  );
+}
+
+
+function Footer() {
+  return (
+    &lt;h2&gt;我是Footer组件&lt;/h2&gt;
+  );
+}
+
+export default class Com01 extends Component {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;Header /&gt;
+        &lt;Main /&gt;
+        &lt;Footer /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>假如这个例子更复杂一些，比如<code>Com01</code>可能使用了多个<code>Header</code>，每个地方Header展示的内容不同，那么我们需要使用者传递给<code>Header</code>一些数据，让其进行展示</p> <p>又比如我们在<code>Main</code>中一次性请求了<code>Banner</code>数据和<code>ProductList</code>数据，那么就需要传递给他们来进行展示；也可能是子组件中发生了事件，需要由父组件来完成某些操作，那就需要子组件向父组件传递事件；</p> <p>React项目中，组件间的通信时非常重要的环节。</p> <h3 id="父组件传递子组件"><a href="#父组件传递子组件" class="header-anchor">#</a> 父组件传递子组件</h3> <p>父组件在展示子组件，可能会传递一些数据给子组件：</p> <ul><li>父组件通过<strong>属性=值</strong>的形式来传递给子组件数据；</li> <li>子组件通过**props **参数获取父组件传递过来的数据；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+// 类组件
+class ChildCpn extends Component {
+  // 可省略
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      &lt;h2&gt;类子组件展示数据： { this.props.name}&lt;/h2&gt;
+    );
+  }
+}
+
+// 函数组件
+function ChildCpn2(props) {
+  return (
+    &lt;h2&gt;函数子组件展示数据： { props.name}&lt;/h2&gt;
+  );
+}
+
+export default class Com02 extends Component {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;ChildCpn name=&quot;Ccbean&quot; /&gt;
+        &lt;ChildCpn2 name=&quot;Ccbean&quot; /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+</code></pre></div><p>上面的构造函数实现方法，是派生类的默认实现方法，即没有构造函数时，会执行默认的构造函数，且实现完全相同。</p> <h4 id="参数proptypes"><a href="#参数proptypes" class="header-anchor">#</a> 参数propTypes</h4> <blockquote><p>https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html</p></blockquote> <p>对于传递给子组件的数据，有时候我们可能希望进行验证，特别是对于大型项目来说。</p> <p>如果你项目中默认继承了<code>Flow</code>或者<code>TypeScript</code>，那么直接就可以进行类型验证。如果没有使用，也可以通过 <code>prop-types</code>库来进行参数验证；</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class ChildCpn extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    height: PropTypes.number,
+    letters: PropTypes.array
+  };
+
+  static defaultProps = {
+    name: 'Tom',
+    height: 188,
+    letters: ['D', 'E', 'F']
+  };
+
+  // 可省略
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+      &lt;h2&gt;函数子组件展示数据： {this.props.name}&lt;/h2&gt;
+      &lt;ul&gt;
+        {
+          this.props.letters.map(item =&gt; &lt;li key={item}&gt;{item}&lt;/li&gt;)
+        }
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    );
+  }
+}
+
+ChildCpn2.propTypes = {
+  name: PropTypes.string.isRequired,
+  height: PropTypes.number,
+  letters: PropTypes.array
+};
+
+ChildCpn2.defaultProps = {
+  name: 'Tom',
+  height: 188,
+  letters: ['D', 'E', 'F']
+};
+
+function ChildCpn2(props) {
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;函数子组件展示数据： {props.name}&lt;/h2&gt;
+      &lt;ul&gt;
+        {
+          props.letters.map(item =&gt; &lt;li key={item}&gt;{item}&lt;/li&gt;)
+        }
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default class Com02 extends Component {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;ChildCpn/&gt;
+        &lt;ChildCpn2 name='Ccbean' height=&quot;182&quot; letters={['A', 'B', 'C']} /&gt;
+        &lt;ChildCpn2 /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>上面的代码会导致React打印一条警告：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>Warning: Failed prop type: Invalid prop <span class="token variable"><span class="token variable">`</span>height<span class="token variable">`</span></span> of <span class="token builtin class-name">type</span> <span class="token variable"><span class="token variable">`</span>string<span class="token variable">`</span></span> supplied to <span class="token variable"><span class="token variable">`</span>ChildCpn2<span class="token variable">`</span></span>, expected <span class="token variable"><span class="token variable">`</span>number<span class="token variable">`</span></span>
+</code></pre></div><p>假如没有传递<code>name</code>，<code>name</code>在<code>PropTypes</code>中限制是必须的，会出现如下警告：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>Warning: Failed prop type: The prop <span class="token variable"><span class="token variable">`</span>name<span class="token variable">`</span></span> is marked as required <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span>ChildCpn2<span class="token variable">`</span></span>, but its value is <span class="token variable"><span class="token variable">`</span>undefined<span class="token variable">`</span></span><span class="token builtin class-name">.</span>
+</code></pre></div><p><strong>如果需要做大量的验证，建议直接使用<code>TypeScript</code>。</strong></p> <p>如果没有传递值，当希望使用有默认值，可以使用<code>defaultProps</code>。</p> <h3 id="子组件传递父组件"><a href="#子组件传递父组件" class="header-anchor">#</a> 子组件传递父组件</h3> <p>某些情况，我们也需要子组件向父组件传递消息，在Vue中是通过自定义事件完成的；在React中同样是通过<code>props</code>传递消息，只是让父组件给子组件传递一个回调函数，在子组件中调用这个函数即可。</p> <p>这边还是使用计数器的例子，不过这次将计数器进行拆解，将按钮封装到子组件<code>CounterButton</code>中，<code>CounterButton</code>发生点击事件，将内容传递到父组件中，修改<code>counter</code>的值。</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+class CounterButton extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      &lt;button onClick={() =&gt; this.props.increment(-1)}&gt;-1&lt;/button&gt;
+    );
+  }
+}
+
+export default class Com04 extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      counter: 0
+    };
+  }
+
+  increment(count) {
+    this.setState({
+      counter: this.state.counter + count
+    });
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;Counter: {this.state.counter}&lt;/h2&gt;
+        &lt;CounterButton increment={this.increment.bind(this)}/&gt;
+        &lt;button onClick={() =&gt; this.increment(1)}&gt;+1&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><h3 id="组件间通信练习案例"><a href="#组件间通信练习案例" class="header-anchor">#</a> 组件间通信练习案例</h3> <p>一个Tab切换案例，效果如下：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B520.gif" alt="111332211"></p> <p>具体代码如下：</p> <p><code>App.js</code>实现：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+import TabControl from './TabControl';
+import './style.css';
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      titles: ['流行', '精选', '新款'],
+      currentIndex: 0
+    };
+  }
+
+  render() {
+    const { titles, currentIndex } = this.state;
+ 
+    return (
+      &lt;div&gt;
+        &lt;TabControl itemClick={this.itemClick.bind(this)} titles={['流行', '精选', '新款']}/&gt;   
+        &lt;h2&gt;{titles[currentIndex]}&lt;/h2&gt;
+      &lt;/div&gt;
+    )
+  }
+
+  itemClick(index) {
+    this.setState({
+      currentIndex: index
+    });
+  }
+}
+</code></pre></div><p><code>TabControl.js</code>实现：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+export default class TabControl extends Component {
+  static propTypes = {
+    titles: PropTypes.array.isRequired
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentIndex: 0
+    }
+  }
+
+  render() {
+    const { currentIndex } = this.state;
+
+    return (
+      &lt;div className=&quot;tab-control&quot;&gt;
+        {
+          this.props.titles.map((item, index) =&gt; {
+            return (
+              &lt;div 
+                key={index}
+                className={`tab-item ${index == currentIndex ? 'active' : ''}`} 
+                onClick={e =&gt; this.itemClick(index)}
+              &gt;
+                {item}
+              &lt;/div&gt;
+            );
+          })
+        }
+      &lt;/div&gt;
+    )
+  }
+
+  itemClick(index) { 
+    this.setState({
+      currentIndex: index
+    });
+
+    this.props.itemClick(index);
+  }
+}
+</code></pre></div><p><code>style.css</code></p> <div class="language-react extra-class"><pre class="language-text"><code>.tab-control {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.tab-control .tab-item {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.tab-control .active {
+  color: red;
+  border-bottom: 1px solid red;
+}
+</code></pre></div><h3 id="react实现slot"><a href="#react实现slot" class="header-anchor">#</a> React实现slot</h3> <p>Vue 实现了一套内容分发的 API，将 <code>&lt;slot&gt;</code> 元素作为承载分发内容的出口。</p> <p>在React中，实现Vue的插槽功能很简单，这也是得益于JSX语法的灵活性。</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B521.gif" alt="image-20210109231454105"></p> <p>如上图中的导航栏NavBar，如果进行组件封装，我们可能会封装三个不同的组件，但是，如果类似的组件如果有20个甚至更多，那么一个个地进行组件封装显然是不明智的选择。</p> <p>更好地做法，可能是再找出组件的相似之处，对外层进行封装，而内部具体要放的内容，可以根据预留的Slot业务需求进行开发。</p> <p>下面是一种实现方法：</p> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B522.png" alt="image-20210109233003357"></p> <p><code>NavBar.js</code></p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+export default class NavBar extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+
+    return (
+      &lt;div className=&quot;nav-bar&quot;&gt;
+        &lt;div className=&quot;nav-item nav-left&quot;&gt;{this.props.children[0]}&lt;/div&gt;
+        &lt;div className=&quot;nav-item nav-middle&quot;&gt;{this.props.children[1]}&lt;/div&gt;
+        &lt;div className=&quot;nav-item nav-right&quot;&gt;{this.props.children[2]}&lt;/div&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+</code></pre></div><p><code>App.js</code></p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+import NavBar from './NavBar';
+import './style.css';
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      &lt;NavBar&gt;
+        &lt;span&gt;left&lt;/span&gt;
+        &lt;strong&gt;middle&lt;/strong&gt;
+        &lt;span&gt;right&lt;/span&gt;
+      &lt;/NavBar&gt;
+    )
+  }
+}
+</code></pre></div><p><code>style.css</code></p> <div class="language-react extra-class"><pre class="language-text"><code>.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  height: 30px;
+  display: flex;
+}
+
+.nav-item {
+  line-height: 30px;
+  text-align: center;
+}
+
+.nav-bar .nav-left {
+  width: 50px;
+  background: blue;
+}
+
+.nav-bar .nav-middle {
+  flex: 1;
+  background: red;
+}
+
+.nav-bar .nav-right {
+  width: 60px;
+  background: green;
+}
+</code></pre></div><p>上面的实现存在的一个缺点就是，<code>children</code>的顺序不能乱。</p> <p>所以推荐的做法如下：</p> <p><code>App.js</code></p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+import NavBar from './NavBar';
+import NavBar2 from './NavBar2';
+import './style.css';
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      &lt;NavBar2
+        leftSlot={&lt;span&gt;left&lt;/span&gt;}
+        middleSlot={&lt;strong&gt;middle&lt;/strong&gt;}
+        rightSlot={&lt;span&gt;right&lt;/span&gt;}
+        /&gt;
+    )
+  }
+}
+</code></pre></div><p><code>NavBar2.js</code></p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+export default class NavBar2 extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      &lt;div className=&quot;nav-bar&quot;&gt;
+        &lt;div className=&quot;nav-item nav-left&quot;&gt;{this.props.leftSlot}&lt;/div&gt;
+        &lt;div className=&quot;nav-item nav-middle&quot;&gt;{this.props.middleSlot}&lt;/div&gt;
+        &lt;div className=&quot;nav-item nav-right&quot;&gt;{this.props.rightSlot}&lt;/div&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>这样，我们就不需要再关注传递顺序了。</p> <h3 id="跨组件通信"><a href="#跨组件通信" class="header-anchor">#</a> 跨组件通信</h3> <p>在开发中，比较常见的数据传递方式是通过props属性自上而下（由父到子）进行传递。但是对于有一些场景：比如一些数据需要在多个组件中进行共享（地区偏好、UI主题、用户登录状态、用户信息等）。</p> <p>如果我们在顶层的App中定义这些信息，之后一层层传递下去，那么对于一些中间层不需要数据的组件来说，是一种冗余的操作。</p> <h4 id="使用props"><a href="#使用props" class="header-anchor">#</a> 使用props</h4> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+function ProfileHeader(props) {
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;昵称：{props.nickname}&lt;/h2&gt;
+      &lt;h2&gt;等级：{props.level}&lt;/h2&gt;
+    &lt;/div&gt;
+  );
+}
+
+function Profile(props) {
+  return (
+    &lt;div&gt;
+      &lt;ProfileHeader nickname={props.nickname} level={props.level} /&gt;
+      &lt;ul&gt;
+        &lt;li&gt;设置1&lt;/li&gt;
+        &lt;li&gt;设置2&lt;/li&gt;
+        &lt;li&gt;设置3&lt;/li&gt;
+        &lt;li&gt;设置4&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default class App extends Component {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;Profile nickname={'ccbean'} level={99} /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>上面的例子，如果我们通过<code>props</code>进行传递，<code>&lt;ProfileHeader/&gt;</code>需要的数据，要首先传递到<code>&lt;Profile/&gt;</code>中，然后再传递到数据真正使用的组件</p> <p>存在两个问题：</p> <ul><li><p>数据在<code>Profile</code>中没有任何用处，但是还需要传递；假如嵌套层数更多，那么就需要一层层进行传递；</p></li> <li><p>每个需要传递的属性都要一个个明确传递。这个问题的解决是，使用<a href="https://zh-hans.reactjs.org/docs/jsx-in-depth.html#spread-attributes" target="_blank" rel="noopener noreferrer">属性展开<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>；</p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;ProfileHeader {...props} /&gt;
+</code></pre></div><p>但容易出现的问题是，将不必要的 props 传递给不相关的组件。</p></li></ul> <h4 id="使用context"><a href="#使用context" class="header-anchor">#</a> 使用context</h4> <blockquote><p>https://zh-hans.reactjs.org/docs/context.html</p></blockquote> <p>React中提供了一个API是<code>Context</code>，<code>Context</code>提供了一种在组件之间共享此类值的方式，而不必显式地通过组件树的逐层传递<code>props</code>；</p> <p><code>Context</code>设计目的是为了共享那些对于一个组件树而言是“全局”的数据，例如当前认证的用户、主题或首选语言。</p> <h5 id="相关api"><a href="#相关api" class="header-anchor">#</a> 相关API</h5> <p><code>React.createContext</code></p> <div class="language-react extra-class"><pre class="language-text"><code>const MyContext = React.createContext(defaultValue);
+</code></pre></div><ul><li>创建一个需要共享的<code>Context</code>对象</li> <li>如果一个组件订阅<code>Context</code>，那么这个组件会从离自身最近的那个匹配的<code>Provider</code>中读取到当前的<code>context</code>值</li> <li><code>defaultValue</code>是组件在顶层查找过程中没有找到对应的Provider，那么就使用默认值。</li></ul> <p><code>Context.Provider</code></p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;MyContext.Provider value={/* 某个值 */}&gt;
+</code></pre></div><ul><li>每个<code>Context</code>对象都会返回一个<code>Provider React</code> 组件，它允许消费组件订阅<code>context</code>的变化</li> <li><code>Provider</code>接收一个<code>value</code>属性，传递给消费组件</li> <li>一个<code>Provider</code>可以和多个消费组件有对应关系</li> <li>多个<code>Provider</code>也可以嵌套使用，里层的会覆盖外层的数据</li> <li>当<code>Provider</code>的<code>value</code>值发生变化时，它内部的所有消费组件都会重新渲染</li></ul> <p><code>Class.ContextType</code></p> <div class="language-react extra-class"><pre class="language-text"><code>MyClass.contentType = MyContext;
+</code></pre></div><ul><li>挂载在<code>class</code>上的<code>contextType</code>属性会被重赋值为一个由<code>React.createContext()</code>创建的<code>Context</code> 对象，这能让你使用<code>this.context</code>来消费最近 <code>Context</code>上的那个值，你可以在任何生命周期中访问到它，包括<code>render</code>函数中。</li></ul> <p><code>Context.Consumber</code></p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;MyContext.Consumer&gt;
+  {value =&gt; /* 基于 context 值进行渲染*/}
+&lt;/MyContext.Consumer&gt;
+</code></pre></div><ul><li>React 组件也可以订阅到<code>context</code>变更。这能让你在函数式组件中完成订阅<code>context</code></li> <li>这种方法需要一个<a href="https://zh-hans.reactjs.org/docs/render-props.html#using-props-other-than-render" target="_blank" rel="noopener noreferrer">函数作为子元素（function as a child）<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>这个函数接收当前的<code>context</code>值，返回一个 <code>React</code>节点</li></ul> <h5 id="实现通信"><a href="#实现通信" class="header-anchor">#</a> 实现通信</h5> <p><img src="https://cdn.jsdelivr.net/gh/ccbeango/blogImages/React/React%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B523.png" alt="image-20210110110412680"></p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+// 1. 创建Context对象
+const UserContext = React.createContext({
+  nickname: 'aaa',
+  level: -1
+});
+
+class ProfileHeader extends Component {
+  // 3. 将context对象赋值给应用数据组件
+  static contextType = UserContext
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;昵称：{this.context.nickname}&lt;/h2&gt;
+        &lt;h2&gt;等级：{this.context.level}&lt;/h2&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+function Profile(props) {
+  return (
+    &lt;div&gt;
+      &lt;ProfileHeader /&gt;
+      &lt;ul&gt;
+        &lt;li&gt;设置1&lt;/li&gt;
+        &lt;li&gt;设置2&lt;/li&gt;
+        &lt;li&gt;设置3&lt;/li&gt;
+        &lt;li&gt;设置4&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      nickname: 'ccbean',
+      level: 99
+    };
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        {/* 2.使用Provider包裹 */}
+        &lt;UserContext.Provider value={this.state}&gt;
+          &lt;Profile /&gt;
+        &lt;/UserContext.Provider&gt;
+        &lt;Profile /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>我们可以看到，如果<code>&lt;Profile /&gt;</code>没有在<code>&lt;UserContext.Provider/&gt;</code>包裹时，使用了<code>React.createContext</code>中的默认值<code>aaa</code>和<code>-1</code>。</p> <p>在函数组件中，如何使用<code>context</code>呢？使用<code>Context.Consumer</code>即可在函数式组件中订阅<code>Context</code></p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+const UserContext = React.createContext({
+  nickname: 'aaa',
+  level: -1
+});
+
+function ProfileHeader() {
+  return (
+    &lt;UserContext.Consumer&gt;
+      {
+        value =&gt; {
+          return (
+            &lt;div&gt;
+              &lt;h2&gt;昵称：{value.nickname}&lt;/h2&gt;
+              &lt;h2&gt;等级：{value.level}&lt;/h2&gt;
+            &lt;/div&gt;
+          )
+        }
+      }
+    &lt;/UserContext.Consumer&gt;
+  )
+}
+
+function Profile(props) {
+  return (
+    &lt;div&gt;
+      &lt;ProfileHeader /&gt;
+      &lt;ul&gt;
+        &lt;li&gt;设置1&lt;/li&gt;
+        &lt;li&gt;设置2&lt;/li&gt;
+        &lt;li&gt;设置3&lt;/li&gt;
+        &lt;li&gt;设置4&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      nickname: 'ccbean',
+      level: 99
+    };
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;UserContext.Provider value={this.state}&gt;
+          &lt;Profile /&gt;
+        &lt;/UserContext.Provider&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>如果是多个context，那么需要这样写：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { Component } from 'react';
+
+const UserContext = React.createContext({
+  nickname: 'aaa',
+  level: -1
+});
+
+const ThemeContext = React.createContext({
+  color: 'black'
+});
+
+function ProfileHeader() {
+  return (
+    &lt;UserContext.Consumer&gt;
+      {
+        value =&gt; {
+          return (
+            &lt;ThemeContext.Consumer&gt;
+              {
+                theme =&gt; {
+                  return (
+                    &lt;div&gt;
+                      &lt;h2&gt;昵称：{value.nickname}&lt;/h2&gt;
+                      &lt;h2&gt;等级：{value.level}&lt;/h2&gt;
+                      &lt;h2&gt;主题：{theme.color}&lt;/h2&gt;
+                    &lt;/div&gt;
+                  );
+                }
+              }
+            &lt;/ThemeContext.Consumer&gt;
+          )
+        }
+      }
+    &lt;/UserContext.Consumer&gt;
+  )
+}
+
+function Profile(props) {
+  return (
+    &lt;div&gt;
+      &lt;ProfileHeader /&gt;
+      &lt;ul&gt;
+        &lt;li&gt;设置1&lt;/li&gt;
+        &lt;li&gt;设置2&lt;/li&gt;
+        &lt;li&gt;设置3&lt;/li&gt;
+        &lt;li&gt;设置4&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      nickname: 'ccbean',
+      level: 99
+    };
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;UserContext.Provider value={this.state}&gt;
+          &lt;ThemeContext.Provider value={{ color: 'red' }}&gt;
+            &lt;Profile /&gt;
+          &lt;/ThemeContext.Provider&gt;
+        &lt;/UserContext.Provider&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>上面的代码，添加<code>ThemeContext</code>，那么ProfileHeader中嵌套了两层，代码看起来十分混乱。</p> <p>实际开发中，我们一般不会这么做，会有其它更好的解决方案，如考虑另外创建你自己的渲染组件，以提供这些值；或者使用<code>redux</code>等。</p></div></div>  <div class="page-edit"><div class="edit-link"><a href="https://github.com/ccbeango/blog/edit/master/docs/React核心技术与开发实战/06.组件化开发.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/11/10, 12:11:50</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/blog/pages/bd5f26/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">什么是组件化开发</div></a> <a href="/blog/pages/3b1483/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">setState详解和React性能优化</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/pages/bd5f26/" class="prev">什么是组件化开发</a></span> <span class="next"><a href="/blog/pages/3b1483/">setState详解和React性能优化</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/blog/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/blog/pages/78ad41/"><div>
+            阅读精通正则表达式总结
+            <!----></div></a> <span class="date">09-29</span></dt></dl><dl><dd>02</dd> <dt><a href="/blog/pages/1e1cbc/"><div>
+            项目搭建规范的配置
+            <!----></div></a> <span class="date">07-15</span></dt></dl><dl><dd>03</dd> <dt><a href="/blog/pages/4c97eb/"><div>
+            Vite的使用
+            <!----></div></a> <span class="date">07-03</span></dt></dl> <dl><dd></dd> <dt><a href="/blog/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="liuyh940@gamil.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/ccbeango" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://space.bilibili.com/316494239" title="Bilibili" target="_blank" class="iconfont icon-bilibili"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2018-2023
+    <span>Ccbeango</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.0ed7b280.js" defer></script><script src="/blog/assets/js/2.7308dfd9.js" defer></script><script src="/blog/assets/js/92.66e441c7.js" defer></script>
+  </body>
+</html>

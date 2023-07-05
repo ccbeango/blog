@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React-router | CcbeanBlog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/blog/img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <meta name="description" content="web技术博客,简洁至上。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,NodeJS,Node,Node.js,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,react,css3,html5,git,github,markdown">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.76d42078.css" as="style"><link rel="preload" href="/blog/assets/js/app.0ed7b280.js" as="script"><link rel="preload" href="/blog/assets/js/2.7308dfd9.js" as="script"><link rel="preload" href="/blog/assets/js/102.e13c8470.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.166b2ca6.js"><link rel="prefetch" href="/blog/assets/js/100.194e839b.js"><link rel="prefetch" href="/blog/assets/js/101.0db39944.js"><link rel="prefetch" href="/blog/assets/js/103.0ae2f2ee.js"><link rel="prefetch" href="/blog/assets/js/104.a261556e.js"><link rel="prefetch" href="/blog/assets/js/105.4d458a5f.js"><link rel="prefetch" href="/blog/assets/js/106.6d2f15cf.js"><link rel="prefetch" href="/blog/assets/js/107.a770982a.js"><link rel="prefetch" href="/blog/assets/js/108.0be9ce8f.js"><link rel="prefetch" href="/blog/assets/js/109.88d01e84.js"><link rel="prefetch" href="/blog/assets/js/11.faae5f41.js"><link rel="prefetch" href="/blog/assets/js/110.d3186629.js"><link rel="prefetch" href="/blog/assets/js/111.37d2b500.js"><link rel="prefetch" href="/blog/assets/js/112.d94648de.js"><link rel="prefetch" href="/blog/assets/js/113.a7cf5597.js"><link rel="prefetch" href="/blog/assets/js/114.a339354f.js"><link rel="prefetch" href="/blog/assets/js/115.597976cc.js"><link rel="prefetch" href="/blog/assets/js/116.c64f1f49.js"><link rel="prefetch" href="/blog/assets/js/117.bbbbb20b.js"><link rel="prefetch" href="/blog/assets/js/118.c9ba24ea.js"><link rel="prefetch" href="/blog/assets/js/119.25208df7.js"><link rel="prefetch" href="/blog/assets/js/12.782cd676.js"><link rel="prefetch" href="/blog/assets/js/120.2e0a20ad.js"><link rel="prefetch" href="/blog/assets/js/121.7bb8f6f5.js"><link rel="prefetch" href="/blog/assets/js/122.562fe94b.js"><link rel="prefetch" href="/blog/assets/js/123.9562f569.js"><link rel="prefetch" href="/blog/assets/js/124.fd67828f.js"><link rel="prefetch" href="/blog/assets/js/125.3262b310.js"><link rel="prefetch" href="/blog/assets/js/126.c6f106af.js"><link rel="prefetch" href="/blog/assets/js/127.4b7016d1.js"><link rel="prefetch" href="/blog/assets/js/128.b3ac8038.js"><link rel="prefetch" href="/blog/assets/js/129.3ef9af3d.js"><link rel="prefetch" href="/blog/assets/js/13.508b65ad.js"><link rel="prefetch" href="/blog/assets/js/130.4b925feb.js"><link rel="prefetch" href="/blog/assets/js/131.37cb5d18.js"><link rel="prefetch" href="/blog/assets/js/132.76026f1f.js"><link rel="prefetch" href="/blog/assets/js/133.5d3d2938.js"><link rel="prefetch" href="/blog/assets/js/134.89b4fe3b.js"><link rel="prefetch" href="/blog/assets/js/135.dd2731dc.js"><link rel="prefetch" href="/blog/assets/js/136.e5cacc53.js"><link rel="prefetch" href="/blog/assets/js/137.39282e0b.js"><link rel="prefetch" href="/blog/assets/js/138.b3801697.js"><link rel="prefetch" href="/blog/assets/js/14.88ac5afd.js"><link rel="prefetch" href="/blog/assets/js/15.b4227c88.js"><link rel="prefetch" href="/blog/assets/js/16.98d2ae02.js"><link rel="prefetch" href="/blog/assets/js/17.6f25717f.js"><link rel="prefetch" href="/blog/assets/js/18.ae934359.js"><link rel="prefetch" href="/blog/assets/js/19.ffe2dcb2.js"><link rel="prefetch" href="/blog/assets/js/20.2c614eab.js"><link rel="prefetch" href="/blog/assets/js/21.4b7f3180.js"><link rel="prefetch" href="/blog/assets/js/22.03f8def7.js"><link rel="prefetch" href="/blog/assets/js/23.861aebfe.js"><link rel="prefetch" href="/blog/assets/js/24.e842cb60.js"><link rel="prefetch" href="/blog/assets/js/25.5685dfd1.js"><link rel="prefetch" href="/blog/assets/js/26.9487cf2a.js"><link rel="prefetch" href="/blog/assets/js/27.cd3b98f4.js"><link rel="prefetch" href="/blog/assets/js/28.1010db9b.js"><link rel="prefetch" href="/blog/assets/js/29.cff77b90.js"><link rel="prefetch" href="/blog/assets/js/3.b0a270e2.js"><link rel="prefetch" href="/blog/assets/js/30.d9d88b77.js"><link rel="prefetch" href="/blog/assets/js/31.4c816fae.js"><link rel="prefetch" href="/blog/assets/js/32.c414f2c2.js"><link rel="prefetch" href="/blog/assets/js/33.cae1fde7.js"><link rel="prefetch" href="/blog/assets/js/34.c149f32c.js"><link rel="prefetch" href="/blog/assets/js/35.36ce97e5.js"><link rel="prefetch" href="/blog/assets/js/36.b7c514b6.js"><link rel="prefetch" href="/blog/assets/js/37.d9459ed5.js"><link rel="prefetch" href="/blog/assets/js/38.84d4e80e.js"><link rel="prefetch" href="/blog/assets/js/39.21769d8b.js"><link rel="prefetch" href="/blog/assets/js/4.1de495bd.js"><link rel="prefetch" href="/blog/assets/js/40.ba8b2c33.js"><link rel="prefetch" href="/blog/assets/js/41.dbc723df.js"><link rel="prefetch" href="/blog/assets/js/42.6d7ee2ec.js"><link rel="prefetch" href="/blog/assets/js/43.3065c2de.js"><link rel="prefetch" href="/blog/assets/js/44.95652c6b.js"><link rel="prefetch" href="/blog/assets/js/45.1bfb7eee.js"><link rel="prefetch" href="/blog/assets/js/46.21f42bfd.js"><link rel="prefetch" href="/blog/assets/js/47.5cf0a7f8.js"><link rel="prefetch" href="/blog/assets/js/48.80e7bcba.js"><link rel="prefetch" href="/blog/assets/js/49.75bf925a.js"><link rel="prefetch" href="/blog/assets/js/5.7e93193d.js"><link rel="prefetch" href="/blog/assets/js/50.1a08250f.js"><link rel="prefetch" href="/blog/assets/js/51.63d67d9a.js"><link rel="prefetch" href="/blog/assets/js/52.4527b3c2.js"><link rel="prefetch" href="/blog/assets/js/53.928eb7b1.js"><link rel="prefetch" href="/blog/assets/js/54.b2c8392c.js"><link rel="prefetch" href="/blog/assets/js/55.84f7c241.js"><link rel="prefetch" href="/blog/assets/js/56.6773809d.js"><link rel="prefetch" href="/blog/assets/js/57.aed02421.js"><link rel="prefetch" href="/blog/assets/js/58.16532c6b.js"><link rel="prefetch" href="/blog/assets/js/59.43238c8c.js"><link rel="prefetch" href="/blog/assets/js/6.d42d0f48.js"><link rel="prefetch" href="/blog/assets/js/60.d868f9ec.js"><link rel="prefetch" href="/blog/assets/js/61.8bc02b72.js"><link rel="prefetch" href="/blog/assets/js/62.83e6c8d0.js"><link rel="prefetch" href="/blog/assets/js/63.ade81187.js"><link rel="prefetch" href="/blog/assets/js/64.cc73a529.js"><link rel="prefetch" href="/blog/assets/js/65.d002206a.js"><link rel="prefetch" href="/blog/assets/js/66.f0665b6d.js"><link rel="prefetch" href="/blog/assets/js/67.11c613ec.js"><link rel="prefetch" href="/blog/assets/js/68.8e2479dd.js"><link rel="prefetch" href="/blog/assets/js/69.02772367.js"><link rel="prefetch" href="/blog/assets/js/7.2b3bcb3f.js"><link rel="prefetch" href="/blog/assets/js/70.3545ebb5.js"><link rel="prefetch" href="/blog/assets/js/71.b7c76516.js"><link rel="prefetch" href="/blog/assets/js/72.035b6ee2.js"><link rel="prefetch" href="/blog/assets/js/73.9feda52a.js"><link rel="prefetch" href="/blog/assets/js/74.d62cf235.js"><link rel="prefetch" href="/blog/assets/js/75.db2ada7c.js"><link rel="prefetch" href="/blog/assets/js/76.8569647d.js"><link rel="prefetch" href="/blog/assets/js/77.ebb5e006.js"><link rel="prefetch" href="/blog/assets/js/78.463a3566.js"><link rel="prefetch" href="/blog/assets/js/79.25bf57ea.js"><link rel="prefetch" href="/blog/assets/js/8.3cf902c7.js"><link rel="prefetch" href="/blog/assets/js/80.4d3043a3.js"><link rel="prefetch" href="/blog/assets/js/81.e6ac7aff.js"><link rel="prefetch" href="/blog/assets/js/82.39390874.js"><link rel="prefetch" href="/blog/assets/js/83.52a99a2b.js"><link rel="prefetch" href="/blog/assets/js/84.4efad80d.js"><link rel="prefetch" href="/blog/assets/js/85.dce1dc90.js"><link rel="prefetch" href="/blog/assets/js/86.3050d700.js"><link rel="prefetch" href="/blog/assets/js/87.67d7c4e3.js"><link rel="prefetch" href="/blog/assets/js/88.4a3a4132.js"><link rel="prefetch" href="/blog/assets/js/89.861690de.js"><link rel="prefetch" href="/blog/assets/js/9.f2b8862e.js"><link rel="prefetch" href="/blog/assets/js/90.f1cdccba.js"><link rel="prefetch" href="/blog/assets/js/91.3abb6471.js"><link rel="prefetch" href="/blog/assets/js/92.66e441c7.js"><link rel="prefetch" href="/blog/assets/js/93.3ae60e73.js"><link rel="prefetch" href="/blog/assets/js/94.b6f4569f.js"><link rel="prefetch" href="/blog/assets/js/95.81abfad5.js"><link rel="prefetch" href="/blog/assets/js/96.eaafaf11.js"><link rel="prefetch" href="/blog/assets/js/97.f464844d.js"><link rel="prefetch" href="/blog/assets/js/98.5b594a5f.js"><link rel="prefetch" href="/blog/assets/js/99.8a12c6d2.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.76d42078.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/EB-logo.png" alt="CcbeanBlog" class="logo"> <span class="site-name can-hide">CcbeanBlog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://avatars.githubusercontent.com/u/16501284?v=4"> <div class="blogger-info"><h3>Ccbean</h3> <span>靡不有初，鲜克有终</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/4f29ea/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/blog/pages/5bb2dc/" class="nav-link">HTML+CSS</a></li><li class="dropdown-subitem"><a href="/blog/pages/d0b9bd/" class="nav-link">Vue</a></li><li class="dropdown-subitem"><a href="/blog/pages/ff6413/" class="nav-link">React</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/react-learn/" class="nav-link">React使用学习</a></li><li class="dropdown-subitem"><a href="/blog/note/vue2-code/" class="nav-link">Vue2源码探究</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><a href="/blog/nodejs/" class="link-title">Node</a> <span class="title" style="display:none;">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/1cce55/" class="nav-link">基础</a></li><li class="dropdown-subitem"><a href="/blog/pages/be0ea7/" class="nav-link">问题</a></li><li class="dropdown-subitem"><a href="/blog/pages/6e080e/" class="nav-link">框架</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/data-structures-and-algorithms/" class="nav-link">数据结构与算法</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="打包工具" class="dropdown-title"><a href="/blog/packtool/" class="link-title">打包工具</a> <span class="title" style="display:none;">打包工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>构建工具文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/pages/a542bb/" class="nav-link">webpack</a></li></ul></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/webpack5/" class="nav-link">Webpack5使用学习</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/blog/more/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/3bd9c5/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/4db4cb/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9f95d1/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c44d61/" class="nav-link">小技巧</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/9c8278/" class="nav-link">杂记</a></li><li class="dropdown-item"><h4>系列笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/note/protocol-buffers/" class="nav-link">Protobuf Buffers</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/about/" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/blog/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/blog/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/blog/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/ccbeango/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/blog/pages/3f937c/" class="sidebar-link">Hello World</a></li><li><a href="/blog/pages/65114a/" class="sidebar-link">JSX语法</a></li><li><a href="/blog/pages/919785/" class="sidebar-link">JSX语法的本质</a></li><li><a href="/blog/pages/c5633c/" class="sidebar-link">脚手架</a></li><li><a href="/blog/pages/bd5f26/" class="sidebar-link">什么是组件化开发</a></li><li><a href="/blog/pages/f34018/" class="sidebar-link">组件化开发</a></li><li><a href="/blog/pages/3b1483/" class="sidebar-link">setState详解和React性能优化</a></li><li><a href="/blog/pages/77cea2/" class="sidebar-link">受控和非受控组件</a></li><li><a href="/blog/pages/ad645b/" class="sidebar-link">高阶组件</a></li><li><a href="/blog/pages/809a87/" class="sidebar-link">React的样式</a></li><li><a href="/blog/pages/ce6916/" class="sidebar-link">React的过渡动画</a></li><li><a href="/blog/pages/7f1191/" class="sidebar-link">ReactHooks的使用</a></li><li><a href="/blog/pages/18ce7b/" class="sidebar-link">Redux的使用</a></li><li><a href="/blog/pages/d3c53b/" class="sidebar-link">React-Redux</a></li><li><a href="/blog/pages/facc20/" class="sidebar-link">Redux中间件和state管理</a></li><li><a href="/blog/pages/f60ca3/" aria-current="page" class="active sidebar-link">React-router</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/blog/pages/f60ca3/#认识react-router" class="sidebar-link">认识react-router</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/f60ca3/#前端路由原理" class="sidebar-link">前端路由原理</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f60ca3/#react-router" class="sidebar-link">react-router</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog/pages/f60ca3/#react-router基本使用" class="sidebar-link">react-router基本使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/f60ca3/#router基本使用" class="sidebar-link">Router基本使用</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f60ca3/#navlink的使用" class="sidebar-link">NavLink的使用</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f60ca3/#switch的作用" class="sidebar-link">Switch的作用</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f60ca3/#redirect的使用" class="sidebar-link">Redirect的使用</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f60ca3/#路由嵌套" class="sidebar-link">路由嵌套</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f60ca3/#手动跳转" class="sidebar-link">手动跳转</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/f60ca3/#传递参数" class="sidebar-link">传递参数</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/blog/pages/f60ca3/#react-router-config" class="sidebar-link">react-router-config</a></li></ul></li><li><a href="/blog/pages/96924f/" class="sidebar-link">React打包发布</a></li><li><a href="/blog/pages/1b0384/" class="sidebar-link">React SSR</a></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/blog/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/blog/note/react-learn/#React核心技术与开发实战" data-v-06225672>React核心技术与开发实战</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="https://github.com/ccbeango" target="_blank" title="作者" class="beLink" data-v-06225672>ccbean</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2021-07-06</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">React-router<!----></h1>  <div class="theme-vdoing-content content__default"><h1 id="react学习-十五-react-router"><a href="#react学习-十五-react-router" class="header-anchor">#</a> React学习（十五）—— React-router</h1> <h2 id="认识react-router"><a href="#认识react-router" class="header-anchor">#</a> 认识react-router</h2> <h3 id="前端路由原理"><a href="#前端路由原理" class="header-anchor">#</a> 前端路由原理</h3> <p>前端路由是如何做到URL和内容进行映射呢？监听URL的改变。</p> <p><strong>URL的hash</strong></p> <ul><li>URL的hash也就是锚点(#), 本质上是改变window.location的href属性；</li> <li>我们可以通过直接赋值location.hash来改变href, 但是页面不发生刷新；</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>app<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#/home<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#/about<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>about<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>router-view<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token comment">// 1.获取router-view</span>
+  <span class="token keyword">const</span> routerViewEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;.router-view&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 2.监听hashchange</span>
+  window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;hashchange&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">switch</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>hash<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> <span class="token string">&quot;#/home&quot;</span><span class="token operator">:</span>
+        routerViewEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">&quot;home&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token string">&quot;#/about&quot;</span><span class="token operator">:</span>
+        routerViewEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">&quot;about&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">default</span><span class="token operator">:</span>
+        routerViewEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">&quot;default&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>hash的优势就是兼容性更好，在老版IE中都可以运行，但是缺陷是有一个#，显得不像一个真实的路径。</p> <p><strong>HTML5的History</strong></p> <p>history接口是HTML5新增的, 它有六种模式改变URL而不刷新页面：</p> <ul><li>replaceState：替换原来的路径；</li> <li>pushState：使用新的路径；</li> <li>popState：路径的回退；</li> <li>go：向前或向后改变路径；</li> <li>forword：向前改变路径；</li> <li>back：向后改变路径；</li></ul> <div class="language-html extra-class"><pre class="language-html"><code>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>app<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/home<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/about<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>about<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>router-view<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token comment">// 1.获取router-view</span>
+  <span class="token keyword">const</span> routerViewEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;.router-view&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 2.监听所有的a元素</span>
+  <span class="token keyword">const</span> aEls <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> aEl <span class="token keyword">of</span> aEls<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    aEl<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> href <span class="token operator">=</span> aEl<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;href&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>href<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> href<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">historyChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 3.监听popstate和go操作</span>
+  window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;popstate&quot;</span><span class="token punctuation">,</span> historyChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;go&quot;</span><span class="token punctuation">,</span> historyChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 4.执行设置页面操作</span>
+  <span class="token keyword">function</span> <span class="token function">historyChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">switch</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> <span class="token string">&quot;/home&quot;</span><span class="token operator">:</span>
+        routerViewEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">&quot;home&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token string">&quot;/about&quot;</span><span class="token operator">:</span>
+        routerViewEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">&quot;about&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">default</span><span class="token operator">:</span>
+        routerViewEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">&quot;default&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="react-router"><a href="#react-router" class="header-anchor">#</a> react-router</h3> <p>目前前端流行的三大框架, 都有自己的路由实现:</p> <ul><li>Angular的ngRouter</li> <li>React的ReactRouter</li> <li>Vue的vue-router</li></ul> <p>React Router的版本4开始，路由不再集中在一个包中进行管理了：</p> <ul><li>react-router是router的核心部分代码；</li> <li>react-router-dom是用于浏览器的；</li> <li>react-router-native是用于原生应用的；</li></ul> <p>目前我们使用最新的React Router版本是v5的版本：</p> <ul><li>实际上v4的版本和v5的版本差异并不大；</li></ul> <p>安装react-router：</p> <ul><li>安装react-router-dom会自动帮助我们安装react-router的依赖；</li></ul> <h2 id="react-router基本使用"><a href="#react-router基本使用" class="header-anchor">#</a> react-router基本使用</h2> <h3 id="router基本使用"><a href="#router基本使用" class="header-anchor">#</a> Router基本使用</h3> <p>react-router最主要的API是给我们提供的一些组件：</p> <ul><li><p>BrowserRouter或HashRouter</p></li> <li><ul><li>Router中包含了对路径改变的监听，并且会将相应的路径传递给子组件；</li> <li>BrowserRouter使用history模式；</li> <li>HashRouter使用hash模式；</li></ul></li> <li><p>Link和NavLink：</p></li> <li><ul><li>通常路径的跳转是使用Link组件，最终会被渲染成a元素；</li> <li>NavLink是在Link基础之上增加了一些样式属性；</li> <li>to属性：Link中最重要的属性，用于设置跳转到的路径；</li></ul></li> <li><p>Route：</p></li> <li><ul><li>Route用于路径的匹配；</li> <li>path属性：用于设置匹配到的路径；</li> <li>component属性：设置匹配到路径后，渲染的组件；</li> <li>exact：精准匹配，只有精准匹配到完全一致的路径，才会渲染对应的组件；</li></ul></li></ul> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react'
+import { HashRouter, BrowserRouter, Route, Link } from 'react-router-dom'
+import Home from './pages/home'
+import About from './pages/about'
+import Profile from './pages/profile'
+export default class App extends PureComponent {
+  render() {
+    return (
+      &lt;HashRouter&gt;
+      {/* &lt;BrowserRouter&gt; */}
+        &lt;Link to=&quot;/&quot;&gt;首页&lt;/Link&gt;
+        &lt;Link to=&quot;/about&quot;&gt;关于&lt;/Link&gt;
+        &lt;Link to=&quot;/profile&quot;&gt;我的&lt;/Link&gt;
+
+        &lt;Route path=&quot;/&quot; component={Home} exact&gt;&lt;/Route&gt;
+        &lt;Route path=&quot;/about&quot; component={About}&gt;&lt;/Route&gt;
+        &lt;Route path=&quot;/profile&quot; component={Profile}&gt;&lt;/Route&gt;
+      {/* &lt;/BrowserRouter&gt; */}
+      &lt;/HashRouter&gt;
+    )
+  }
+}
+
+</code></pre></div><h3 id="navlink的使用"><a href="#navlink的使用" class="header-anchor">#</a> NavLink的使用</h3> <p><strong>路径选中时，对应的a元素变为红色</strong></p> <p>这个时候，我们要使用NavLink组件来替代Link组件：</p> <ul><li>activeStyle：活跃时（匹配时）的样式；</li> <li>activeClassName：活跃时添加的class；</li> <li>exact：是否精准匹配；</li></ul> <p>先演示activeStyle：</p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;NavLink to=&quot;/&quot; activeStyle={{color: &quot;red&quot;}}&gt;首页&lt;/NavLink&gt;
+&lt;NavLink to=&quot;/about&quot; activeStyle={{color: &quot;red&quot;}}&gt;关于&lt;/NavLink&gt;
+&lt;NavLink to=&quot;/profile&quot; activeStyle={{color: &quot;red&quot;}}&gt;我的&lt;/NavLink&gt;
+</code></pre></div><p>但是，我们会发现在选中about或profile时，第一个也会变成红色：</p> <ul><li>原因是/路径也匹配到了/about或/profile；</li> <li>这个时候，我们可以在第一个NavLink中添加上exact属性；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>&lt;NavLink exact to=&quot;/&quot; activeStyle={{color: &quot;red&quot;}}&gt;首页&lt;/NavLink&gt;
+</code></pre></div><p>默认的activeClassName：</p> <ul><li>事实上在默认匹配成功时，NavLink就会添加上一个动态的active class；</li> <li>所以我们也可以直接编写样式</li></ul> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">a.active</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>当然，如果你担心这个class在其他地方被使用了，出现样式的层叠，也可以自定义class</p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;NavLink exact to=&quot;/&quot; activeClassName=&quot;link-active&quot;&gt;首页&lt;/NavLink&gt;
+&lt;NavLink to=&quot;/about&quot; activeClassName=&quot;link-active&quot;&gt;关于&lt;/NavLink&gt;
+&lt;NavLink to=&quot;/profile&quot; activeClassName=&quot;link-active&quot;&gt;我的&lt;/NavLink&gt;
+</code></pre></div><h3 id="switch的作用"><a href="#switch的作用" class="header-anchor">#</a> Switch的作用</h3> <p>我们来看下面的路由规则：</p> <ul><li>当我们匹配到某一个路径时，我们会发现有一些问题；</li> <li>比如/about路径匹配到的同时，<code>/:userid</code>也被匹配到了，并且最后的一个NoMatch组件总是被匹配到；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>&lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+&lt;Route path=&quot;/about&quot; component={About} /&gt;
+&lt;Route path=&quot;/profile&quot; component={Profile} /&gt;
+&lt;Route path=&quot;/:userid&quot; component={User}/&gt;
+&lt;Route component={NoMatch}/&gt;
+</code></pre></div><p>原因是什么呢？默认情况下，react-router中只要是路径被匹配到的Route对应的组件都会被渲染；</p> <p>但是实际开发中，我们往往希望有一种排他的思想：</p> <ul><li>只要匹配到了第一个，那么后面的就不应该继续匹配了；</li> <li>这个时候我们可以使用Switch来将所有的Route进行包裹即可；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>&lt;Switch&gt;
+  &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+  &lt;Route path=&quot;/about&quot; component={About} /&gt;
+  &lt;Route path=&quot;/profile&quot; component={Profile} /&gt;
+  &lt;Route path=&quot;/:userid&quot; component={User} /&gt;
+  &lt;Route component={NoMatch} /&gt;
+&lt;/Switch&gt;
+</code></pre></div><h3 id="redirect的使用"><a href="#redirect的使用" class="header-anchor">#</a> Redirect的使用</h3> <p>Redirect用于路由的重定向，当这个组件出现时，就会执行跳转到对应的to路径中：</p> <p>我们这里使用这个的一个案例：</p> <ul><li><p>用户跳转到User界面；</p></li> <li><p>但是在User界面有一个isLogin用于记录用户是否登录：</p></li> <li><ul><li>true：那么显示用户的名称；</li> <li>false：直接重定向到登录界面；</li></ul></li></ul> <p>App.js中提前定义好Login页面对应的Route：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react'
+import { HashRouter, BrowserRouter, Route, Link, NavLink, Switch } from 'react-router-dom'
+import Home from './pages/home'
+import About from './pages/about'
+import Profile from './pages/profile'
+import User from './pages/user'
+import Login from './pages/login'
+import NoMatch from './pages/noMatch'
+
+export default class App extends PureComponent {
+  render() {
+    return (
+      &lt;HashRouter&gt;
+      {/* &lt;BrowserRouter&gt; */}
+        &lt;Link to=&quot;/&quot;&gt;首页&lt;/Link&gt;
+        &lt;Link to=&quot;/about&quot;&gt;关于&lt;/Link&gt;
+        &lt;Link to=&quot;/profile&quot;&gt;我的&lt;/Link&gt;
+        &lt;hr&gt;&lt;/hr&gt;
+        &lt;NavLink to=&quot;/&quot; exact activeClassName=&quot;link-active&quot; activeStyle={{ color: 'red' }}&gt;首页&lt;/NavLink&gt;
+        &lt;NavLink to=&quot;/about&quot; activeStyle={{ color: 'red' }}&gt;关于&lt;/NavLink&gt;
+        &lt;NavLink to=&quot;/profile&quot; activeStyle={{ color: 'red' }}&gt;我的&lt;/NavLink&gt;
+        &lt;NavLink to=&quot;/user&quot; activeStyle={{ color: 'red' }}&gt;用户&lt;/NavLink&gt;
+        &lt;NavLink to=&quot;/no&quot; activeStyle={{ color: 'red' }}&gt;no&lt;/NavLink&gt;
+
+        &lt;Switch&gt;
+          &lt;Route path=&quot;/&quot; component={Home} exact&gt;&lt;/Route&gt;
+          &lt;Route path=&quot;/about&quot; component={About}&gt;&lt;/Route&gt;
+          &lt;Route path=&quot;/profile&quot; component={Profile}&gt;&lt;/Route&gt;
+          {/* &lt;Route path=&quot;/:id&quot; component={User}&gt;&lt;/Route&gt; */}
+          &lt;Route path=&quot;/user&quot; component={User}&gt;&lt;/Route&gt;
+          &lt;Route path=&quot;/login&quot; component={Login}&gt;&lt;/Route&gt;
+          &lt;Route component={NoMatch}&gt;&lt;/Route&gt;
+        &lt;/Switch&gt;
+      {/* &lt;/BrowserRouter&gt; */}
+      &lt;/HashRouter&gt;
+    )
+  }
+}
+
+</code></pre></div><p>user.js代码如下</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react'
+import { Redirect } from 'react-router-dom';
+
+export default class User extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLogin: false
+    }
+  }
+
+  render() {
+    return this.state.isLogin ? (
+      &lt;div&gt;
+        &lt;h2&gt;User&lt;/h2&gt;
+      &lt;/div&gt;
+    ): &lt;Redirect to=&quot;/login&quot;/&gt;
+  }
+}
+</code></pre></div><h3 id="路由嵌套"><a href="#路由嵌套" class="header-anchor">#</a> 路由嵌套</h3> <p>在开发中，路由之间是存在嵌套关系的。</p> <p>开发中常见二级路由、三级路由等就是路由嵌套。</p> <p>这里我们假设about页面中有两个页面内容：</p> <ul><li>商品列表和消息列表；</li> <li>点击不同的链接可以跳转到不同的地方，显示不同的内容；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react';
+
+import { Route, Switch, Link } from 'react-router-dom';
+
+function AboutProduct(props) {
+  return (
+    &lt;ul&gt;
+      &lt;li&gt;商品列表1&lt;/li&gt;
+      &lt;li&gt;商品列表2&lt;/li&gt;
+      &lt;li&gt;商品列表3&lt;/li&gt;
+    &lt;/ul&gt;
+  )
+}
+
+function AboutMessage(props) {
+  return (
+    &lt;ul&gt;
+      &lt;li&gt;消息列表1&lt;/li&gt;
+      &lt;li&gt;消息列表2&lt;/li&gt;
+      &lt;li&gt;消息列表3&lt;/li&gt;
+    &lt;/ul&gt;
+  )
+}
+
+export default class About extends PureComponent {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;Link to=&quot;/about&quot;&gt;商品&lt;/Link&gt;
+        &lt;Link to=&quot;/about/message&quot;&gt;消息&lt;/Link&gt;
+
+        &lt;Switch&gt;
+          &lt;Route exact path=&quot;/about&quot; component={AboutProduct} /&gt;
+          &lt;Route path=&quot;/about/message&quot; component={AboutMessage} /&gt;
+        &lt;/Switch&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><h3 id="手动跳转"><a href="#手动跳转" class="header-anchor">#</a> 手动跳转</h3> <p>目前我们实现的跳转主要是通过Link或者NavLink进行跳转的，实际上我们也可以通过<code>JavaScript代码</code>进行跳转。</p> <p>但是通过<code>JavaScript代码</code>进行跳转有一个前提：必须获取到history对象。</p> <p>如何可以获取到history的对象呢？两种方式</p> <ul><li>方式一：如果该组件是通过路由直接跳转过来的，那么可以直接获取history、location、match对象；</li> <li>方式二：如果该组件是一个普通渲染的组件，那么不可以直接获取history、location、match对象；</li></ul> <p>那么如果普通的组件也希望获取对应的对象属性应该怎么做呢？</p> <ul><li>前面我们学习过高阶组件，可以在组件中添加想要的属性；</li> <li>react-router也是通过高阶组件为我们的组件添加相关的属性的；</li></ul> <p>如果我们希望在App组件中获取到history对象，必须满足以下两个条件：</p> <ul><li>App组件必须包裹在Router组件之内；<code>&lt;Route&gt;</code>渲染的组件可以直接获取到history、location等对象；</li> <li>App组件使用withRouter高阶组件包裹；非Route渲染的组件，需要使用withRouter高阶组件包裹渲染组件获取到对象；</li></ul> <p>index.js代码修改如下：</p> <div class="language-react extra-class"><pre class="language-text"><code>ReactDOM.render(
+  &lt;BrowserRouter&gt;
+    &lt;App /&gt;
+  &lt;/BrowserRouter&gt;,
+  document.getElementById('root')
+);
+</code></pre></div><p>App.js代码修改如下：</p> <div class="language-react extra-class"><pre class="language-text"><code>import { Route, Switch, NavLink, withRouter } from 'react-router-dom';
+...省略其他的导入代码
+
+class App extends PureComponent {
+  render() {
+    console.log(this.props.history);
+
+    return (
+      &lt;div&gt;
+        ...其他代码
+        &lt;button onClick={e =&gt; this.pushToProfile()}&gt;我的&lt;/button&gt;
+
+        &lt;Switch&gt;
+          &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+          &lt;Route path=&quot;/about&quot; component={About} /&gt;
+          &lt;Route path=&quot;/profile&quot; component={Profile} /&gt;
+          &lt;Route path=&quot;/:userid&quot; component={User} /&gt;
+          &lt;Route component={NoMatch} /&gt;
+        &lt;/Switch&gt;
+      &lt;/div&gt;
+    )
+  }
+
+  pushToProfile() {
+    console.log(this.props.history)
+    console.log(this.props.location)
+    console.log(this.props.match)
+    this.props.history.push(&quot;/profile&quot;);
+  }
+}
+
+export default withRouter(App);
+</code></pre></div><p><strong>这里的history来自哪里呢？是否和之前使用的window.history一样呢？</strong></p> <h3 id="传递参数"><a href="#传递参数" class="header-anchor">#</a> 传递参数</h3> <p>传递参数有三种方式：</p> <ul><li>动态路由的方式；</li> <li>search传递参数；</li> <li>to传入对象；</li></ul> <p><strong>动态路由的方式</strong></p> <p>动态路由的概念指的是路由中的路径并不会固定：</p> <ul><li>比如<code>/detail</code>的path对应一个组件Detail；</li> <li>如果我们将path在Route匹配时写成<code>/detail/:id</code>，那么 <code>/detail/abc</code>、<code>/detail/123</code>都可以匹配到该Route，并且进行显示；</li> <li>这个匹配规则，我们就称之为动态路由；</li></ul> <p>通常情况下，使用动态路由可以为路由传递参数。</p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;div&gt;
+ ...其他Link
+  &lt;NavLink to=&quot;/detail/abc123&quot;&gt;详情&lt;/NavLink&gt;
+
+  &lt;Switch&gt;
+    ... 其他Route
+    &lt;Route path=&quot;/detail/:id&quot; component={Detail}/&gt;
+    &lt;Route component={NoMatch} /&gt;
+  &lt;/Switch&gt;
+&lt;/div&gt;
+</code></pre></div><p>detail.js的代码如下：</p> <ul><li>我们可以直接通过match对象中获取id；</li> <li>这里我们没有使用withRouter，原因是因为Detail本身就是通过路由进行的跳转；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react'
+
+export default class Detail extends PureComponent {
+  render() {
+    console.log(this.props.match.params.id);
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;Detail: {this.props.match.params.id}&lt;/h2&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p><strong>search传递参数</strong></p> <p>NavLink写法：</p> <ul><li>我们在跳转的路径中添加了一些query参数；</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;NavLink to=&quot;/detail2?name=why&amp;age=18&quot;&gt;详情2&lt;/NavLink&gt;
+
+&lt;Switch&gt;
+  &lt;Route path=&quot;/detail2&quot; component={Detail2}/&gt;
+&lt;/Switch&gt;
+</code></pre></div><p>Detail2中如何获取呢？</p> <ul><li>Detail2中是需要在location中获取search的；</li> <li>注意：这个search没有被解析，需要我们自己来解析；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react'
+
+export default class Detail2 extends PureComponent {
+  render() {
+    console.log(this.props.location.search); // ?name=why&amp;age=18
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;Detail2:&lt;/h2&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p><strong>to传入对象</strong></p> <p>to可以直接传入一个对象</p> <div class="language-react extra-class"><pre class="language-text"><code>&lt;NavLink to={{
+    pathname: &quot;/detail2&quot;, 
+    query: {name: &quot;kobe&quot;, age: 30},
+    state: {height: 1.98, address: &quot;洛杉矶&quot;},
+    search: &quot;?apikey=123&quot;
+  }}&gt;
+  详情2
+&lt;/NavLink&gt;
+</code></pre></div><p>获取参数：</p> <div class="language-react extra-class"><pre class="language-text"><code>import React, { PureComponent } from 'react'
+
+export default class Detail2 extends PureComponent {
+  render() {
+    console.log(this.props.location);
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;Detail2:&lt;/h2&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><h2 id="react-router-config"><a href="#react-router-config" class="header-anchor">#</a> react-router-config</h2> <p>目前我们所有的路由定义都是直接使用Route组件，并且添加属性来完成的。</p> <p>但是这样的方式会让路由变得非常混乱，我们希望将所有的路由配置放到一个地方进行集中管理：</p> <ul><li>这个时候可以使用react-router-config来完成；</li></ul> <p>安装react-router-config：</p> <div class="language- extra-class"><pre class="language-text"><code>yarn add react-router-config
+</code></pre></div><p>常见router/index.js文件：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">&quot;../pages/home&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> About<span class="token punctuation">,</span> <span class="token punctuation">{</span> AboutMessage<span class="token punctuation">,</span> AboutProduct <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../pages/about&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Profile <span class="token keyword">from</span> <span class="token string">&quot;../pages/profile&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Login <span class="token keyword">from</span> <span class="token string">&quot;../pages/login&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> User <span class="token keyword">from</span> <span class="token string">&quot;../pages/user&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Detail <span class="token keyword">from</span> <span class="token string">&quot;../pages/detail&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Detail2 <span class="token keyword">from</span> <span class="token string">&quot;../pages/detail2&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> NoMatch <span class="token keyword">from</span> <span class="token string">&quot;../pages/nomatch&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">exact</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> Home
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/about&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> About<span class="token punctuation">,</span>
+    <span class="token literal-property property">routes</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/about&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">exact</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">component</span><span class="token operator">:</span> AboutProduct
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/about/message&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">component</span><span class="token operator">:</span> AboutMessage
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/profile&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> Profile
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/login&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> Login
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/user&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> User
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/detail/:id&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> Detail
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/detail2&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> Detail2
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> NoMatch
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> routes<span class="token punctuation">;</span>
+</code></pre></div><p>将之前的Switch配置，换成react-router-config中提供的renderRoutes函数：</p> <div class="language-react extra-class"><pre class="language-text"><code>{renderRoutes(routes)}
+
+{/* &lt;Switch&gt;
+     &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+      &lt;Route path=&quot;/about&quot; component={About} /&gt;
+      &lt;Route path=&quot;/profile&quot; component={Profile} /&gt;
+      &lt;Route path=&quot;/user&quot; component={User} /&gt;
+      &lt;Route path=&quot;/login&quot; component={Login} /&gt;
+      &lt;Route path=&quot;/detail/:id&quot; component={Detail}/&gt;
+      &lt;Route path=&quot;/detail2&quot; component={Detail2}/&gt;
+      &lt;Route component={NoMatch} /&gt;
+ &lt;/Switch&gt; */}
+</code></pre></div><p>如果是子组件中，需要路由跳转，那么需要在子组件中使用renderRoutes函数：</p> <ul><li>在跳转到的路由组件中会多一个 <code>this.props.route</code> 属性；</li> <li>该<code>route</code>属性代表当前跳转到的路由对象，可以通过该属性获取到 <code>routes</code>；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>export default class About extends PureComponent {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;Link to=&quot;/about&quot;&gt;商品&lt;/Link&gt;
+        &lt;Link to=&quot;/about/message&quot;&gt;消息&lt;/Link&gt;
+
+        {renderRoutes(this.props.route.routes)}
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre></div><p>实际上react-router-config中还提供了一个<code>matchRoutes</code>辅助函数：</p> <ul><li><code>matchRoutes(routes, pathname)</code>传入一个路由对象数组，获取所有匹配的路径；</li></ul> <div class="language-react extra-class"><pre class="language-text"><code>const routes = matchRoutes(this.props.route.routes, &quot;/about&quot;);
+console.log(routes);
+</code></pre></div><p>查看renderRoutes的源码可发现，和我们自己手动创建Route是一样的。</p> <div class="language-react extra-class"><pre class="language-text"><code>function renderRoutes(routes, extraProps, switchProps) {
+  if (extraProps === void 0) {
+    extraProps = {};
+  }
+
+  if (switchProps === void 0) {
+    switchProps = {};
+  }
+
+  return routes ? React.createElement(reactRouter.Switch, switchProps, routes.map(function (route, i) {
+    return React.createElement(reactRouter.Route, {
+      key: route.key || i,
+      path: route.path,
+      exact: route.exact,
+      strict: route.strict,
+      render: function render(props) {
+        return route.render ? route.render(_extends({}, props, {}, extraProps, {
+          route: route
+        })) : React.createElement(route.component, _extends({}, props, extraProps, {
+          route: route
+        }));
+      }
+    });
+  })) : null;
+}
+</code></pre></div></div></div>  <div class="page-edit"><div class="edit-link"><a href="https://github.com/ccbeango/blog/edit/master/docs/React核心技术与开发实战/16.React-router.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/12/11, 15:17:00</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/blog/pages/facc20/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">Redux中间件和state管理</div></a> <a href="/blog/pages/96924f/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">React打包发布</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/pages/facc20/" class="prev">Redux中间件和state管理</a></span> <span class="next"><a href="/blog/pages/96924f/">React打包发布</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/blog/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/blog/pages/78ad41/"><div>
+            阅读精通正则表达式总结
+            <!----></div></a> <span class="date">09-29</span></dt></dl><dl><dd>02</dd> <dt><a href="/blog/pages/1e1cbc/"><div>
+            项目搭建规范的配置
+            <!----></div></a> <span class="date">07-15</span></dt></dl><dl><dd>03</dd> <dt><a href="/blog/pages/4c97eb/"><div>
+            Vite的使用
+            <!----></div></a> <span class="date">07-03</span></dt></dl> <dl><dd></dd> <dt><a href="/blog/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="liuyh940@gamil.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/ccbeango" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://space.bilibili.com/316494239" title="Bilibili" target="_blank" class="iconfont icon-bilibili"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2018-2023
+    <span>Ccbeango</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.0ed7b280.js" defer></script><script src="/blog/assets/js/2.7308dfd9.js" defer></script><script src="/blog/assets/js/102.e13c8470.js" defer></script>
+  </body>
+</html>
